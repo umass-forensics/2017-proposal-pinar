@@ -1,0 +1,18 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Exposure of information that may result in potential vulnerabilities in location privacy. The user, mobile device, and base station are in some physical location. The thick gray line indicates the communication path between a user and a service. Solid colored lines indicate links known to a potential attacker. Dotted colored lines indicate links that may be inferred by an attacker. Red lines indicate information known to a service provider; blue an advertising client; and green a web service.}}{6}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces The $x$-axis represents accuracy of identifying a set of traces unlinked, and the $y$-axis represents the accuracy of the same set linked based on Equation\nobreakspace {}1.12\hbox {}. Red is a link before, and blue is a link after. }}{11}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Most common LAC transitions in Senegal. Longer lines may indicate trips by air or sea. }}{12}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces MTT accuracies for 374 taxi drivers around Rome over a period of 20 minutes. Colors represent different relative granularities.}}{13}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The mean throughput of locations around Amherst (left) and within UMass (right). 95\% of areas have means that are statistically different from at least 90\% of other areas. This data suggests that latent information linking throughput and geography is available for training a classifier. }}{16}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Accuracy of experiments (randomized test set) with varying trace lengths.}}{19}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Left: Number of users with at least $n$ impressions. Right: Proportion of users with 10 or more impressions that have at least $n$ significant stays. }}{24}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Location profiling accuracy depending on the number of impressions}}{24}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The accuracy of the attack defined by Mulder et al.\nobreakspace {}\cite {Mulder:2008} under the always-update policy (top, blue line) and forming LA policy (middle, red line). Our results match well with\cite {Mulder:2008}: an attacker achieves a 38\% success rate against users that update their SIM-based identifiers once an hour. Under the latter, more realistic, forming location area update policy, the attacker's success rate falls to 6\% when SIM-based identifiers are updated once an hour. The bottom, green line shows the lower bound on any scheme: it represents an unrealistic location management scheme where the carrier learns only the location area but not the cell a user is associated with. Errorbars represent 95\% c.i.}}{30}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces The probability that an attacker succeeds in crafting a fake page for varying numbers of rounds $r$ and concurrent IMSIs $m$, based on Eq.\nobreakspace {}4.1\hbox {}.}}{31}
+\addvspace {10\p@ }

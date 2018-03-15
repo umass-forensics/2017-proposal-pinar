@@ -1,0 +1,16 @@
+\contentsline {FrontMatter}{\MakeTextUppercase {\uppercase {Abstract}}}{iv}
+\contentsline {FrontMatter}{\MakeTextUppercase {List of Tables}}{ix}
+\contentsline {FrontMatter}{\MakeTextUppercase {List of Figures}}{x}
+\contentsline {Chapter}{\MakeTextUppercase {Introduction}}{1}
+\contentsline {Chapter}{\numberline {1.}\MakeTextUppercase {A model of location privacy and utility}}{5}
+\contentsline {section}{\numberline {1.1}Preliminary work: Framework for location profiling and trajectory linking}{5}
+\contentsline {section}{\numberline {1.2}Proposed work: Fully implement a utility model and collect data to rigorously evaluate it}{11}
+\contentsline {Chapter}{\numberline {2.}\MakeTextUppercase {Location privacy threats from a streaming service}}{14}
+\contentsline {section}{\numberline {2.1}Preliminary work: Identifying the path traveled using throughput}{14}
+\contentsline {section}{\numberline {2.2}Proposed work}{20}
+\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Location privacy threats from advertising services}}{21}
+\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {Location privacy without carrier cooperation}}{27}
+\contentsline {section}{\numberline {4.1}Preliminary work: Anonymous cell phone systems and vulnerabilities}{27}
+\contentsline {section}{\numberline {4.2}Proposed work}{32}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{33}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{34}

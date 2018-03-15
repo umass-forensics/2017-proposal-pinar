@@ -1,0 +1,44 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: umthsmpl.aux
+Case mismatch error between cite keys sung:2014 and Sung:2014
+---line 68 of file umthsmpl.aux
+ : \citation{sung:2014
+ :                    }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys sung:2014 and Sung:2014
+---line 74 of file umthsmpl.aux
+ : \citation{sung:2014
+ :                    }
+I'm skipping whatever remains of this command
+The style file: umassthesis.bst
+Database file #1: umthsmpl.bib
+Repeated entry---line 1121 of file umthsmpl.bib
+ : @inproceedings{Miers:2013
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1231 of file umthsmpl.bib
+ : @article{Wong:2000
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1282 of file umthsmpl.bib
+ : @book{Razavi:2011
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1505 of file umthsmpl.bib
+ : @article{Ficek:2013a
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1808 of file umthsmpl.bib
+ : @inproceedings{Mulder:2008
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1839 of file umthsmpl.bib
+ : @inproceedings{Beresford:2004
+ :                              ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 2161 of file umthsmpl.bib
+ :  author={Markov, Andre{\u\i}} 
+ :                               Andreevich},
+I'm skipping whatever remains of this entry
+Warning--empty journal in markov1957theory
+Warning--empty publisher in Razavi:2011
+(There were 9 error messages)

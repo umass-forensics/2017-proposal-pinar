@@ -1,0 +1,1927 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass umassthesis
+\begin_preamble
+%% 
+%% This is a sample doctoral dissertation.  It shows the appropriate
+%% structure for your dissertation.  It should handle most of the
+%% strange requirements imposed by the Grad school; like the different
+%% handling of titles of one/many appendices.  It will automatically
+%% handle the linespacing changes.  The body default is double-spaced
+%% (except when you use the singlespace or condensed options).  The
+%% default for quotations is single-space, and the default for tabular
+%% environments is also single-space.  
+%%
+%% This class adds the following commands and environments to the
+%% report class, upon which it is based:
+%% Commands
+%% ------------
+%% \degree{name}{abbrv} -- Sets the name and abbreviation for the degree.
+%%                         These default to ``Doctor of Philosopy''
+%%                         and ``Ph.D.'', respectively.
+%% \copyrightyear{year} -- for the copyright page.
+%% \bachelors{degree}{institution} -- for the abstract
+%% \masters{degree}{institution}   --  "
+%%     if you have other degrees you may use
+%% \secondbachelors{degree}{institution}
+%% \thirdbachelors{degree}{institution}
+%% \secondmasters{degree}{institution}
+%% \thirdmasters{degree}{institution}
+%% \priordoctorate{degree}{institution}
+%%
+%% \committeechair{name}           -- for the signature page
+%% or, if you have two co-chairs:
+%% \cochairs{first name}{second name}
+%%
+%% \firstreader{name}              --  "
+%% \secondreader{name}             --  "
+%% \thirdreader{name}              -- (optional)
+%% \fourthreader{name}             --  "
+%% \fifthreader{name}              --  "
+%% \sixthreader{name}              --  "
+%% \departmentchair{name}          -- for the signature page
+%% \departmentname{name}           --  "
+%%
+%% \copyrightpage                  -- produces the copyright page
+%% \signaturepage                  -- produces the signature page
+%%
+%% \frontmatter                    -- these are required in their various
+%% \mainmatter                     -- appropriate locations
+%% \backmatter                     --
+%%
+%% \unnumberedchapter[toc]{name}   -- like \chapter, except that it
+%%                                    produces an unnumbered chapter;
+%%                                    alternatively, like \chapter*,
+%%                                    except that it lists the chapter
+%%                                    in the table of contents.
+%%
+%% New environments:
+%%   dedication  -- for the dedication
+%%   abstract    -- for the abstract
+%%
+%% The thesis documentclass is built on top of the report document class.
+%% It accepts all of the options that the report class accepts, plus the
+%% following:
+%%     doublespace -- the default, indicates double spacing as per U.Mass.
+%%                    requirements.  You will need this when you do your
+%%                    final copy.
+%%     singlespace -- for earlier work, not acceptable to the Grad school
+%%     condensed   -- for earlier work, not acceptable to the Grad school,
+%%                    creates condensed versions of the frontmatter. 
+%%                    Condensed implies singlespace.
+%%     dissertation - the default, indicates that this document is a
+%%                    dissertation.
+%%     proposal    -- indicates that this document is a dissertation proposal,
+%%                    rather than a dissertation.  This will only change the
+%%                    wording on the title and signature pages.
+%%     thesis      -- indicates that this document is a Master's thesis 
+%%                    rather than a doctoral dissertation.  This also changes
+%%                    the default for \degree to Master of Science, M.S.
+%%     allowlisthypenation -- (the default), allows hyphenation of words in
+%%                    the table of contents, the list of figures, and the list
+%%                    of tables.  I believe that this is acceptable to the 
+%%                    Graduate School.
+%%     nolisthyphenation -- disallows hyphenation of words in the table of
+%%                    contents and the list of figures and tables.  Use this 
+%%                    option if the Grad School doesn't like your hyphenation.
+%%     nicerdraft  -- relaxes some of the Grad School's rules for working with
+%%                    drafts -- has no effect when doublespace is in effect
+%%     nonicerdraft -- the default, leaves things in draft as they will be in
+%%                     the final version
+%% umassthesis changes the default font size to 12pt, but you may specify 10pt or
+%%   11pt in the options.
+% for Ph.D. dissertation or proposal
+% \documentclass[thesis]{umassthesis}  % for Master's thesis
+
+%%
+%% If you have enough figures or tables that you run out of space for their
+%% numbers in the List of Tables or List of figures, you can use the following
+%% command to adjust the space left for numbers.  The default is shown:
+%%
+%% \setlength{\tablenumberwidth}{2.3em}
+
+%% Use the hyperref package if you're producing a version for online
+%% distribution and you want hyperlinks.  Note that the Grad School doesn't want
+%% their PDF viewers to colorize or otherwise highlight the links; use the
+%% hidelinks option to hyperref to avoid decorating links.
+%\usepackage[hidelinks]{hyperref}
+
+%% One way of formatting the epigraph/frontispiece is to use this package.
+%\usepackage{epigraph}
+\end_preamble
+\options proposal
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Mobile privacy in an untrustworthy world
+\end_layout
+
+\begin_layout Author
+Keen Y.
+ Sung
+\end_layout
+
+\begin_layout Date
+September 2017
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+copyrightyear
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+2017
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The date you'll actually graduate -- must be February, May, or September
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+bachelors
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+B.Sc.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+University of Alberta
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+masters
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+M.S.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+University of Massachusetts Amherst
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+committeechair{Brian N.
+ Levine}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+firstreader
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Joydeep Biswas
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+secondreader
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Mark Corner
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thirdreader
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Dennis Goeckel
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+departmentchair
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+James Allan
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Uses "Department Chair" as the title.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+To use an alternate title, such as "Chair", use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+departmentchair[chair]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Pete Shearer
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+departmentname
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+College of Information and Computer Sciences
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+degree{Doctor of Philosophy}{Ph.D.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExtraFrontMatter
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+These lines produce the title, copyright, and signature pages.
+\end_layout
+
+\begin_layout Plain Layout
+They are Mandatory; except that you could leave out the copyright page if
+ you were preparing an M.S.
+ thesis instead of a PhD dissertation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout CopyrightPage
+
+\end_layout
+
+\begin_layout SignaturePage
+
+\end_layout
+
+\begin_layout Abstract
+As people are becoming more persistently connected to the Internet, their
+ location privacy is becoming an increasing concern.
+ The crux of this problem is the link between a mobile device user's identity,
+ and the locations that the identity has visited.
+ If a mobile device is not linked to a particular identity, then there is
+ no location privacy risk.
+ I demonstrate the following: (1) a unified model of location profiling,
+ privacy, and utility; (2) while GPS provides fine grained location to a
+ device and can be turned off, a device's connection to the network inherently
+ reveals details about its location; and (3) a practical mobile connectivity
+ framework for preserving location privacy is still susceptible to location
+ profiling.
+\end_layout
+
+\begin_layout Abstract
+First, I present a mathematical model of location profiling based on sequences
+ of locations traversed.
+ This is a generalization of the above utility and risk model.
+ As well, I present a method of simulating a mobility study based on real-world
+ data.
+\end_layout
+
+\begin_layout Abstract
+Subsequently, I present a study where location is inferred from the bandwidth
+ changes a phone incurs while travelling along a path.
+ The attacker in this case is anyone who is able to send a constant stream
+ of data to the phone.
+ This study demonstrated that with 70% accuracy, a classifer could determine
+ on which path among 8 a cell phone is travelling.
+ Second, I look at the ability to use location profiling to identify a user.
+ I explore the possibility that an attacker could place geo-locating code
+ in a mobile ad and use the information gathered to uniquely identify a
+ user whose location habits are known.
+ I also demonstrate that ads are an effective method of conducting mobility
+ studies.
+\end_layout
+
+\begin_layout Abstract
+Finally, I look at the possibility of the cell service provider determining
+ a user's location.
+ This is trivial in a typical cell network, using cell tower triangulation.
+ Using our framework, a privacy-enthusiastic provider could provide service
+ and accept payment without knowing a user's identity.
+ However, even in such a case, location profiling is possible.
+ We present a model of utility and risk where a user can determine based
+ on their own knowledge of location profiling how likely they would be identifie
+d among other users.
+\end_layout
+
+\begin_layout Abstract
+With the modern ubiquity of mobile devices, the ability of a user to be
+ located at most times of the day in their lives is a new force to contend
+ with.
+ With the convenience of staying connected constantly, there is a risk of
+ being located or identified.
+ We would like to be able to quantify that risk, as well as allow this informati
+on to be transparent to the user, so that they can make informed decisions
+ about whether to remain connected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Table of contents is mandatory, lists of tables and figures are mandatory
+ if you have any tables or figures; must be in this order.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset FloatList table
+
+\end_inset
+
+
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mainmatter
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-- This line is mandatory
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If you want an introduction, which is not a numbered chapter, insert the
+ following two lines.
+  This is OPTIONAL:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Introduction
+\end_layout
+
+\begin_layout Standard
+Users didn't used to care about location privacy
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bah"
+
+\end_inset
+
+.
+ However, revelations from the 2013 global surveillance disclosures
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Snowden
+\end_layout
+
+\end_inset
+
+ have caused many to become more concerned about their privacy
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bah"
+
+\end_inset
+
+.
+ These concerns have had a chilling effect on users' usage of digital devices
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bah"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The state of users' location privacy is nebulous.
+ A poor understanding of what is possible has made it difficult for a user
+ to quantify the value of privacy.
+ Moreover, access to privacy enhancing tools is limited to those who have
+ technical proficiency and have put in the effort to learn about their options
+ or evade surveillance.
+ While a user may be disturbed by how much access some companies or governments
+ have to their location information, their inability to quantify its value
+ and the high barrier to access privacy enhancing technologies prevent them
+ from taking steps to mitigate their concerns.
+ In many cases, users irrationally choose immediate gratification at the
+ cost of future consequences in terms of privacy.
+\end_layout
+
+\begin_layout Standard
+The aim of this thesis is twofold.
+ The first goal is to bring to light the practical ability of different
+ actors --- government, service provider, or service --- to potentially
+ infringe on a user's location privacy.
+ By quantifying the bounds of location privacy, we may gain a clearer understand
+ing of which behaviours are risky, and which are safe, in terms of protecting
+ their location information.
+ The second goal is to develop privacy enhancing technologies which may
+ make location privacy easier for an individual to guard against the abovementio
+ned actors; to make privacy more accessible to everyday users.
+\end_layout
+
+\begin_layout Standard
+Most research in this field has been conducted within the context of location
+ based services (LBS) --- things like online map queries, geotagging services.
+ I expand this scope of study and focus on the location privacy issues in
+ non-LBS contexts by developing a model of utility versus location privacy.
+ I then explore several scenarios where non-LBS use of a mobile device may
+ reveal location.
+ Finally, I discuss frameworks that could be used to allow for greater location
+ privacy.
+\end_layout
+
+\begin_layout Section*
+Contributions
+\end_layout
+
+\begin_layout Standard
+I begin by defining the scope of this problem in terms of potential adversaries,
+ vectors of attack, and user behaviours.
+ I develop a model of user behaviour, privacy, and utility.
+ Using this model, I evaluate threats to privacy in the context of different
+ attackers: a streaming service, an ad vendor, and a mobile service provider;
+ I also explore the effects of limiting usage of these services or applications
+ as a way to increase privacy.
+ Finally, I will explore in detail a privacy-preserving anonymous mobile
+ framework and its ability to increase location privacy.
+\end_layout
+
+\begin_layout Paragraph*
+1.
+ Model and quantify non-LBS usage and location privacy.
+\end_layout
+
+\begin_layout Standard
+There have been many attempts to quantify location privacy in terms of location
+ based services.
+ However, none that I know of have accounted for the fact that simply by
+ being online or using a service, an anonymous user may be identified by
+ location profiling if an attacker controls her means of connection.
+ In Chapter 1, I present a risk-utility model that can be used to measure
+ the threat of non-LBS usage to location privacy.
+ The utility model allows for a more flexible and valid estimation of what
+ a user may desire.
+ I demonstrate the ability to use location profiling to identify a subject
+ using this model, and the different strategies a user could attempt to
+ foil basic location profiling.
+ I also conduct a field survey to evaluate the privacy-utility balance in
+ practice.
+ This model, and results from the survey, provide a basis for the remainder
+ of my dissertation.
+\end_layout
+
+\begin_layout Paragraph*
+2.
+ Measure the potential for a webservice to attack location privacy.
+\end_layout
+
+\begin_layout Standard
+While a user or service may have the ability to protect explicit location
+ information to some degree, an web service may still illegitimately infer
+ a user's location from metadata.
+ In Chapter 2, I present a method in which a music streaming service may
+ determine the location of a user by analyzing the wavering connection quality.
+ I show that by using sequence matching algorithms, a remote web service
+ may reveal the geographic path of a user given several choices, with no
+ upstream information from the user except TCP ACKs.
+ I also explore the traffic shaping a user could employ to prevent this
+ risk.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+3.
+ Measure the potential for an ad vendor to compromise location privacy.
+\end_layout
+
+\begin_layout Standard
+While a user may give a certain LBS permission to use location information,
+ that service may unknown to the user forward that information to an ad
+ service.
+ In Chapter 3, I explore the ability for an ad service to deanonymize a
+ user using her location information.
+ Ads are bought, and location data is analyzed to see how many users offer
+ location information over a longer period of time.
+ I then analyze the risk presented by certain types of apps, as well as
+ whether limiting the usage of a certain essential LBS can reduce the risk
+ of even targetted deanonymization.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+4.
+ Develop a framework for a mobile vendor to implement a privacy-oriented
+ mobile network.
+\end_layout
+
+\begin_layout Standard
+With users' trust in mobile network operators eroding, they may seek a privacy-o
+riented alternative that does not require them to reveal their location.
+ The solution is a mobile network that breaks the link between mobile identifier
+ and actual user.
+ In Chapter 4, I present a protocol that allows users to conveniently obtain
+ a temporary mobile identifier, which can be changed as soon as location
+ profiling becomes a risk.
+ I evaluate the ability for users to minimize their risk of having their
+ identity revealed when using an anonymous service such as this.
+\end_layout
+
+\begin_layout Paragraph*
+5.
+ Present and evaluate a framework for convenient anonymous cell phone usage
+ with trusted peers.
+ 
+\end_layout
+
+\begin_layout Standard
+An alternative to using a privacy-oriented framework is sharing credentials
+ with a trusted user in order to create a mix-zone of identifiers.
+ A user is typically authenticated on a mobile network through an attach
+ procedure that results in a temporary authentication key.
+ By sharing this key, a user may provide some privacy protection to another
+ user, while at the same time increasing their own privacy.
+ In Chapter 5, I present a protocol to allow sharing of these keys.
+ I analyze sharing behaviour in terms of risk and utility.
+ I implement and evaluate this protocol in the field.
+\end_layout
+
+\begin_layout Section*
+Collaborators
+\end_layout
+
+\begin_layout Standard
+All research acitvities are conducted under the supervision of Brian Levine.
+ Preliminary work for Chapter 2 was completed in collaboration with Hamed
+ Soroush, Erik Learned-Miller, Marc Liberatore, Joydeep Biswas, and Brian
+ Levine.
+ Preliminary work for Chapters 4 and 5 was completed in collaboration with
+ Marc Liberatore, Mariya Zheleva, and Brian Levine.
+\end_layout
+
+\begin_layout Chapter
+Model of location privacy and utility
+\end_layout
+
+\begin_layout Standard
+Current models of location privacy primarily model threats from location
+ based services, and propose defenses based on differential privacy strategies
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bah"
+
+\end_inset
+
+.
+ However, these studies do not consider the threats from privacy introduced
+ by simply using a service.
+ In this chapter, I generalize an existing method of quantifying location
+ privacy
+\begin_inset CommandInset citation
+LatexCommand cite
+key "shokri2011quantifying"
+
+\end_inset
+
+, and extend it to allow for threats from non-LBS service usage.
+ In my preliminary work, I look at potential vectors for attacking location
+ privacy, and argue for an economic model of privacy.
+ I propose to adapt a game theoretic model of location privacy
+\begin_inset CommandInset citation
+LatexCommand cite
+key "freudiger2009non"
+
+\end_inset
+
+, and an information theoretic model of privacy 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sankar2013utility"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Preliminary work
+\end_layout
+
+\begin_layout Standard
+I employ a utility model to quantify location privacy.
+ I define the scope of this model by summarizing the different adversaries
+ and types of threats against location privacy.
+ Next, I formalize the framework behind several of these problems.
+ I then discuss several possible scenarios and how they fit in this framework.
+ Finally, I evaluate the risk-privacy balance with respect to a mobility
+ dataset.
+\end_layout
+
+\begin_layout Paragraph*
+Overview
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/Keen/Pictures/attacks.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Potential vulnerabilities in location privacy.
+ User, mobile device, and base station are in some physical location.
+ Solid colored lines indicate information known to a potential attacker.
+ Dotted colored lines indicate information that may be inferred by an attacker.
+ Red lines indicate information known to a service provider; blue an advertising
+ client, green a web service.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Potential-vulnerabilities-in"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are many ways people remain connected to the Internet --- Wi-Fi, cellular
+ network, cable.
+ In each of these cases, the time and location of a user connection is known
+ to the service provider.
+ There have been cases of IMSI-catchers being used dubiously to monitor
+ individuals.
+ Additionally, passive eavesdropping techniques may intercept any mode of
+ wireless signal, including Bluetooth, allow for a varying degree of granularity
+ to localize an individual.
+ We need a flexible framework to model these types of attacks.
+\end_layout
+
+\begin_layout Standard
+There are many vectors of attack on a user's location privacy.
+ Figure
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Potential-vulnerabilities-in"
+
+\end_inset
+
+ diagrams the potential vulnerabilities from different classes of attackers.
+ In Chapters 2 and 3, I look at two types of remote attackers: ad vendors
+ and web services.
+ In Chapters 4 and 5, I look at service provider attackers, and how to defend
+ against them.
+\end_layout
+
+\begin_layout Paragraph
+Utility-privacy framework
+\end_layout
+
+\begin_layout Standard
+Previous work has used k-anonymity, or (k, p)-anonymity as a privacy metric.
+ We use the economic measure of utility as a metric for two reasons: (1)
+ it allows us to balance the cost of utility with the cost of privacy loss,
+ and (2) it allows us to assign different values to different locations.
+ For example, a user could have 
+\begin_inset Quotes eld
+\end_inset
+
+significant stays
+\begin_inset Quotes erd
+\end_inset
+
+ at home and work, a place where they would likely be identified, anyway,
+ so achieving location privacy here is not worth it if they are able to
+ change identities without being easily linked once they leave work.
+\end_layout
+
+\begin_layout Standard
+In our model, there are users, U and attackers, A.
+ Each user travels to locations S of varying granularity, and connects at
+ certain times, and sends certain data to untrusted peers.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $U$
+\end_inset
+
+ be the user and 
+\begin_inset Formula $A$
+\end_inset
+
+ be the attacker.
+ 
+\begin_inset Formula $U$
+\end_inset
+
+ seeks to maximize utility 
+\begin_inset Formula $u_{U}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ seeks to maximize utility 
+\begin_inset Formula $u_{A}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Several factors affect these utility values, and their weights are tunable.
+ For 
+\begin_inset Formula $u_{U}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+service latency and throughput
+\end_layout
+
+\begin_layout Itemize
+(k, p)-anonymity
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $u_{A}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+probability target is revealed
+\end_layout
+
+\begin_layout Itemize
+proportion of targets revealed
+\end_layout
+
+\begin_layout Standard
+Software on a privacy-enhanced device could use these utility calculations
+ as a basis for altering device behaviour to increase privacy.
+\end_layout
+
+\begin_layout Paragraph
+Attack types
+\end_layout
+
+\begin_layout Standard
+We look at three potential attack scenarios:
+\end_layout
+
+\begin_layout Itemize
+Find a user based on a location trace: maximize 
+\begin_inset Formula $p(U|s)$
+\end_inset
+
+ where 
+\begin_inset Formula $s$
+\end_inset
+
+ is the location sequence.
+\end_layout
+
+\begin_layout Itemize
+Predict location given user and time: maximize 
+\begin_inset Formula $p(s|U)$
+\end_inset
+
+ where 
+\begin_inset Formula $s$
+\end_inset
+
+ is the location sequence.
+ This means we may be able to predict where a user will be in the future.
+\end_layout
+
+\begin_layout Itemize
+Link together multiple traces
+\end_layout
+
+\begin_layout Standard
+In Chapter 2, we also look at predicting user location from 
+\end_layout
+
+\begin_layout Paragraph
+Evaluation
+\end_layout
+
+\begin_layout Standard
+Using (k, p)-anonymity as a metric in this scenario, we determine the tradeoffs
+ between privacy and utility.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:MTT-accuracies-for"
+
+\end_inset
+
+ shows the results of linking taxi drivers using Multiple Target Tracking
+ (MTT).
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Location-profiling-accuracy"
+
+\end_inset
+
+ shows the results of location profiling taxi drivers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/Keen/Pictures/download (10).png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MTT accuracies for 374 taxi drivers around Rome over a period of 20 minutes.
+ Colors represent different relative granularities (need to compute area
+ still from lat/lon)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:MTT-accuracies-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Location profiling accuracy depending on time and space granularity over
+ a period of 20 minutes.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Location-profiling-accuracy"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposed work
+\end_layout
+
+\begin_layout Itemize
+Consolidate attacks: there is prior work using location profiling to identify
+ users, as well as using MTT to identify trajectories.
+ However, as far as I can tell, no prior work has consolidated both.
+\end_layout
+
+\begin_layout Itemize
+Field study of surrounding cell phone towers to get an idea of the density
+ of cell towers, and also the required update frequency.
+\end_layout
+
+\begin_layout Itemize
+Simulate privacy enhancing behaviours other than blacking out for a fixed
+ interval.
+\end_layout
+
+\begin_layout Itemize
+Do a deeper lit review and improve economic model.
+\end_layout
+
+\begin_layout Standard
+Chatper 5: real-world simulation
+\end_layout
+
+\begin_layout Chapter
+Location privacy threats from a streaming service
+\end_layout
+
+\begin_layout Standard
+This chapter explores the threats to location privacy when a user downloads
+ data while in motion, and an evaluation on the loss of utility if a user
+ attempts to reduce these threats.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This chapter is based on work published at the 
+\shape italic
+Privacy Enhancing Technologies Symposium
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "soroush2013turning"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Preliminary work
+\end_layout
+
+\begin_layout Standard
+Despite features on smartphones to ensure location privacy, a user’s whereabouts
+ can be remotely deduced.
+ A remote party communicating with a phone has a window into the complex
+ interactions between phone and cell tower.
+ These features can be used to reveal the phone’s location, or at least
+ significantly narrow the list of possible paths taken by a phone and its
+ owner.
+ This information is leaked regardless of application-level privacy settings.
+ Cell phone users have such experiences intuitively in many common situations.
+ For example, a caller may be able to tell when a friend has entered an
+ elevator based solely on call quality; or a user may notice a loss in data
+ throughput during a subway ride.
+\end_layout
+
+\begin_layout Standard
+(copy a bunch of stuff from paper)
+\end_layout
+
+\begin_layout Section
+Proposed work
+\end_layout
+
+\begin_layout Itemize
+Investigate the use of a hidden semi-Markov model as a sequence matching
+ algorithm
+\end_layout
+
+\begin_layout Itemize
+Additional measurements to determine the effect of time of day and other
+ factors
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/Keen/Pictures/noho.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/Keen/Pictures/sund.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average throughput of trace (B/s) vs hour of day around Northampton (top)
+ and Sunderland (bottom)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Location privacy threats from an ad service
+\end_layout
+
+\begin_layout Standard
+Location based services that contain mobile advertisements forward this
+ information on to ad vendors and their clients.
+ These include popular mobile apps such as Grindr, The Weather Channel,
+ and Words With Friends.
+ An advertising client can purchase advertising through an affiliate, and
+ some affiliates allow for the client to inject JavaScript in the ad.
+ As soon as the ad is displayed on one of these ads, the script runs and
+ in some cases sends data to the ad client along with a randomly chosen
+ advertising ID that is unique to the device.
+\end_layout
+
+\begin_layout Standard
+These ads ostensibly allow advertisers to target certain users depending
+ on information such as location.
+ Location information alone can allow advertisers to see where an app is
+ used the most, and target future advertising to those locations.
+ However, simply anonymizing location data does not protect a user from
+ location profiling.
+ Deanonymizing some of these users may be trivial, if, for example, the
+ user uses the app at work or at home the majority of the time.
+ While users may trust the application they are using with location information,
+ they likely do not trust advertising clients.
+ As well, this information is rarely protected by any sort of privacy policy[i
+ think].
+ Most alarmingly, anybody can be an advertiser, and target any geographic
+ location, for a very low cost.
+\end_layout
+
+\begin_layout Paragraph*
+Malicious intent
+\end_layout
+
+\begin_layout Standard
+There are several ways location data obtained from advertising can be used
+ maliciously.
+ It would be very cost effective for an attacker to determine where, for
+ example, gay users are located, by targeting advertising in a certain city
+ and looking at the coordinates located in residential areas of users who
+ used Grindr.
+ As well, attackers could deanonymize a particular user and target that
+ user to see in realtime their location or predict their location based
+ on history; this would allow them to stalk the user or determine if the
+ user is home.
+\end_layout
+
+\begin_layout Standard
+Stalking is a particularly real danger posed by advertising.
+ If a stalker knows where a victim spends a lot of their time, and the victim
+ happens to be using one of the popular apps that are part of the advertising
+ network that the stalker is on, they can be followed.
+ We explore this danger further by looking at how many users are trackable
+ this easily.
+ We postulate that there are broadly three kinds of users: those who use
+ apps at home for the most part, those who use them in a handful of places,
+ and those who use them in many places.
+\end_layout
+
+\begin_layout Standard
+We explore also the concept of mix zones, and how they may both be beneficial
+ and harmful to a person's privacy.
+ On the one hand, a user may want to choose a more populated area to use
+ an app without being deanonymized.
+ On the other hand, if a person is part of an entourage that does not wish
+ to be stalked, a single person in that entourage could compromise the entire
+ group's privacy by using a privacy-leaking app.
+\end_layout
+
+\begin_layout Section
+Preliminary work
+\end_layout
+
+\begin_layout Paragraph*
+Experimental design
+\end_layout
+
+\begin_layout Standard
+To quantify the threat of stalking using an ad service, I plan to verify
+ the following hypotheses.
+\end_layout
+
+\begin_layout Enumerate
+Users can be seen multiple times, at low cost.
+ We can manipulate how many times each user sees an ad through the bidding
+ settings.
+\end_layout
+
+\begin_layout Enumerate
+There are significant amounts of users in each category of: homebodies,
+ schleps, nomads.
+ Homebodies and schleps are defined as users with 1 or 2 significant stay
+ locations.
+ Nomads have no geographic signature.
+ 
+\end_layout
+
+\begin_layout Enumerate
+It should be fairly easy to identify a homebody or schlep based on significant
+ stays.
+ There are possible scenarios: 1.
+ Consider a person whose details we know about (home, work), and we wish
+ to identify.
+ In our experiments, the identified significant stays serve as a surrogate
+ for the outside information we'd have for the person.
+ 2.
+ Consider a homebody who has an ad-id initially, and then turns off her
+ ad-id.
+ Can we deanonymize a query from that location
+\end_layout
+
+\begin_layout Enumerate
+Given a list of locations, we can identify nomads by targeting ad-ids in
+ certain locations.
+ We set ads to be shown only once per user each day, and correlate IDs with
+ locations travelled.
+\end_layout
+
+\begin_layout Enumerate
+Nomads with anonymous ids may be deanonymized by cotravellers with deanonymized
+ ids.
+\end_layout
+
+\begin_layout Paragraph*
+Preliminary experiments
+\end_layout
+
+\begin_layout Standard
+The existing dataset contains 350k impressions from 141k users.
+\end_layout
+
+\begin_layout Standard
+I validate the first three hypotheses using this dataset.
+ 
+\end_layout
+
+\begin_layout Standard
+We first do a survey of types of users in our dataset.
+ 
+\end_layout
+
+\begin_layout Standard
+There are 100 users who are in the dataset 40 or more times.
+ (40 impressions)
+\end_layout
+
+\begin_layout Standard
+For users that have seen ads 10 or more times, deanonymization based on
+ location is accurate 39% of the time, testing and training before and after
+ the median times of access.
+\end_layout
+
+\begin_layout Standard
+Of the 3% of users who had 10 or more impressions, 50% are seen at the same
+ one location for at least 3 times a week, 10% at two locations, 1% at 3
+ locations.
+\end_layout
+
+\begin_layout Standard
+50% have no geographic signature.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Number of ads seen vs location profiling accuracy
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Number-of-ads"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposed work
+\end_layout
+
+\begin_layout Paragraph*
+Targeting sports teams
+\end_layout
+
+\begin_layout Standard
+We target professional sports teams during their active season in 2017.
+ Their travel schedule is public, and relatively unique.
+ As well, there is a cohort of assistants and staff that may reveal the
+ location of the team, who may want to keep a low profile.
+\end_layout
+
+\begin_layout Standard
+The 
+\end_layout
+
+\begin_layout Chapter
+Location privacy without carrier cooperation
+\end_layout
+
+\begin_layout Standard
+(Copy a bunch of stuff from workshop paper)
+\end_layout
+
+\begin_layout Section
+Preliminary work
+\end_layout
+
+\begin_layout Section
+Proposed work
+\end_layout
+
+\begin_layout Itemize
+Come up with a billing scheme
+\end_layout
+
+\begin_layout Itemize
+Evaluate location privacy against some dataset or simulated dataset
+\end_layout
+
+\begin_layout Itemize
+Pageknocking
+\end_layout
+
+\begin_layout Itemize
+Cost to deanonymize
+\end_layout
+
+\begin_layout Itemize
+How to determine mix-zone in a trustworthy way? Sybil attack?
+\end_layout
+
+\begin_layout Chapter
+Location privacy by forming mix-zones with trusted peers
+\end_layout
+
+\begin_layout Standard
+We present 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This chapter is based in part on work published at the 
+\shape italic
+IEEE Workshop on Mobile System Technologies
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sung:2014"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Preliminary work
+\end_layout
+
+\begin_layout Section
+Proposed work
+\end_layout
+
+\begin_layout Itemize
+Model risk / utility of sharing your SIM with either someone you completely
+ trust, or with a mix of peers that have a probability of turning against
+ you.
+\end_layout
+
+\begin_layout Itemize
+Implement an app that automatically shares an identity, goes dark, requests
+ and identity, etc.
+\end_layout
+
+\begin_layout Itemize
+Implement Spartacus (PeerPhone)
+\end_layout
+
+\begin_layout Itemize
+Test in the field.
+ Evaluate performance and location inference with a mix-zone of 2 with the
+ goal of finding out which new locations a user is visiting.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+backmatter
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<--- mandatory
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+We don't support endnotes.
+\end_layout
+
+\begin_layout Plain Layout
+A bibliography is required.
+\end_layout
+
+\begin_layout Plain Layout
+Use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+interlinepenalty=10000
+\end_layout
+
+\end_inset
+
+ to prevent split bibliography entries.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "../2016-thesis-mobility-privacy/umassthesis/example/umthsmpl,../2016-thesis-mobility-privacy/umassthesis/example/privacy"
+options "../2016-thesis-mobility-privacy/umassthesis/example/umassthesis"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

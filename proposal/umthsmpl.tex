@@ -1,0 +1,67 @@
+\documentclass[proposal]{umassthesis}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{cite}
+
+\begin{document}
+
+%%
+%% You must fill in all of these appropriately
+\title{Mobile privacy in an untrustworthy world}
+\author{Keen Y. Sung}
+\date{February 2018} % The date you'll actually graduate -- must be
+                     % February, May, or September
+\copyrightyear{2017}
+\bachelors{B.Sc.}{University of Alberta}
+\masters{M.S.}{University of Massachusetts}
+\committeechair{Brian N. Levine}
+\firstreader{Mark Corner}
+\secondreader{Joydeep Biswas}
+\thirdreader{Dennis Goeckel}
+\departmentchair[Chair]{James Allan} % Uses "Department Chair" as the title. To
+% use an alternate title, such as "Chair", use \departmentchair[Chair]{Pete Shearer}
+\departmentname{College of Information and Computer Sciences}
+
+\degree{Doctor of Philosophy}{Ph.D.}
+\frontmatter
+\maketitle
+\copyrightpage     %% not required for an M.S. thesis
+\signaturepage
+% '\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+\begin{abstract}                % Abstract
+\input{abstract}
+\end{abstract}
+
+\tableofcontents                % Table of contents
+\listoftables                   % List of Tables
+\listoffigures                  % List of Figures
+
+\mainmatter   %% <-- This line is mandatory
+
+\input{intro}
+\input{ch1}
+\input{ch2}
+\input{ch3}
+\input{ch4}
+\input{ch5}
+
+
+%%
+%% Beginning of back matter
+\backmatter  %% <--- mandatory
+
+%%
+%% We don't support endnotes
+
+%%
+%% A bibliography is required.
+\interlinepenalty=10000  % prevent split bibliography entries
+\bibliographystyle{umassthesis}
+\bibliography{umthsmpl}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
