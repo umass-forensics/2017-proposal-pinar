@@ -1,42 +1,14 @@
 %!TEX root = umthsmpl.tex
 \unnumberedchapter{Introduction}
 
-Geographical privacy is very important to most users~\cite{Pew1}. 
-% TODO: don't start number with sentence
-In a recent study, twelve percent had been stalked online, and 4\% had had their online activities lead to physical danger. After the 2013 global surveillance disclosures~\cite{greenwald2013boundless}, most Americans became more vigilant about privacy --- 86\% have taken steps to mask their digital footprints, and 61\% wish they could do more to increase privacy~\cite{Pew2}.
-
-The current state of users' location privacy is nebulous. A poor understanding of what is possible for attackers has made it difficult for a user to quantify the value of privacy. Moreover, access to privacy enhancing tools is limited to those who have technical proficiency and have put in the effort to learn about their options or evade surveillance. While a user may be disturbed by how much access some companies or governments have to their location information, their inability to quantify its value and the high barrier to access privacy enhancing technologies prevent them from taking steps to mitigate their concerns. In many cases, users irrationally choose immediate gratification at the cost of future consequences in terms of privacy~\cite{acquisti2004privacy}.
-
-% TODO: The main thesis statement is the following: etc.
-The aim of this thesis is twofold. The first goal is to bring to light the practical ability of different actors --- governments, service providers, or services --- to threaten a user's location privacy. By quantifying the limits of location privacy, we gain a clearer understanding of which behaviors are risky, and which are safe, in terms of protecting their location information. The second goal is to develop privacy enhancing technologies, which make it easier to everyday users to guard against these potential threats.
-
-Most past research in this field has been conducted within the context of \emph{location based services} (LBS) --- online maps and geotagging services, for example. I expand this scope of study and focus on the location privacy issues in non-LBS contexts by developing a model of utility versus location privacy. I then explore several scenarios where use of a mobile device \emph{outside} of the context of a location based service (\emph{non}-LBS usage) may reveal location (e.g. identifying a phone's location by analyzing seemingly unrelated metadata). Finally, I discuss frameworks that could be used to allow for greater location privacy.
-
 \section*{Contributions}
-I formalize the scope of this problem in terms of potential adversaries, vectors of attack, and user behaviours with a model that balances utility and privacy. Using this model, I evaluate threats to privacy in the context of different attackers: a streaming service, an ad vendor, and a mobile service provider; I also explore the effects of limiting usage of these services or applications as a way to increase privacy. Finally, I explore in detail a privacy-preserving anonymous mobile framework and its ability to increase location privacy. The following is a summary of the contributions in each chapter of this proposal. 
+The following is a summary of the contributions in each chapter of this proposal. 
 
-% TODO: geolocation privacy vs location privacy
-\paragraph*{1. Model and quantify non-LBS usage and location privacy.}
+\paragraph*{1.}
 
-There have been several attempts to quantify location privacy in terms of location based services~\cite{shokri2011quantifying,krumm2009survey}. These models typically define a risk model in terms of $k$-anonymity within a database, and do not consider risk from the perspective of the user, or the varying value of privacy in different locations to a user or attacker. Furthermore, many of the scenarios explored do not account for the fact that simply by being online or using a service, an anonymous user may be identified by location profiling if an attacker controls her means of connection. In Chapter 1, I demonstrate the novel framework to combine location profiling and trajectory linking to identify a anonymous trajectories. I plan to evaluate different strategies a user could attempt to avoid this attack. I also plan to conduct a field survey to evaluate the privacy-utility balance in practice. This model, and results from the survey, provide a basis for the remainder of my dissertation.
-%a risk-utility model that can be used to measure the threat of non-LBS usage to location privacy. The utility model allows for a more flexible and valid estimation of what a user may desire. 
+\paragraph*{}
 
-% TODO: show some results from the other data... looking for a new dataset. 
+\paragraph*{}
 
-\paragraph*{2. Measure the potential for a webservice to attack location privacy.}
-
-While a user or service may have the ability to protect explicit location information to some degree, a web service may still illegitimately infer a user's location from metadata. In Chapter 2, I present a method in which a music streaming service may determine the location of a user by analyzing the wavering connection quality. I show that by using sequence matching algorithms, a remote web service may reveal the geographic path of a user given several choices, with no upstream information from the user except TCP ACKs. 
-
-\paragraph*{3. Measure the potential for an advertiser to compromise location privacy.}
-
-While a user may give a certain LBS permission to use location information, that service may, unbeknownst to the user, forward that information to an ad service. In Chapter 3, I evaluate the threat of an advertiser to a user's location privacy. I explore broadly the possibility of cheaply deanonymizing a set of users, then look specifically at the threat of stalking. I plan to buy ads to target cities according to the public schedules of sports teams, and see whether someone within the group might reveal the location of the team by using a mobile app within the advertising network we select.
-
-% \paragraph*{4. Develop a framework for a mobile vendor to implement a privacy-oriented mobile network.}
-\paragraph*{4. Present and evaluate a framework for convenient anonymous cell phone usage with trusted peers.}
-With users' trust in mobile network operators eroding, they may seek a privacy-oriented alternative that does not require them to reveal their location. The solution is a mobile network that breaks the link between mobile identifier and actual user. In Chapter 4, I present a protocol that allows users to conveniently obtain a temporary mobile identifier, which can be changed as soon as location profiling becomes a risk. 
-
-% \paragraph*{5. Present and evaluate a framework for convenient anonymous cell phone usage with trusted peers.}
-I also present an alternative to using a privacy-oriented framework, where a user shares credentials with a peer in order to create a mix-zone of identifiers. A user is typically authenticated on a mobile network through an attach procedure that results in a temporary authentication key. By sharing this key, a user may provide some privacy protection to another user, while at the same time increasing their own privacy. I plan to evaluate the ability for users to minimize their risk of having their identity revealed when using an anonymous service. I also plan to analyze sharing behaviour in terms of risk and utility. %I implement and evaluate this protocol in the field.
 
 \section*{Collaborators}
-All research activities are conducted under the supervision of Brian Levine. Preliminary work for Chapter 2 was completed in collaboration with Hamed Soroush, Erik Learned-Miller, Marc Liberatore, Joydeep Biswas, and Brian Levine~\cite{soroush2013turning}. Preliminary work for Chapter 4 was completed in collaboration with Marc Liberatore and Brian Levine~\cite{Sung:2014}.

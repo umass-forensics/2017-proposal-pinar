@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  11 MAR 2018 16:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  15 MAR 2018 20:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -249,216 +249,74 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
  [3
 
 ]
-(./abstract.tex [4
+(./abstract.tex) [4
 
 
-]) [5] [6] (./umthsmpl.toc)
+] (./umthsmpl.toc)
 \tf@toc=\write3
 \openout3 = `umthsmpl.toc'.
 
- [7
+ [5
 
-] [8] (./umthsmpl.lot)
+] (./umthsmpl.lot)
 \tf@lot=\write4
 \openout4 = `umthsmpl.lot'.
 
- [9
+ [6
 
-]
-(./umthsmpl.lof [10
-
-])
+] (./umthsmpl.lof)
 \tf@lof=\write5
 \openout5 = `umthsmpl.lof'.
 
- [11] (./intro.tex [1
+[7
 
+] (./intro.tex) (./target-estimation.tex [1
 
-] [2] [3]) (./ch1.tex [4]
-Chapter 1.
-<graphics/attacks.png, id=55, 741.52031pt x 506.6428pt>
-File: graphics/attacks.png Graphic file (type png)
-<use graphics/attacks.png>
-Package pdftex.def Info: graphics/attacks.png  used on input line 19. on input 
-line 19.
-Package pdftex.def Info: Requested size: 433.62pt x 296.27275pt on input line 1
-9.
-[5
-
-] [6 <./graphics/attacks.png>] [7] [8] [9]
-<graphics/linking2.png, id=82, 614.295pt x 484.81125pt>
-File: graphics/linking2.png Graphic file (type png)
-<use graphics/linking2.png>
-Package pdftex.def Info: graphics/linking2.png  used on input line 107. on inpu
-t line 107.
-Package pdftex.def Info: Requested size: 303.53267pt x 239.55695pt on input lin
-e 107.
-<graphics/senegalmap.png, id=84, 2278.5125pt x 1824.8175pt>
-File: graphics/senegalmap.png Graphic file (type png)
-<use graphics/senegalmap.png>
-Package pdftex.def Info: graphics/senegalmap.png  used on input line 114. on in
-put line 114.
-Package pdftex.def Info: Requested size: 433.62pt x 347.27582pt on input line 1
-14.
-<graphics/mtt.png, id=85, 401.0985pt x 272.4579pt>
-File: graphics/mtt.png Graphic file (type png)
-<use graphics/mtt.png>
-Package pdftex.def Info: graphics/mtt.png  used on input line 125. on input lin
-e 125.
-Package pdftex.def Info: Requested size: 303.53267pt x 206.18462pt on input lin
-e 125.
- [10] [11 <./graphics/linking2.png>] [12 <./graphics/senegalmap.png>]) (./ch2.t
-ex [13 <./graphics/mtt.png>]
-Chapter 2.
-[14
-
-] [15]
-<graphics/amherst_tput_map.pdf, id=109, pagebox=cropbox, 361.35pt x 361.35pt>
-File: graphics/amherst_tput_map.pdf Graphic file (type pdf)
-<use graphics/amherst_tput_map.pdf>
-Package pdftex.def Info: graphics/amherst_tput_map.pdf  used on input line 57. 
-on input line 57.
-Package pdftex.def Info: Requested size: 216.81pt x 216.81168pt on input line 5
-7.
-<graphics/umass_tput_map.pdf, id=110, pagebox=cropbox, 361.35pt x 361.35pt>
-File: graphics/umass_tput_map.pdf Graphic file (type pdf)
-<use graphics/umass_tput_map.pdf>
-Package pdftex.def Info: graphics/umass_tput_map.pdf  used on input line 58. on
- input line 58.
-Package pdftex.def Info: Requested size: 216.81pt x 216.81168pt on input line 5
-8.
-
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 57--60
-[][] [] 
- []
-
-[16 <./graphics/amherst_tput_map.pdf> <./graphics/umass_tput_map.pdf>] [17]
-Overfull \hbox (7.14554pt too wide) in paragraph at lines 141--156
- [][] 
- []
-
-[18]
-<graphics/tputlength.png, id=132, 398.2077pt x 272.4579pt>
-File: graphics/tputlength.png Graphic file (type png)
-<use graphics/tputlength.png>
-Package pdftex.def Info: graphics/tputlength.png  used on input line 164. on in
-put line 164.
-Package pdftex.def Info: Requested size: 303.53267pt x 207.68959pt on input lin
-e 164.
-) (./ch3.tex [19 <./graphics/tputlength.png>] [20]
-Chapter 3.
-[21
-
-] [22]
-Overfull \hbox (11.82887pt too wide) in paragraph at lines 44--45
- \OT1/cmr/bx/n/12 Pre-lim-i-nary anal-y-sis \OT1/cmr/m/n/12 The ex-ist-ing data
-set con-tains 350000 im-pres-sions from 141000
- []
-
-<graphics/numimpressions.png, id=147, 396.48125pt x 279.0425pt>
-File: graphics/numimpressions.png Graphic file (type png)
-<use graphics/numimpressions.png>
-Package pdftex.def Info: graphics/numimpressions.png  used on input line 48. on
- input line 48.
-Package pdftex.def Info: Requested size: 216.81pt x 152.59247pt on input line 4
-8.
-<graphics/sigstays.png, id=148, 390.45876pt x 279.0425pt>
-File: graphics/sigstays.png Graphic file (type png)
-<use graphics/sigstays.png>
-Package pdftex.def Info: graphics/sigstays.png  used on input line 49. on input
- line 49.
-Package pdftex.def Info: Requested size: 216.81pt x 154.9428pt on input line 49
-.
-
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 48--50
-[][] [] 
- []
-
-<graphics/impressions.png, id=149, 390.45876pt x 279.0425pt>
-File: graphics/impressions.png Graphic file (type png)
-<use graphics/impressions.png>
-Package pdftex.def Info: graphics/impressions.png  used on input line 56. on in
-put line 56.
-Package pdftex.def Info: Requested size: 303.53267pt x 216.92844pt on input lin
-e 56.
-[23] [24 <./graphics/numimpressions.png> <./graphics/sigstays.png> <./graphics/
-impressions.png>] [25]) (./ch4.tex [26]
-Chapter 4.
-
-LaTeX Warning: Citation `sung:2014' on page 27 undefined on input line 3.
-
-[27
 
 ]
+Chapter 1.
+) (./graphene.tex [2
 
-LaTeX Warning: Citation `sung:2014' on page 28 undefined on input line 26.
+]
+Chapter 2.
+) (./selfishRL.tex [3
 
-[28]
-<graphics/mulder.pdf, id=173, pagebox=cropbox, 361.35pt x 361.35pt>
-File: graphics/mulder.pdf Graphic file (type pdf)
-<use graphics/mulder.pdf>
-Package pdftex.def Info: graphics/mulder.pdf  used on input line 50. on input l
-ine 50.
-Package pdftex.def Info: Requested size: 303.53267pt x 303.53194pt on input lin
-e 50.
- [29] [30 <./graphics/mulder.pdf>]
-<graphics/pageknock.png, id=187, 1505.625pt x 1204.5pt>
-File: graphics/pageknock.png Graphic file (type png)
-<use graphics/pageknock.png>
-Package pdftex.def Info: graphics/pageknock.png  used on input line 77. on inpu
-t line 77.
-Package pdftex.def Info: Requested size: 390.25534pt x 312.2069pt on input line
- 77.
- [31 <./graphics/pageknock.png>]
-Overfull \hbox (6.66988pt too wide) in paragraph at lines 107--108
-[]\OT1/cmr/m/n/12 How ef-fec-tive would lo-ca-tion pro-fil-ing and tra-jec-tory
- link-ing be in de-anonymizing
- []
+]
+Chapter 3.
+) (./related.tex [4
 
-) (./ch5.tex [32]
+]
+Chapter 4.
+) (./timeline.tex [5
+
+]
 Chapter 5.
-) (./umthsmpl.bbl [33
+) (./umthsmpl.bbl [6
 
-] [34
+] [7
 
 ]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [35]) [36] (./umthsmpl.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+ [8]) [9] (./umthsmpl.aux) ) 
 Here is how much of TeX's memory you used:
- 2914 strings out of 492990
- 39731 string characters out of 6132635
- 103542 words of memory out of 5000000
- 6386 multiletter control sequences out of 15000+600000
- 10479 words of font info for 38 fonts, out of 8000000 for 9000
+ 2825 strings out of 492990
+ 37959 string characters out of 6132635
+ 102407 words of memory out of 5000000
+ 6317 multiletter control sequences out of 15000+600000
+ 8309 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,25p,1056b,265s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></us
-r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
-/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loca
-l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/te
-xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texli
-ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
-2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/201
-7/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on umthsmpl.pdf (47 pages, 1362393 bytes).
+ 41i,7n,25p,795b,213s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti12.pfb>
+Output written on umthsmpl.pdf (16 pages, 75616 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
+ 72 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
