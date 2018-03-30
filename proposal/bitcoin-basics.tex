@@ -1,0 +1,106 @@
+%!TEX root = umthsmpl.tex
+\chapter{Overview of Blockchain Systems}
+
+\section{Basic Operation}
+
+\para{Account balances.} A Bitcoin is a unit of currency, which is
+fungible, divisible (up to eight decimal places), and recombinable.
+It is measured as a balance across multiple accounts, which are
+themselves manifested in \emph{addresses}.$\!$\footnote{Internally,
+  Bitcoins exist only as ``unspent transaction outputs'' (UTXO), but
+  users of the system think of them as balances in addresses, and that
+  view does not affect the results of this paper.  } Each address
+comprises a stored asymmetric cryptographic key and an associated
+balance of Bitcoin. The public portions of an address are the public
+key and the balance of coin. When an address is involved in a
+\emph{transaction} with one or more other addresses, Bitcoins are
+transferred among them.
+%Addresses are explicitly pseudonyms, and not tied to a particular individual.
+% ; further, empty addresses can be created at no cost beyond
+% generating an asymmetric key pair.
+
+\para{Roles.} Users wishing to exchange coins broadcast the details of
+their transactions over Bitcoin's p2p network, signed with their
+private keys. A set of \emph{miners} on the p2p network verify that
+each transaction is signed correctly and does not conflict with
+another transaction. Miners independently agglomerate a set of valid
+transactions into a \emph{block} and attempt to solve a predefined
+proof-of-work (POW) problem involving this block and a chain of prior
+valid blocks. In Bitcoin, the POW computation is dynamically
+calibrated to take approximately ten minutes per block. The first
+miner to solve the problem broadcasts his solution to the network,
+adding it to the ever-growing \emph{blockchain}; the miners then start
+over, with the appended blockchain and the set of transactions that
+were not added as part of the previous block. When transactions appear
+in a block, they are considered \emph{confirmed}, and each subsequent
+block provides additional confirmation. The miners' incentive for
+discovering a block is a reward of coins, called the {\em coinbase},
+consisting of a predetermined {\em block reward} (currently 12.5 BTC)
+and fees from transactions included in the block.
+
+\emph{Full nodes} are peers in the network that do not mine, but do
+generate, validate, and propagate transactions and blocks to other
+nodes including miners. Consumers (i.e., those who purchase goods or
+services) typically have no need to process and validate all
+transactions, so they can instead operate \emph{simple payment
+  verification} (SPV) nodes that process, store, and transmit data
+involving only addresses-of-interest, which are typically addresses
+they control, make payments to, or receive payments from. SPV nodes
+rely on full nodes to relay transactions-of-interest.
+
+% These SPV nodes are intended to run on resource-constrained devices,
+% such as smartphones, which typically possess between 16--64 GB of
+% storage shared among all applications. They are the leaves of the
+% Bitcoin p2p network (i.e., they connect to only a few full nodes and
+% never other SPV nodes), relying on full nodes to operate as a
+% liaison between them and the miners. To remain anonymous to full
+% nodes, addresses-of-interest are deposited by the SPV node into a
+% Bloom filter. Bloom filters are a specially prepared array that is
+% an efficient digest of the elements in a set. With the array,
+% another peer can determine, with high probability, whether an
+% element is contained in the set that produced the array. This filter
+% is passed to neighboring full nodes that continuously monitor all
+% transactions, identify transactions-of-interest using it, and
+% forward those transactions to the SPV node.
+
+\para{Bitcoin transaction consistency.} 
+The main goal of the Bitcoin p2p network is to provide a consistent
+view of blocks and unconfirmed transactions across all network peers.
+Each peer maintains a local snapshot of the transactions in a memory
+pool dubbed the \emph{mempool}. Blocks consist of a list of
+transactions that have already (almost always) been broadcast to
+miners and full nodes in the network.
+
+To announce a new block, a miner lists all transactions contained in
+the new block along with a header that provides an easily verifiable
+\emph{proof-of-work} (POW) solution.  When a full node or miner receives a new block, it
+validates each transaction in the block and the proof of work.
+
+Due to propagation delays in the network, it is possible for the
+miners to receive competing (but valid) block announcements, which
+bifurcates the chain, until one of the two forks is appended to
+first. It is also possible and valid for a miner to receive a set of
+blocks that retroactively rewrites many blocks; doing so is a
+demonstration of computational work that miners accept despite the age
+or depth\footnote{The \emph{depth} of a block refers to the number of
+  blocks that follow it; the \emph{height} of a block is the number of
+  blocks that precede it.} of a rewritten block.
+
+\para{Topology and flooding.} Bitcoin propagates new transaction and
+block announcements by flooding throughout a p2p random graph of full
+nodes and miners. Each peer in the graph requests direct connections
+to 8 other peers, and accepts requests for connections from up to 117
+other peers. A peer will offer a newly created transaction to each
+neighbor via an \inv message, which reports the hash of the
+transaction content as its ID. If a peer does not already possess the
+transaction, it will request it using a {\tt getdata} message. Blocks
+are handled similarly: \inv messages describe a block by its ID, which
+is created from the hash of the block's contents.  Upon receiving the
+\inv, peers will request the block if they do not already have it.
+Hence, in today's topology, \inv messages cross every edge in the
+random graph once, while the actual transaction and block data
+typically propagate along only a spanning tree of the graph (more
+edges will be traversed if there are propagation delays).  For
+convenience, in this paper, we refer to the set of (unconfirmed)
+transaction IDs that a peer knows about as the {\em IDpool}. Actual
+transaction contents are placed in the mempool.

@@ -1,0 +1,92 @@
+% MACROS BEGIN HERE
+
+\renewcommand{\exp}{\mbox{Exp}}
+
+\newcounter{myprot}
+\setcounter{myprot}{0}
+\newenvironment{myprot}[1]
+{
+	\refstepcounter{myprot}
+	\vspace{1em}
+	\vspace{0.2em}
+	\hrule
+	\hrule
+	\vspace{0.2em}
+	\noindent \textbf{PROTOCOL \arabic{myprot}:} #1
+
+	\vspace{0.2em}
+	\hrule
+	\vspace{0.2em}
+	\begin{algorithmic}[1]
+}
+{
+	\end{algorithmic}
+	\vspace{0.3em}
+	\hrule
+	\vspace{0.3em}
+	\vspace{.5em}
+}
+
+\newcounter{myalg}
+\setcounter{myalg}{0}
+\newenvironment{myalg}[1]
+{
+	\refstepcounter{myalg}
+	\vspace{1em}
+	\vspace{0.2em}
+	\hrule
+	\hrule
+	\vspace{0.2em}
+	\noindent \textbf{ALGORITHM \arabic{myalg}:} #1
+
+	\vspace{0.2em}
+	\hrule
+	\vspace{0.2em}
+	\begin{algorithmic}[1]
+}
+{
+	\end{algorithmic}
+	\vspace{0.3em}
+	\hrule
+	\vspace{0.3em}
+	\vspace{.5em}
+}
+
+\newcounter{mythm}
+\setcounter{mythm}{0}
+\newenvironment{mythm}
+{\refstepcounter{mythm} \vspace{.5em} \noindent \textbf{THEOREM \arabic{mythm}:}}
+{\vspace{.5em}}
+
+\newcounter{mycor}
+\setcounter{mycor}{0}
+\newenvironment{mycor}
+{\refstepcounter{mycor} \vspace{1em} \noindent \textbf{COROLLARY \arabic{mycor}:}}
+{\vspace{.5em}}
+
+\newcounter{myobs}
+\setcounter{myobs}{0}
+\newenvironment{myobs}
+{\refstepcounter{myobs} \vspace{1em} \noindent \textbf{OBSERVATION \arabic{myobs}:}}
+{\vspace{.5em}}
+
+\newcounter{mydef}
+\setcounter{mydef}{0}
+\newenvironment{mydef}
+{\refstepcounter{mydef} \vspace{1em} \noindent \textbf{DEFINITION \arabic{mydef}:}}
+{\vspace{.5em}}
+
+\newcounter{myconj}
+\setcounter{myconj}{0}
+\newenvironment{myconj}
+{\refstepcounter{myconj} \vspace{1em} \noindent \textbf{CONJECTURE \arabic{myconj}:}}
+{\vspace{.5em}}
+
+\newenvironment{myproof}
+{\noindent \textbf{PROOF:}}
+{\vspace{-2ex}\begin{flushright} $\Box$ \end{flushright}}
+
+\newenvironment{mysketch}
+{\noindent \textbf{SKETCH:}}
+{\vspace{-2ex}\begin{flushright} $\Box$ \end{flushright}}
+

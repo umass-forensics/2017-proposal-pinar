@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  22 MAR 2018 19:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  29 MAR 2018 20:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -146,36 +146,115 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
+(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@ALC@unique=\count105
+\c@ALC@line=\count106
+\c@ALC@rem=\count107
+\c@ALC@depth=\count108
+\ALC@tlm=\skip50
+\algorithmicindent=\skip51
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count109
+\float@exts=\toks20
+\float@box=\box28
+\@float@everytoks=\toks21
+\@floatcapt=\box29
+)
+\@float@every@algorithm=\toks22
+\c@algorithm=\count110
+) (./macros.tex
+\c@myprot=\count111
+\c@myalg=\count112
+\c@mythm=\count113
+\c@mycor=\count114
+\c@myobs=\count115
+\c@mydef=\count116
+\c@myconj=\count117
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2017/05/24 v1.19 mathematical typesetting tools
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count118
+\calc@Bcount=\count119
+\calc@Adimen=\dimen114
+\calc@Bdimen=\dimen115
+\calc@Askip=\skip52
+\calc@Bskip=\skip53
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count120
+\calc@Cskip=\skip54
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count121
+\l_MT_multwidth_dim=\dimen116
+\origjot=\skip55
+\l_MT_shortvdotswithinadjustabove_dim=\dimen117
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen118
+\l_MT_above_intertext_sep=\dimen119
+\l_MT_below_intertext_sep=\dimen120
+\l_MT_above_shortintertext_sep=\dimen121
+\l_MT_below_shortintertext_sep=\dimen122
+)
+
+./umthsmpl.tex:11: LaTeX Error: Option clash for package url.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 
+     
+? 
 Did not detect hyperref package
 (./umthsmpl.aux)
 \openout1 = `umthsmpl.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count105
-\scratchdimen=\dimen114
-\scratchbox=\box28
-\nofMPsegments=\count106
-\nofMParguments=\count107
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count108
-\MPscratchDim=\dimen115
-\MPnumerator=\count109
-\makeMPintoPDFobject=\count110
-\everyMPtoPDFconversion=\toks21
+\scratchcounter=\count122
+\scratchdimen=\dimen123
+\scratchbox=\box30
+\nofMPsegments=\count123
+\nofMParguments=\count124
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen124
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
+\everyMPtoPDFconversion=\toks24
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -235,89 +314,199 @@ e
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 29.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 43.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
  [2
 
 ]
-\lenguide=\skip50
+\lenguide=\skip56
  [3
 
 ]
-(./abstract.tex [4
+(./abstract.tex
+Missing character: There is no Õ in font cmr12!
+ [4
 
 
-]) [5] (./umthsmpl.toc)
+]
+Missing character: There is no Õ in font cmr12!
+) [5] (./umthsmpl.toc [6
+
+])
 \tf@toc=\write3
 \openout3 = `umthsmpl.toc'.
 
- [6
-
-] (./umthsmpl.lot)
+ [7] (./umthsmpl.lot)
 \tf@lot=\write4
 \openout4 = `umthsmpl.lot'.
 
- [7
+ [8
 
 ]
 (./umthsmpl.lof)
 \tf@lof=\write5
 \openout5 = `umthsmpl.lof'.
 
- [8
+ [9
 
-] (./intro.tex) (./target-estimation.tex [1
+] (./intro.tex) (./bitcoin-basics.tex [1
 
 
 ]
 Chapter 1.
-) (./graphene.tex [2
+[2
 
-]
+]) (./difficulty-estimation.tex [3] [4]
 Chapter 2.
-) (./selfishRL.tex [3
+) (./graphene.tex [5
 
 ]
 Chapter 3.
-) (./related.tex [4
+
+LaTeX Warning: Citation `goodrich:2011' on page 6 undefined on input line 12.
+
+
+LaTeX Warning: Citation `Bloom:1970' on page 6 undefined on input line 13.
+
+
+LaTeX Warning: Citation `eppstein:2011' on page 6 undefined on input line 47.
+
+[6
 
 ]
+
+LaTeX Warning: Citation `Corallo:2016' on page 7 undefined on input line 71.
+
+
+LaTeX Warning: Reference `sec:PBLT' on page 7 undefined on input line 71.
+
+
+LaTeX Warning: Reference `sec:eval' on page 7 undefined on input line 71.
+
+
+LaTeX Warning: Citation `Tschipper:2016' on page 7 undefined on input line 79.
+
+
+LaTeX Warning: Citation `andresen:2014' on page 7 undefined on input line 79.
+
+
+LaTeX Warning: Citation `Russel:2014' on page 7 undefined on input line 79.
+
+
+Overfull \hbox (10.54068pt too wide) in paragraph at lines 65--101
+[]\OT1/cmr/m/n/12 The main lim-i-ta-tion we are ad-dress-ing with Graphene is t
+he in-ef-fi-ciency of blockchain
+ []
+
+[7] (./graphene-protocol.tex
+./graphene-protocol.tex:3: Undefined control sequence.
+l.3 { \relsize
+              {-1.25}
+? 
+./graphene-protocol.tex:4: Undefined control sequence.
+<recently read> \Mf 
+                    
+l.4 \begin{myprot}{\textbf{\Mf}}
+                                
+? 
+
+LaTeX Warning: Citation `eppstein:2011' on page 8 undefined on input line 11.
+
+)
+
+LaTeX Warning: Citation `eppstein:2011' on page 8 undefined on input line 158.
+
+[8]
+./graphene.tex:202: Undefined control sequence.
+<argument> ...\footnotesep \ignorespaces \relsize 
+                                                  {-1} Actual implementation...
+l.202 ...erform, and we do so in our simulations.}
+                                                  
+? 
+[9]
+./graphene.tex:242: Undefined control sequence.
+l.242 {\relsize
+               {-1.25}
+? 
+
+LaTeX Warning: Citation `Corallo:2016' on page 10 undefined on input line 253.
+
+[10]
+./graphene.tex:315: Undefined control sequence.
+l.315 n&>& \sfrac
+                 {m}{1287670}
+? 
+
+LaTeX Warning: Citation `Tschipper:2016' on page 11 undefined on input line 339
+.
+
+
+LaTeX Warning: Reference `sec:eval' on page 11 undefined on input line 341.
+
+
+LaTeX Warning: Citation `eppstein:2011' on page 11 undefined on input line 351.
+
+
+[11]
+
+LaTeX Warning: Citation `Hanke:2016' on page 12 undefined on input line 360.
+
+) (./selfishRL.tex [12]
 Chapter 4.
-) (./timeline.tex [5
+) (./timeline.tex [13
 
 ]
 Chapter 5.
-) (./umthsmpl.bbl [6
+) (./umthsmpl.bbl [14
 
-] [7
+] [15
 
 ]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [8]) [9] (./umthsmpl.aux) ) 
+ [16]) [17] (./umthsmpl.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2825 strings out of 492990
- 37959 string characters out of 6132635
- 102407 words of memory out of 5000000
- 6317 multiletter control sequences out of 15000+600000
- 8309 words of font info for 30 fonts, out of 8000000 for 9000
+ 3732 strings out of 492990
+ 52000 string characters out of 6132635
+ 122010 words of memory out of 5000000
+ 7190 multiletter control sequences out of 15000+600000
+ 9585 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,25p,1041b,213s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmti12.pfb>
-Output written on umthsmpl.pdf (17 pages, 79344 bytes).
+ 41i,13n,25p,1066b,302s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
+e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
+017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/20
+17/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
+7/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on umthsmpl.pdf (26 pages, 251431 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 169 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

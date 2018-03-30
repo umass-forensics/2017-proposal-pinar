@@ -1,3 +1,378 @@
 %!TEX root = umthsmpl.tex
 \chapter{Graphene}
 \label{graphene}
+
+%!TEX root = canary.tex
+\section{Background}
+In this section, we review the operation of IBLTs and summarize related work.
+%In this section, we review the operation of IBLTs that we rely on, and then summarize our differences with related work. 
+
+\subsection{Overview of IBLTs}
+\para{Overview of IBLTs.}\label{sec:iblts-explained}\label{sec:network-rate}
+We make use of Invertible Bloom Lookup Tables (IBLTs)~\cite{goodrich:2011}, which is an efficient data structure  for {\em set reconciliation} between two peers.  Like 
+  Bloom filters~\cite{Bloom:1970}, IBLTs allow
+  two parties to determine, with high probability, which values from a
+  set they share in common.  But unlike Bloom filters, IBLTs enable the
+  recovery of any missing values, which are assumed to be of fixed
+  size and encoded as binary strings.  Key-value pairs can be
+  inserted, retrieved and deleted like an ordinary hash table.  An
+  IBLT consists of $m$ entries, each storing a \texttt{count}, a
+  \texttt{keySum}, and a \texttt{valueSum}, all initialized to zero. 
+  
+  A new value $v$ is inserted into location $i=h(v)$ based on
+the hash of its value such that $i < m$.  At entry $i$, all three
+fields are incremented or xored.  
+%  In particular, standard
+%  addition is used for the \texttt{count} field, but \texttt{xor} is
+%  used to add to the \texttt{keySum} and \texttt{valueSum} fields. An
+%  item can be deleted similarly: at the correct entry, \texttt{count}
+%  is subtracted by 1, and the \texttt{valueSum} and \texttt{keySum}
+%  fields are \texttt{xor}'ed.  When $\mbox{\texttt{count}} \equiv 1$
+%  the \texttt{valueSum} field contains the actual value of the sole
+%  item remaining in the cell.  (The purpose of the \texttt{keySum}
+%  field is to support a $\mbox{\texttt{GET}}()$ operation for a given
+%  key: that is, if $\mbox{\texttt{count}} \equiv 1$ and
+%  $\mbox{\texttt{keySum}} \equiv h(v)$, then
+%  $\mbox{\texttt{valueSum}} \equiv v$.)  } 
+  IBLTs use $k > 1$ hash
+functions to store each value in $k$ entries, which we collectively call a value's \emph{entry set}.  
+If table space is sufficient, then with high probability for at least one of the $k$
+entries, $\mbox{\texttt{count}} \equiv 1$.
+%, and so \texttt{keySum} and \texttt{valueSum} fields are recoverable~\cite{goodrich:2011}.
+
+Suppose that two peers each have a list of values, $V$ and $V'$,
+respectively, such that the difference is expected to be small.  The
+first peer constructs an IBLT $L$ (with $m$ entries) from $V$.  The
+second peer constructs $V'$ from $L'$ (also having $m$ entries).
+Eppstein et al.~\cite{eppstein:2011} showed that a cell-by-cell
+difference operator can be used to efficiently compute the symmetric
+difference $L \bigtriangleup L'$.  For each pair of fields $(f, f')$,
+at each entry in $L$ and $L'$, we compute either $f \oplus f'$ or
+\mbox{$f - f'$} depending on the field type.  When
+$|\mbox{\texttt{count}}| \equiv 1$ at any entry, the corresponding
+value can be recovered.  
+% If $\mbox{\texttt{count}} \equiv 1$, then the value belongs to
+% $L \setminus L'$.  And if $\mbox{\texttt{count}} \equiv -1$, then
+% the value belongs to $L' \setminus L$.
+  Peers proceed by removing the recoverable key-value pair from all entries in the value's entry set.
+%all values corresponding to these unit counts---not only from the
+%recoverable entry, but also from all entries in the value's entry set.
+This process will generally produce new recoverable entries, and
+continues until nothing is recoverable.
+
+\subsection{Related Work} 
+%Tschorsch et al.\cite{Tschorsch:2016} and  Bonneau et al.\cite{bonneau:2015} %, and Croman et al.\cite{Croman:2016} offer summaries of broad \bc research issues. But 
+The main limitation we are addressing with Graphene is the inefficiency of blockchain systems in disseminating block data.  A block announcement
+must be validated using  the transaction content comprising the block.  However, it is likely that the majority of the
+peers have already received these transactions, and they only
+need to discern them from those in their
+mempool. In principle, a block announcement needs to include only the IDs of those transactions,
+% as the content has very likely been received. 
+and accordingly, Corallo's {\em Compact Block} design~\cite{Corallo:2016} --- which has been recently deployed --- significantly reduces block size by including a  transaction ID list at the cost of increasing coordination to 3 roundtrip times. We further detail Compact Block's operation in Section~\ref{sec:PBLT} and compare  it quantitatively in Section~\ref{sec:eval}.
+%After the block's \inv has been sent, the receiver requests the block. The sender sends the IDs of transactions (in fact, just the first 5 bytes of each). The receiver then requests the contents of any transaction if previously unseen.
+%
+%In this paper, we show that the block size can be reduced
+%even further by introducing a new scheme that utilizes a relatively
+%new data structure called an invertible Bloom lookup
+%table~\cite{goodrich:2011}.
+%
+{\em Xtreme Thinblocks}~\cite{Tschipper:2016}, an alternative protocol, works similarly to Compact Blocks but has greater data overhead. Specifically, if an \inv is sent for a block that is not in the receiver's mempool, the receiver sends a Bloom filter of her IDpool along with the request for the missing block. As a result, Xtreme Thinblocks are larger than Compact Blocks but require just 2 roundtrip times. Relatedly, the community has discussed in forums the use of IBLTs (alone) for reducing block announcements\cite{andresen:2014,Russel:2014}, but these schemes have not been formally evaluated and are less efficient than our approach. Our novel method, which we prove and demonstrate is smaller than all of these recent works, requires just 2 roundtrip times for coordination.
+\vspace{-5ex}
+%that couples a Bloom Filter and an IBLT,
+% 
+%
+%\para{Consensus and impossibilities.}
+%Nakamoto's blockchain algorithm does not and cannot provide secure distributed
+%consensus because of the Fischer, Lynch, and Paterson (FLP)
+%impossibility result~\cite{Fischer:1985} and Douceur's Sybil attack
+%impossibility result\cite{Douceur:2002}.  Because the Blockchain algorithm can place no restriction on when a longer fork of the blockchain can arrive, consensus will
+%technically never be reached. \bc's proof-of-work thwarts only
+%attackers with insufficient resources --- an attacker that adds more
+%than the existing mining power to the system can rewrite the entire
+%chain (a pyrrhic victory if Bitcoin's exchange rate drops to zero as a
+%result). 
+% In practice, no real system is secure against all attackers,
+%and many systems thrive despite flaws or lacking resources to address
+%fixable problems. Mitigation of risk, rather than perfect security, is
+%more often the strategy executed by industry~\cite{Bond:2007} and
+%governments~\cite{Hawley:2008} alike. Mitigating risk relies on
+%quantitatively knowing the relative strengths of attack vectors, which
+%is our goal in this paper.
+
+%\para{Bitcoin network architecture.} Bitcoin-NG~\cite{Eyal:2016} is an
+%approach to scaling \bc to larger numbers of transactions per block.
+%% by separating leader election from the validation of transactions. 
+%Our approach is complementary. Graphene can be used by the Bitcoin-NG's
+%\emph{leaders} to report transactions that are queued when the rate of
+%transaction validation is lower than their arrival rate. \tp will
+%reduce the amount of traffic for Bitcoin-NG since it uses trees in
+%lieu of a high-degree random graph.
+ %Tools such as Bloom Filters\cite{Bloom:1970} and Invertible Bloom
+ %Lookup Tables (IBLT)\cite{goodrich:2011} are two elegant mechanisms
+ %for managing set reconciliation.
+ %; we review their operation in the
+ %appendix.
+ 
+ %!TEX root = canary.tex
+\section{Graphene: Efficient Block Announcements}
+
+In this section, we detail \emph{Graphene},
+%(i.e., the pending transactions they may
+%contain). 
+where a receiver 
+learns the set of specific transaction IDs that are contained in a
+(pending or confirmed) block containing $n$ transactions. Unlike other approaches, Graphene never  sends an explicit list of transaction IDs, instead it sends  a small Bloom filter and a very small IBLT.  
+
+\input{graphene-protocol}
+
+\subsection{The Protocol}
+The intuition behind Graphene is as follows. The sender creates an IBLT \I
+from the set of transaction (txn) IDs in the block. To help the receiver
+create the same IBLT (or similar), he also creates a Bloom filter \S
+of the transaction IDs in the block. The receiver uses \S to filter out
+transaction IDs from her pool of received transaction IDs (which we call the IDpool) and creates her
+own IBLT \Ip. She then attempts to use \Ip to \emph{decode} \I, which, if successful, will yield
+the transaction IDs comprising the block. The number of transactions
+that falsely appear to be in \S, and therefore are wrongly added to
+\Ip, is determined by a parameter controlled by the sender. Using
+this parameter, he can
+create \I such that it will decode with very high probability.  %The protocol is defined as:
+
+%Protocol details are as follows. 
+A Bloom filter is an array of $x$ bits
+representing $y$ items.  Initially, the $x$ bits are cleared. Whenever
+an item is added to the filter, $k$ bits, selected using $k$ hash functions, in the bit-array are set. The number of bits
+required by the filter is $x =y\frac{-\ln(f)}{\ln^2(2)}$, where $f$ is
+the intended false positive rate (FPR).  For Graphene, we set $f=\frac{a}{m-n}$,
+where $a$ is the expected difference between \I and \Ip .
+%\reminder{True?}. yes
+Since the Bloom filter contains $n$ entries, and we need to convert to
+bytes, its size is %the size for Canary is
+$\frac{-\ln(\frac{a}{m-n})}{\ln^2(2)}\frac18.$
+%
+It is also the case that $a$ is the primary parameter of the IBLT
+size.  IBLT \I can be decoded by IBLT \Ip with very high probability
+if the number of cells in \I is $d$-times the expected symmetric
+difference between the list of entries in \I and the list of entries
+in \Ip. In our case, the expected difference is $a$, and we set
+$d=1.5$ (see Eppstein et al.~\cite{eppstein:2011}, which explores
+settings of $d$). Each cell in an IBLT has a {\em count}, a {\em hash}
+value, and a stored {\em value}.  (It can also have a key, but we have
+no need for a key). For us, the count field is 2 bytes, the
+hash value is 4 bytes, and the value is the last 5 bytes of the
+transaction ID (which is sufficient to prevent collisions). In sum,
+the size of the IBLT with a symmetric difference of $a$ entries is
+$1.5(2+4+5)a=16.5a$ bytes.
+%
+Thus the total cost in bytes, $T$, for the Bloom filter and IBLT are
+given by %parameter $a$ is given by
+$T(a)= n\frac{-\ln(f)}{c}+ a\tau = n\frac{-\ln(\frac{a}{m-\mu})}{c}+ a\tau$, 
+where all Bloom filter constants are grouped together as
+$c=8\ln^2(2)$, and we let the overhead on IBLT entries be the constant
+$\tau=16.5$.
+
+To set the Bloom filter as small as possible, we must ensure
+that the FPR of the filter is as high as permitted. If we assume 
+that all \inv messages are sent ahead of a block, we know that the receiver already has all
+of the transactions in the block in her IDpool (they need not be in her mempool). 
+%We
+%enforce a rule in Graphene that all \inv messages are sent ahead of a block
+%announcement, and thus, can assume that the receiver already has all
+%of the transactions in the block in her IDpool (they need not be in her mempool). 
+Thus, $\mu=n$; i.e.,  we allow for $a$ of $m-n$ transactions
+to become false positives, since all transactions in the block are
+already guaranteed to pass through the filter. It follows that
+\vspace{0.5ex}
+\begin{align}
+T(a) = n\frac{-\ln(\frac{a}{m-n})}{c}+ a\tau.~\label{eq:tcost}
+\end{align}
+Taking the derivative w.r.t.\ $a$, Eq.~\ref{eq:tcost} is
+minimized\footnote{\relsize{-1} Actual implementations of Bloom filters and IBLTs
+  involve several (non-continuous) ceiling functions such that we can re-write:
+\vspace{-2ex}
+\begin{align}
+T(a) =& \left(\lceil\ln(\frac{m-n}{a})\rceil\left\lceil  \frac{n\ln(\frac{m-n}{a})}{\lceil\ln(\frac{m-n}{a})\rceil\ln^2(2)} \right\rceil\right)\frac18 + \lceil a\rceil\tau.\label{eq:ceiling-TA}
+\end{align}
+The optimal value of Eq.~\ref{eq:ceiling-TA} can be found with a simple brute force
+loop.  We compared the value of $a$ picked by using 
+$a=n/(c\tau)$ to the cost for that $a$ from Eq.~\ref{eq:ceiling-TA}, for valid combinations of $50\leq n \leq 2000$
+and $50\leq m \leq 10000$. We found that it is always within 37\% of
+the cost of the optimal value from Eq.~\ref{eq:ceiling-TA}, with a median difference of 16\%. In
+practice, a for-loop brute-force search for the lowest value of $a$ is
+almost no cost to perform, and we do so in our simulations.}
+ when when $a=n/(c\tau)$.
+ % (Refer to Eq.~\ref{eq:ceiling-TA} in Appendix~\ref{sec:supplementary-graphene} for a more detailed discussion on how to calculate $a$.)
+
+
+
+%Because Bloom filters are randomized data structures, $a$ of the $m-n$
+%transactions that pass through the Bloom filter might not only be the
+%transactions in the block, but also additional ones. Therefore, the
+%The Bloom filter serves an error correcting mechanism, enabling the
+%receiver to correctly detect the false positive transactions that pass
+%through the Bloom filter. 
+Due to the randomized nature of an IBLT,
+there is a non-zero chance that it will fail to decode. In that case,
+the sender resends the IBLT with double the number of cells (which is
+still very small). In our simulations, presented in the next section,
+this doubling was sufficient for the incredibly  few IBLTs that 
+failed.
+
+%\para{Example.} A receiver with an IDpool of $m=4000$ transactions
+%makes a request for a new block that has $n=2000$ transactions. The
+%value of $a$ that minimizes the cost is $a=n/(c\tau)=31.5$. The sender
+%creates a Bloom filter \S with $f=\frac{a}{m-n}=31.5/2000= 0.01577$,
+%with total size of $2000\times \frac{-ln( 0.01577)}{c}=2.1$KB.  The
+%sender also creates an IBLT with $a$ cells, totaling $16.5a=521B$. In
+%sum, a total of $2160B+521B=2.6KB$ bytes are sent.  The receiver
+%creates an IBLT of the same size, and using the technique introduced
+%in Eppstein et al.\cite{eppstein:2011}, the receiver subtracts one
+%IBLT from the other before decoding.
+
+
+%\subsection{Comparison to Compact Blocks}\label{sec:cbs}
+
+% Xtreme Thinblocks work as follows. After receiving an \inv for a
+% block, the receiver creates a Bloom filter of her mempool with FPR
+% $f=1/n$, where $n$ is the number of transactions in the block. The
+% sender then sends a \textit{thinblock transaction} that contains
+% block header information, all transaction IDs in the block and any
+% transactions that do not pass through the Bloom filter, enabling the
+% receiver to recreate the block.
+{\relsize{-1.25}
+\begin{myprot}{\textbf{CompactBlocks}}
+\label{protocol:compact}
+\STATE \sender \hspace{-5ex}Sends \inv for a block that has $n$ txns.
+\STATE \recvr \hspace{-5ex}If block is not in mempool, requests compact block.
+\STATE \sender \hspace{-5ex}Sends the block header information, all txn IDs in the block and any full txns he predicts the sender hasn't received yet.
+\STATE \recvr \hspace{-5ex}Recreates the block and requests missing txns if there exist any.
+\end{myprot}
+}
+
+\subsection{Comparison to Compact Blocks.} 
+Compact Blocks\cite{Corallo:2016} is to our knowledge the best-performing related work. It has several modes of operation. 
+%The receiver has the
+%option of switching between three modes via a message to the sender:
+%\textit{Legacy Relaying}, \textit{High Bandwidth Relaying} and
+%\textit{Low Bandwidth Relaying}. 
+We examined the  \textit{Low Bandwidth
+  Relaying} mode due to its bandwidth efficiency, which operates as follows. 
+%The receiver sends a message indicating the mode she wants to communicate in. 
+After fully
+validating a new block, the sender sends an \inv, for which the receiver sends a $getdata$ message if she
+doesn't have the block. The sender then sends a \textit{compact block}
+that contains block header information, all  transaction IDs (shortened to 5 bytes)
+in the block, and any transactions that he predicts the receiver does
+not have (e.g., the coinbase). If the receiver still has missing transactions, she requests
+them via an \inv message. Protocol~\ref{protocol:compact} outlines
+this  mode of Compact Blocks. The main difference between Graphene and Compact Blocks is that instead of
+sending a Bloom filter and an IBLT, the sender sends block header
+information and all shortened transaction IDs to the receiver. 
+ 
+%{ \relsize{-1}
+%\begin{myprot}{\textbf{Graphene}$()$}
+%\label{protocol:pblt}
+%\STATE \sender Sends \textit{inv} for a block or status report that has $n$ transactions.
+%
+%\STATE \recvr Requests the unknown block, and includes $m$, a count of transactions in her IDpool.
+%
+%\STATE \sender  Sends Bloom filter \S and IBLT \I, each created from the set of $n$ transaction IDs in the block, and essential Bitcoin header fields.  The FPR of the filter is $f=\frac{a}{m-n}$, where $a$ is determined by Eq.~\ref{eq:min.a}.
+%
+%\STATE \recvr Creates IBLT $\cal{I}'$ from the transaction IDs that pass through $\cal{S}$. She decodes the {\em subtraction}~\cite{eppstein:2011} of the two blocks, $\cal{I} \bigtriangleup \cal{I'}$.\end{myprot}
+%}
+ 
+%{\relsize{-1}
+%\begin{myprot}{\textbf{XtremeThinblocks}$()$}
+%\label{protocol:distributed_mix}
+%\STATE \sender Sends \inv for a block or status report that has $n$ transactions.
+%\STATE \recvr If block is not in mempool, sends Bloom filter \R of their mempool. The FPR of the filter is $f=\frac{1}{n}$.
+%\STATE \sender Sends the block header information, all transaction IDs in the block and any transactions that do not pass through \R.
+%\STATE \recvr Recreates the block with additional information, and requests missing transactions if there exist any.
+%\end{myprot}
+%}
+
+% In comparison, for the same parameters as the example above, Xtreme
+% thinblocks will send a Bloom filter that is $m\frac{-\log(1/n)}{c}$
+% bytes and a list of all other transaction IDs. In this running
+% example, the cost is $4000\times\frac{-ln(1/2000)}{c}=7918B$ with an
+% additional $n*5B=10000B$ list of all $n$ transaction IDs, totaling
+% 17.5KB. In this example, Xtreme Thinblocks are over 660\% the size
+% of Graphene blocks.
+%% One can verify that in no scenario are Xtreme Thinblocks more
+%% efficient.
+
+
+A detailed example of how to calculate the size of each scheme is below; but we can state more generally the following result. For a
+block of $n$ transactions, Compact Blocks costs $5n$ bytes. For both
+protocols, the receiver needs the \inv messages for the set of
+transactions in the block before the sender can send it. Therefore, we
+expect the size of the IDpool of the receiver, $m$, to be constrained
+such that $m \geq n$. Assuming that $m > 0$ and $n > 0$, the following
+inequality must hold for Graphene to outperform Compact Blocks: \vspace{0.5ex}
+%
+\begin{eqnarray}
+n\frac{-\ln(\frac{a}{m-n})}{c}+ a\tau &<& 5n\\
+n&>& \sfrac{m}{1287670}
+\end{eqnarray}
+%After algebraic simplification %, given that $a=n/(c\tau)$ and that $c$ and $\tau$ are constants,  
+%the above shows that our scheme is strictly smaller  whenever  .
+%
+%\begin{align} \label{eq:graphene-size}
+%n\frac{-\ln(\frac{a}{m-n})}{c}+ a\tau &< 5n \\
+%n\frac{-\ln(\frac{(n/(c\tau))}{m-n})}{c}+ \frac{n}{c\tau}\tau &< 5n \\
+%\frac{-\ln(\frac{(n/(c\tau))}{m-n})}{c}+ \frac{1}{c} &< 5 \\
+%-\ln\Big(\frac{n/c\tau}{m-n}\Big)+ 1 &< 5c \\
+%-\ln\Big(\frac{n/c\tau}{m-n}\Big) &< 5c -1 \\
+%\ln\Big(\frac{n/c\tau}{m-n}\Big) &> 1-5c \\
+%\frac{n/c\tau}{m-n} &> e^{1-5c} \\
+%\frac{n}{(m-n)c\tau} &> e^{1-5c} \\
+%\frac{n}{m-n} &> (c\tau) e^{1-5c}  \\
+%\frac{1}{(c\tau) e^{1-5c}} &>\frac{m-n}{n}   \\
+%1,287,669 &>\frac{m}{n} -1  \\
+%1,287,670 &>\frac{m}{n}  \\
+%n>\frac{m}{1,287,670 }
+%%\frac{1}{(c\tau) e^{1-5c}} &\geq\frac{m}{n}-1   \\
+%%\frac{1}{(c\tau) e^{1-5c}}+1 &\geq\frac{m}{n}   \\
+%%n &\geq\frac{m}{\frac{1}{(c\tau) e^{1-5c}}+1}  \\
+%%n &\geq\frac{m}{1287670} 
+%\end{align}
+In other words, Graphene is strictly more efficient than Compact Blocks {\em unless} the  set of unconfirmed transactions held by peers  is 1,287,670 times larger than the block size (e.g.,  over 22 billion unconfirmed transactions for the current block size.)  Finally, we note that Xtreme Thinblocks~\cite{Tschipper:2016} are  strictly larger than Compact Blocks since they contain all IDs and a Bloom filter, and therefore Graphene performs strictly better than Xtreme Thinblocks as well. 
+%
+In Section~\ref{sec:eval}, we provide specific empirical results from network simulation, where we use real IBLTs and Bloom filters to evaluate Graphene and Compact Blocks.
+
+\para{Example.} A receiver with an IDpool of $m=4000$ transactions
+makes a request for a new block that has $n=2000$ transactions. The
+value of $a$ that minimizes the cost is $a=n/(c\tau)=31.5$. The sender
+creates a Bloom filter \S with $f=\frac{a}{m-n}=31.5/2000= 0.01577$,
+with total size of $2000\times \frac{-ln( 0.01577)}{c}=2.1$~KB.  The
+sender also creates an IBLT with $a$ cells, totaling $16.5a=521B$. In
+sum, a total of $2160B+521B=2.6$~KB bytes are sent.  The receiver
+creates an IBLT of the same size, and using the technique introduced
+in Eppstein et al.\cite{eppstein:2011}, the receiver subtracts one
+IBLT from the other before decoding. In comparison, for a block of $n$ transactions, Compact Blocks costs $2000\times5B = 10$~KB, over 3 times the cost of Graphene. 
+
+
+\para{Ordered blocks.} Graphene does not specify an order for transactions
+in the blocks, and instead assumes that transactions are sorted by
+ID. Bitcoin requires transactions depending on another transaction in
+the same block to appear later, but a canonical ordering is easy to
+specify. If a miner would like to order transactions with some
+proprietary method (e.g.,\cite{Hanke:2016}), that ordering would be
+sent alongside the IBLT. For a block of $n$ items, in the worst case,
+the list will be $n\log_2(n)$ bits long.  Even with this extra data, our approach is much more efficient than Compact Blocks.   In terms of the example above, if Graphene was to impose an ordering, the additional cost for $n=2000$ transactions would be $n \log_2(n)$ bits $= 2000\times log_2(2000)$ bits $= 2.74$~KB. This increases the cost of Graphene to $5.34$~KB, still almost half of Compact Blocks.
+
+%\reminder{we're better up to large values of n altho 5n is O(nlogn)}
+% (e.g., 825B for
+%$n=2000$\reminder{where did this math come from?}). 
+%In the example
+%above, Compact Blocks are still more than \reminder{some \%} the size
+%of Graphene.
+%In the example above, Xtreme Thinblocks are still more than 500\% the size of Graphene.
+
+%In the next section, we show the results of hundreds of simulations of
+%the full \bc system. In all trials, Compact Blocks are vastly more
+%expensive than Graphene.
+
+\subsection{Empirical Evaluation}
+
+

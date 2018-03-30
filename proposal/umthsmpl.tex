@@ -3,6 +3,20 @@
 \usepackage{url}
 \usepackage{amsmath}
 \usepackage{cite}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\input{macros}
+\usepackage{mathtools}
+\usepackage[hyphens]{url}
+
+\newcommand{\para }[1]{\smallskip \noindent {\bf #1}}
+\renewcommand{\S}{$\cal{S}$}
+\newcommand{\R}{$\cal{R}$}
+\newcommand{\I}{$\cal{I}$}
+\newcommand{\Ip}{$\cal{I}'$}
+\newcommand{\sender}{\parbox[t]{0.19\linewidth}{\sf Sender:}}
+\newcommand{\recvr}{\parbox[t]{0.19\linewidth}{\sf Receiver:}}
+\newcommand{\inv}{\texttt{inv}}
 
 \begin{document}
 
@@ -40,10 +54,10 @@
 \mainmatter   %% <-- This line is mandatory
 
 \input{intro}
-\input{target-estimation}
+\input{bitcoin-basics}
+\input{difficulty-estimation}
 \input{graphene}
 \input{selfishRL}
-\input{related}
 \input{timeline}
 
 

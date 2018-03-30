@@ -3,6 +3,20 @@
 
 \section*{Contributions}
 The following is a summary of the contributions in each chapter of this proposal. 
+%\begin{itemize}
+%\item Firstly, we propose an accurate method of hash rate estimation that is based
+%  on compact {\em status reports} issued by miners. The reports add no
+%  computational load to miners, and are stored neither on the
+%  blockchain nor at peers that receive them past their usefulness.   They are very small and  can be broadcast
+%  out-of-band, for example via RSS or Twitter. Just like block
+%  headers, reports are verifiable as authentic POW by third
+%  parties. 
+%  %Optionally, they can be used to set the blockchain difficulty, in which case they would need to be stored on the blockchain. This technique can be deployed incrementally because a combination of our estimators can be used together.
+%  \item Secondly, we present two estimators that leverage only information from blocks that are published to the blockchain. One method uses {\em time} data, while the other uses time and the POW {\em hash values} of blocks. Both require {\em no cooperation from the miners}. These estimators are statistically \emph{biased} but \emph{consistent}. In quantitative comparisons, we show that the time-based estimator is more accurate. However, this accuracy depends on reliable time measurements. For example, although blocks contain timestamps, Bitcoin has weak time synchronization requirements allowing for falsification. Any third-party's out-of-band record of the time cannot be secured using  only information in the blockchain. We find that a time-and-hash based estimator is less accurate (given the same number of samples) despite leveraging more information.  
+%  % via the PoW algorithm
+%\end{itemize}
+%We also examine hybrid approaches that allow for incremental deployment. 
+%Our results can be used by blockchain designers to understand the consequences of setting the parameters of their difficulty algorithms. 
 
 \paragraph*{1.}
 
