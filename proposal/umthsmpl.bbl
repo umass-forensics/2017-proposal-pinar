@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{andresen:2014}
 Andresen, Gavin.
@@ -23,6 +23,17 @@ Eppstein, David, Goodrich, Michael~T., Uyeda, Frank, and Varghese, George.
   Context}.
 \newblock In {\em ACM SIGCOMM\/} (2011).
 
+\bibitem{eyal:2014}
+Eyal, Ittay, and Sirer, Emin~G{\"u}n.
+\newblock {Majority is not enough: Bitcoin mining is vulnerable}.
+\newblock {\em Financial Cryptography\/} (2014), 436--454.
+
+\bibitem{Gervais:2016}
+Gervais, Arthur, O.~Karame, Ghassan, Wust, Karl, Glykantzis, Vasileios,
+  Ritzdorf, Hubert, and Capkun, Srdjan.
+\newblock {On the Security and Performance of Proof of Work Blockchains}.
+\newblock \url{https://eprint.iacr.org/2016/555}, 2016.
+
 \bibitem{goodrich:2011}
 Goodrich, M.T., and Mitzenmacher, M.
 \newblock Invertible bloom lookup tables.
@@ -40,6 +51,11 @@ Russel, Rusty.
 \newblock
   \url{http://rustyrussell.github.io/pettycoin/2014/11/05/Playing-with-invertible-bloom-lookup-tables-and-bitcoin-transactions.html},
   Nov 2014.
+
+\bibitem{sapirshtein:2015}
+Sapirshtein, Ayelet, Sompolinsky, Yonatan, and Zohar, Aviv.
+\newblock {Optimal Selfish Mining Strategies in Bitcoin}.
+\newblock \url{https://arxiv.org/pdf/1507.06183.pdf}, July 2015.
 
 \bibitem{Tschipper:2016}
 Tschipper, Peter.

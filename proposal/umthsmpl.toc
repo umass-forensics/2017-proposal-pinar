@@ -8,16 +8,24 @@
 \contentsline {section}{\numberline {2.1}Problem Statement}{5}
 \contentsline {section}{\numberline {2.2}Preliminary Work}{5}
 \contentsline {subsection}{\numberline {2.2.1}Analysis of Difficulty Estimation}{5}
-\contentsline {subsection}{\numberline {2.2.2}Alternative Estimation}{5}
-\contentsline {section}{\numberline {2.3}Proposed Work}{5}
-\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene}}{6}
-\contentsline {section}{\numberline {3.1}Background}{6}
-\contentsline {subsection}{\numberline {3.1.1}Overview of IBLTs}{6}
-\contentsline {subsection}{\numberline {3.1.2}Related Work}{7}
-\contentsline {section}{\numberline {3.2}Graphene: Efficient Block Announcements}{8}
-\contentsline {subsection}{\numberline {3.2.1}The Protocol}{8}
-\contentsline {subsection}{\numberline {3.2.2}Comparison to Compact Blocks.}{10}
-\contentsline {subsection}{\numberline {3.2.3}Empirical Evaluation}{12}
-\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Bitcoin}}{13}
-\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{14}
-\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{15}
+\contentsline {subsection}{\numberline {2.2.2}Alternative Estimation}{9}
+\contentsline {subsection}{\numberline {2.2.3}Comparison of Estimators}{13}
+\contentsline {section}{\numberline {2.3}Proposed Work}{13}
+\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene}}{14}
+\contentsline {section}{\numberline {3.1}Background}{14}
+\contentsline {subsection}{\numberline {3.1.1}Overview of IBLTs}{14}
+\contentsline {subsection}{\numberline {3.1.2}Related Work}{15}
+\contentsline {section}{\numberline {3.2}Graphene: Efficient Block Announcements}{16}
+\contentsline {subsection}{\numberline {3.2.1}The Protocol}{16}
+\contentsline {subsection}{\numberline {3.2.2}Comparison to Compact Blocks.}{18}
+\contentsline {subsection}{\numberline {3.2.3}Empirical Evaluation}{20}
+\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Bitcoin}}{21}
+\contentsline {section}{\numberline {4.1}Background}{21}
+\contentsline {subsection}{\numberline {4.1.1}Selfish Mining and Double-Spend Attacks}{21}
+\contentsline {subsection}{\numberline {4.1.2}Related Work}{21}
+\contentsline {section}{\numberline {4.2}Problem Statement}{22}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{25}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an MDP}{25}
+\contentsline {section}{\numberline {4.4}Proposed Work}{26}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{27}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{28}
