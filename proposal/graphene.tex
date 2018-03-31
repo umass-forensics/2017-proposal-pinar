@@ -187,7 +187,7 @@ already guaranteed to pass through the filter. It follows that
 T(a) = n\frac{-\ln(\frac{a}{m-n})}{c}+ a\tau.~\label{eq:tcost}
 \end{align}
 Taking the derivative w.r.t.\ $a$, Eq.~\ref{eq:tcost} is
-minimized\footnote{\relsize{-1} Actual implementations of Bloom filters and IBLTs
+minimized\footnote{Actual implementations of Bloom filters and IBLTs
   involve several (non-continuous) ceiling functions such that we can re-write:
 \vspace{-2ex}
 \begin{align}
@@ -239,7 +239,7 @@ failed.
 % block header information, all transaction IDs in the block and any
 % transactions that do not pass through the Bloom filter, enabling the
 % receiver to recreate the block.
-{\relsize{-1.25}
+{
 \begin{myprot}{\textbf{CompactBlocks}}
 \label{protocol:compact}
 \STATE \sender \hspace{-5ex}Sends \inv for a block that has $n$ txns.

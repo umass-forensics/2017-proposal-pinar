@@ -1,44 +1,46 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: umthsmpl.aux
-Case mismatch error between cite keys sung:2014 and Sung:2014
----line 68 of file umthsmpl.aux
- : \citation{sung:2014
- :                    }
-I'm skipping whatever remains of this command
-Case mismatch error between cite keys sung:2014 and Sung:2014
----line 74 of file umthsmpl.aux
- : \citation{sung:2014
- :                    }
-I'm skipping whatever remains of this command
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: umthsmpl.aux
 The style file: umassthesis.bst
 Database file #1: umthsmpl.bib
-Repeated entry---line 1121 of file umthsmpl.bib
- : @inproceedings{Miers:2013
- :                          ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 1231 of file umthsmpl.bib
- : @article{Wong:2000
- :                   ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 1282 of file umthsmpl.bib
- : @book{Razavi:2011
- :                  ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 1505 of file umthsmpl.bib
- : @article{Ficek:2013a
- :                     ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 1808 of file umthsmpl.bib
- : @inproceedings{Mulder:2008
- :                           ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 1839 of file umthsmpl.bib
- : @inproceedings{Beresford:2004
- :                              ,
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 2161 of file umthsmpl.bib
- :  author={Markov, Andre{\u\i}} 
- :                               Andreevich},
-I'm skipping whatever remains of this entry
-Warning--empty journal in markov1957theory
-Warning--empty publisher in Razavi:2011
-(There were 9 error messages)
+You've used 8 entries,
+            2249 wiz_defined-function locations,
+            576 strings with 5072 characters,
+and the built_in function-call counts, 2126 in all, are:
+= -- 203
+> -- 76
+< -- 0
++ -- 32
+- -- 24
+* -- 117
+:= -- 344
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 36
+chr.to.int$ -- 0
+cite$ -- 8
+duplicate$ -- 81
+empty$ -- 206
+format.name$ -- 24
+if$ -- 460
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 3
+newline$ -- 43
+num.names$ -- 16
+pop$ -- 63
+preamble$ -- 1
+purify$ -- 28
+quote$ -- 0
+skip$ -- 65
+stack$ -- 0
+substring$ -- 97
+swap$ -- 16
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 32
+warning$ -- 0
+while$ -- 21
+width$ -- 9
+write$ -- 81
