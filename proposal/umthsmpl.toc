@@ -22,10 +22,10 @@
 \contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Bitcoin}}{21}
 \contentsline {section}{\numberline {4.1}Background}{21}
 \contentsline {subsection}{\numberline {4.1.1}Selfish Mining and Double-Spend Attacks}{21}
-\contentsline {subsection}{\numberline {4.1.2}Related Work}{21}
-\contentsline {section}{\numberline {4.2}Problem Statement}{22}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{25}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an MDP}{25}
-\contentsline {section}{\numberline {4.4}Proposed Work}{26}
-\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{27}
-\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{28}
+\contentsline {subsection}{\numberline {4.1.2}Related Work}{23}
+\contentsline {section}{\numberline {4.2}Problem Statement}{24}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{27}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an MDP}{27}
+\contentsline {section}{\numberline {4.4}Proposed Work}{29}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{30}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{31}

@@ -7,45 +7,49 @@ Repeated entry---line 2805 of file umthsmpl.bib
  : @article{eyal:2014
  :                   ,
 I'm skipping whatever remains of this entry
-You've used 11 entries,
+Repeated entry---line 2841 of file umthsmpl.bib
+ : @misc{nakamoto:2009
+ :                    ,
+I'm skipping whatever remains of this entry
+You've used 19 entries,
             2249 wiz_defined-function locations,
-            591 strings with 5611 characters,
-and the built_in function-call counts, 3082 in all, are:
-= -- 293
-> -- 137
+            636 strings with 6778 characters,
+and the built_in function-call counts, 5067 in all, are:
+= -- 479
+> -- 207
 < -- 0
-+ -- 57
-- -- 46
-* -- 182
-:= -- 510
-add.period$ -- 33
-call.type$ -- 11
-change.case$ -- 56
++ -- 88
+- -- 68
+* -- 279
+:= -- 818
+add.period$ -- 55
+call.type$ -- 19
+change.case$ -- 92
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 103
-empty$ -- 276
-format.name$ -- 46
-if$ -- 654
+cite$ -- 19
+duplicate$ -- 188
+empty$ -- 478
+format.name$ -- 68
+if$ -- 1094
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 4
-newline$ -- 58
-num.names$ -- 22
-pop$ -- 89
+int.to.str$ -- 19
+missing$ -- 8
+newline$ -- 96
+num.names$ -- 36
+pop$ -- 157
 preamble$ -- 1
-purify$ -- 45
+purify$ -- 73
 quote$ -- 0
-skip$ -- 84
+skip$ -- 152
 stack$ -- 0
-substring$ -- 137
-swap$ -- 19
+substring$ -- 210
+swap$ -- 35
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 44
+type$ -- 74
 warning$ -- 0
-while$ -- 29
-width$ -- 13
-write$ -- 111
-(There was 1 error message)
+while$ -- 46
+width$ -- 21
+write$ -- 187
+(There were 2 error messages)

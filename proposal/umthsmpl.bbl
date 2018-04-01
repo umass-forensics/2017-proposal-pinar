@@ -6,10 +6,21 @@ Andresen, Gavin.
 \newblock \url{https://gist.github.com/gavinandresen/e20c3b5a1d4b97f79ac2},
   August 2014.
 
+\bibitem{bitcoin:confirmation}
+{Confirmation}.
+\newblock \url{https://en.bitcoin.it/wiki/Confirmation}, February 2015.
+
 \bibitem{Bloom:1970}
 Bloom, Burton~H.
 \newblock {Space/Time Trade-offs in Hash Coding with Allowable Errors}.
 \newblock {\em Commun. ACM 13}, 7 (July 1970), 422--426.
+
+\bibitem{Bonneau:2015a}
+Bonneau, Joseph.
+\newblock How long does it take for a bitcoin transaction to be confirmed?
+\newblock
+  \url{https://coincenter.org/2015/11/what-does-it-mean-for-a-bitcoin-transaction-to-be-confirmed/},
+  November 2015.
 
 \bibitem{Corallo:2016}
 Corallo, Matt.
@@ -28,6 +39,12 @@ Eyal, Ittay, and Sirer, Emin~G{\"u}n.
 \newblock {Majority is not enough: Bitcoin mining is vulnerable}.
 \newblock {\em Financial Cryptography\/} (2014), 436--454.
 
+\bibitem{Feller:1968}
+Feller, William.
+\newblock {\em An Introduction to Probability Theory and its Applications:
+  Volume I}, 3~ed.
+\newblock John Wiley \& Sons London-New York-Sydney-Toronto, 1968.
+
 \bibitem{Gervais:2016}
 Gervais, Arthur, O.~Karame, Ghassan, Wust, Karl, Glykantzis, Vasileios,
   Ritzdorf, Hubert, and Capkun, Srdjan.
@@ -45,6 +62,20 @@ Hanke, Timo.
 \newblock {A Speedup for Bitcoin Mining}.
 \newblock \url{http://arxiv.org/pdf/1604.00575.pdf} (Rev. 5), March 31 2016.
 
+\bibitem{Heilman:2015}
+Heilman, Ethan, Kendler, Alison, Zohar, Aviv, and Goldberg, Sharon.
+\newblock {Eclipse Attacks on Bitcoin's Peer-to-peer Network}.
+\newblock In {\em USENIX Security\/} (2015).
+
+\bibitem{Nakamoto:2009}
+Nakamoto, Satoshi.
+\newblock {Bitcoin: A Peer-to-Peer Electronic Cash System}, May 2009.
+
+\bibitem{Rosenfeld:2012}
+Rosenfeld, Meni.
+\newblock Analysis of hashrate-based double-spending.
+\newblock \url{https://bitcoil.co.il/Doublespend.pdf}, December 2012.
+
 \bibitem{Russel:2014}
 Russel, Rusty.
 \newblock Playing with invertible bloom lookup tables and bitcoin transactions.
@@ -57,11 +88,23 @@ Sapirshtein, Ayelet, Sompolinsky, Yonatan, and Zohar, Aviv.
 \newblock {Optimal Selfish Mining Strategies in Bitcoin}.
 \newblock \url{https://arxiv.org/pdf/1507.06183.pdf}, July 2015.
 
+\bibitem{Sompolinsky:2016}
+Sompolinsky, Yonatan, and Zohar, Aviv.
+\newblock {Bitcoin's Security Model Revisited}.
+\newblock \url{https://arxiv.org/abs/1605.09193}, May 2016.
+
 \bibitem{Tschipper:2016}
 Tschipper, Peter.
 \newblock {BUIP010 Xtreme Thinblocks}.
 \newblock
   \url{https://bitco.in/forum/threads/buip010-passed-xtreme-thinblocks.774/},
   Jan 2016.
+
+\bibitem{Vukolic:2015}
+Vukoli{\'c}, Marko.
+\newblock {The quest for scalable blockchain fabric: Proof-of-work vs. BFT
+  replication}.
+\newblock In {\em Wkshop Open Problems in Network Security\/} (2015),
+  pp.~112--125.
 
 \end{thebibliography}
