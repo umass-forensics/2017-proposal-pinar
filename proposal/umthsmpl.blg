@@ -11,46 +11,45 @@ Repeated entry---line 2841 of file umthsmpl.bib
  : @misc{nakamoto:2009
  :                    ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "ETHASH"
-You've used 23 entries,
+You've used 24 entries,
             2249 wiz_defined-function locations,
-            657 strings with 7182 characters,
-and the built_in function-call counts, 5933 in all, are:
-= -- 556
-> -- 240
+            659 strings with 7238 characters,
+and the built_in function-call counts, 6133 in all, are:
+= -- 574
+> -- 247
 < -- 0
-+ -- 102
-- -- 78
-* -- 322
-:= -- 963
-add.period$ -- 65
-call.type$ -- 23
-change.case$ -- 107
++ -- 105
+- -- 80
+* -- 330
+:= -- 996
+add.period$ -- 67
+call.type$ -- 24
+change.case$ -- 110
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 225
-empty$ -- 568
-format.name$ -- 78
-if$ -- 1280
+cite$ -- 24
+duplicate$ -- 232
+empty$ -- 590
+format.name$ -- 80
+if$ -- 1324
 int.to.chr$ -- 0
-int.to.str$ -- 23
+int.to.str$ -- 24
 missing$ -- 10
-newline$ -- 114
-num.names$ -- 44
-pop$ -- 187
+newline$ -- 118
+num.names$ -- 46
+pop$ -- 196
 preamble$ -- 1
-purify$ -- 86
+purify$ -- 89
 quote$ -- 0
-skip$ -- 179
+skip$ -- 186
 stack$ -- 0
-substring$ -- 230
-swap$ -- 39
+substring$ -- 235
+swap$ -- 40
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 90
+type$ -- 94
 warning$ -- 0
-while$ -- 54
-width$ -- 25
-write$ -- 221
+while$ -- 56
+width$ -- 26
+write$ -- 229
 (There were 2 error messages)

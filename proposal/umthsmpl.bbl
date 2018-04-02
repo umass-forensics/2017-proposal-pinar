@@ -44,6 +44,11 @@ Eppstein, David, Goodrich, Michael~T., Uyeda, Frank, and Varghese, George.
   Context}.
 \newblock In {\em ACM SIGCOMM\/} (2011).
 
+\bibitem{ETHASH}
+Ethash.
+\newblock \url{https://github.com/ethereum/wiki/wiki/Ethash}, Last retrieved
+  June 2017.
+
 \bibitem{eyal:2014}
 Eyal, Ittay, and Sirer, Emin~G{\"u}n.
 \newblock {Majority is not enough: Bitcoin mining is vulnerable}.
