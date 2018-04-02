@@ -28,6 +28,16 @@ Corallo, Matt.
 \newblock \url{https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki},
   April 2016.
 
+\bibitem{bitcoin:difficulty}
+{Difficulty}.
+\newblock \url{http://learnmeabitcoin.com/guide/difficulty}, Feb 2015.
+
+\bibitem{Douceur:2002}
+Douceur, J.
+\newblock {The {Sybil} Attack}.
+\newblock In {\em Proc. Intl Wkshp on Peer-to-Peer Systems (IPTPS)\/} (Mar.
+  2002).
+
 \bibitem{eppstein:2011}
 Eppstein, David, Goodrich, Michael~T., Uyeda, Frank, and Varghese, George.
 \newblock {What's the Difference?: Efficient Set Reconciliation Without Prior
@@ -62,6 +72,10 @@ Hanke, Timo.
 \newblock {A Speedup for Bitcoin Mining}.
 \newblock \url{http://arxiv.org/pdf/1604.00575.pdf} (Rev. 5), March 31 2016.
 
+\bibitem{hashcash}
+Hashcash.
+\newblock \url{https://en.bitcoin.it/wiki/Hashcash}, Last retrieved June 2017.
+
 \bibitem{Heilman:2015}
 Heilman, Ethan, Kendler, Alison, Zohar, Aviv, and Goldberg, Sharon.
 \newblock {Eclipse Attacks on Bitcoin's Peer-to-peer Network}.
@@ -87,6 +101,11 @@ Russel, Rusty.
 Sapirshtein, Ayelet, Sompolinsky, Yonatan, and Zohar, Aviv.
 \newblock {Optimal Selfish Mining Strategies in Bitcoin}.
 \newblock \url{https://arxiv.org/pdf/1507.06183.pdf}, July 2015.
+
+\bibitem{Sompolinsky:2015}
+Sompolinsky, Yonatan, and Zohar, Aviv.
+\newblock {Secure high-rate transaction processing in Bitcoin}.
+\newblock {\em Financial Cryptography and Data Security\/} (2015).
 
 \bibitem{Sompolinsky:2016}
 Sompolinsky, Yonatan, and Zohar, Aviv.

@@ -104,3 +104,83 @@ edges will be traversed if there are propagation delays).  For
 convenience, in this paper, we refer to the set of (unconfirmed)
 transaction IDs that a peer knows about as the {\em IDpool}. Actual
 transaction contents are placed in the mempool.
+
+%\subsection{Bitcoin}
+%\para{Accounts.} Bitcoin users store bitcoins in accounts called {\em
+%  addresses}, which are created with an empty balance simply by
+%generating a public/private key pair. The transfer of coin between
+%addresses, via {\em transactions}, is recorded on a public ledger
+%called a {\em blockchain}. Transactions are authenticated via a
+% private key signature, and the balance of each account can be 
+%derived from the blockchain. 
+%
+%\para{Adding to the blockchain.} To be added to the blockchain,
+%transactions are broadcast by users on Bitcoin's p2p network. A set of
+%\emph{miners} on the p2p network verify that each transaction is
+%signed correctly, does not conflict with a previous transaction, does not
+%move more coin than is contained in the address, and other functions.
+%Each miner independently agglomerates a set of valid transactions into
+%a candidate \emph{block} and attempts to solve a predefined
+%cryptographic puzzle as POW, which involves data
+%from the candidate block and a specific {\em prior block}. The
+%new transactions  are only valid if they do not
+%conflict with the set of transactions that are contained in all
+%blocks that are direct ancestors.
+%
+%The first miner to solve the problem broadcasts his solution to the
+%network, and by virtue of the solution, is able to add the block to
+%the ever-growing blockchain as a child of the prior block. The miners
+%then start over, using the newly appended blockchain and the set of
+%remaining transactions. The miners' incentive for {\em discovering}
+%a new block is a reward of coins, called the {\em coinbase},
+%consisting of a predetermined {\em block reward} (currently worth 12.5 Bitcoins)
+%and fees from transactions included in the block.
+%
+%In Bitcoin, the POW computation is dynamically calibrated to take
+%approximately ten minutes per block. When transactions appear in a
+%block, they are \emph{confirmed}, and each subsequent block
+%provides additional confirmation. To announce a new block, a miner
+%lists all transactions contained in the new block along with a header
+%that contains an easily-verifiable POW solution. When a node or
+%miner receives a new block, he validates each transaction in the block
+%and the POW.
+%
+%Notably, if there is a fork on the chain, honest miners always select the prior block as the last block containing the largest amount of POW. However,
+%due to propagation delays in the network, 
+%miners can receive competing (but valid) block announcements, which
+%bifurcates the chain, until one of the two forks is appended to first.
+%
+%
+%\para{Block Headers.} 
+%Any entity can elect to be a miner for Bitcoin, and there is no
+%centralized party from whom to seek approval for mining. If all miners
+%were to simply vote on which block should be appended to the main chain, then the mining process would fall vulnerable to a Sybil
+%attack~\cite{Douceur:2002}. The POW puzzle addresses this
+%problem by performing a kind of decentralized leader election: the
+%miner that solves the puzzle can decide which block to append to the
+%chain.
+%
+%\para{Proof-of-Work.} 
+%Bitcoin uses a simple POW algorithm based on cryptographic
+%hashing, proposed earlier by Douceur~\cite{Douceur:2002}.
+%Specifically, miners apply a 256-bit cryptographic hash algorithm~\cite{hashcash} to
+%an 80-byte {\em block header}, and the puzzle is solved if the
+%resulting value is less than a known {\em target}, $0<t<2^{256}$. The
+%header in Bitcoin consists of the Merkle root of the set of
+%transactions, a timestamp, the target (stored as $2^{224}/t$), a {\em
+%  nonce}, and the hash of the prior block's header. If the hash is not
+%less than the target, then a new nonce is selected to generate a new
+%hash (the Merkle root can be adjusted as well). This process repeats
+%until some miner finds a solution.
+%  
+%Each time a nonce is selected and the block
+%header is hashed, the miner is sampling a value from a discrete uniform
+%distribution with range $[0,2^{256}-1]$. The probability of solving the POW and
+%discovering a block is the cumulative probability of selecting a value
+%from $[0,t]$, which is $t/{2^{256}}$. Hence, in expectation, the
+%number of samples needed to discover a block is ${2^{256}/t}$. Bitcoin
+%adjusts the target so that on average it takes about 600 seconds to
+%find a block. Typically, the target is described for convenience as a
+%{\em difficulty}, defined to be $D=2^{224}/t$. Bitcoin's difficulty
+%is set once every two weeks.
+
