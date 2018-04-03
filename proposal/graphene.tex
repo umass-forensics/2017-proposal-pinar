@@ -1,5 +1,5 @@
 %!TEX root = umthsmpl.tex
-\chapter{Graphene}
+\chapter{Graphene: Efficient Block Announcements}
 \label{graphene}
 
 %!TEX root = canary.tex
@@ -7,58 +7,25 @@
 In this section, we review the operation of IBLTs and summarize related work.
 %In this section, we review the operation of IBLTs that we rely on, and then summarize our differences with related work. 
 
-\subsection{Overview of IBLTs}
-\para{Overview of IBLTs.}\label{sec:iblts-explained}\label{sec:network-rate}
-We make use of Invertible Bloom Lookup Tables (IBLTs)~\cite{goodrich:2011}, which is an efficient data structure  for {\em set reconciliation} between two peers.  Like 
-  Bloom filters~\cite{Bloom:1970}, IBLTs allow
-  two parties to determine, with high probability, which values from a
-  set they share in common.  But unlike Bloom filters, IBLTs enable the
-  recovery of any missing values, which are assumed to be of fixed
-  size and encoded as binary strings.  Key-value pairs can be
-  inserted, retrieved and deleted like an ordinary hash table.  An
-  IBLT consists of $m$ entries, each storing a \texttt{count}, a
-  \texttt{keySum}, and a \texttt{valueSum}, all initialized to zero. 
-  
-  A new value $v$ is inserted into location $i=h(v)$ based on
-the hash of its value such that $i < m$.  At entry $i$, all three
-fields are incremented or xored.  
-%  In particular, standard
-%  addition is used for the \texttt{count} field, but \texttt{xor} is
-%  used to add to the \texttt{keySum} and \texttt{valueSum} fields. An
-%  item can be deleted similarly: at the correct entry, \texttt{count}
-%  is subtracted by 1, and the \texttt{valueSum} and \texttt{keySum}
-%  fields are \texttt{xor}'ed.  When $\mbox{\texttt{count}} \equiv 1$
-%  the \texttt{valueSum} field contains the actual value of the sole
-%  item remaining in the cell.  (The purpose of the \texttt{keySum}
-%  field is to support a $\mbox{\texttt{GET}}()$ operation for a given
-%  key: that is, if $\mbox{\texttt{count}} \equiv 1$ and
-%  $\mbox{\texttt{keySum}} \equiv h(v)$, then
-%  $\mbox{\texttt{valueSum}} \equiv v$.)  } 
-  IBLTs use $k > 1$ hash
-functions to store each value in $k$ entries, which we collectively call a value's \emph{entry set}.  
-If table space is sufficient, then with high probability for at least one of the $k$
-entries, $\mbox{\texttt{count}} \equiv 1$.
-%, and so \texttt{keySum} and \texttt{valueSum} fields are recoverable~\cite{goodrich:2011}.
-
-Suppose that two peers each have a list of values, $V$ and $V'$,
-respectively, such that the difference is expected to be small.  The
-first peer constructs an IBLT $L$ (with $m$ entries) from $V$.  The
-second peer constructs $V'$ from $L'$ (also having $m$ entries).
-Eppstein et al.~\cite{eppstein:2011} showed that a cell-by-cell
-difference operator can be used to efficiently compute the symmetric
-difference $L \bigtriangleup L'$.  For each pair of fields $(f, f')$,
-at each entry in $L$ and $L'$, we compute either $f \oplus f'$ or
-\mbox{$f - f'$} depending on the field type.  When
-$|\mbox{\texttt{count}}| \equiv 1$ at any entry, the corresponding
-value can be recovered.  
-% If $\mbox{\texttt{count}} \equiv 1$, then the value belongs to
-% $L \setminus L'$.  And if $\mbox{\texttt{count}} \equiv -1$, then
-% the value belongs to $L' \setminus L$.
-  Peers proceed by removing the recoverable key-value pair from all entries in the value's entry set.
-%all values corresponding to these unit counts---not only from the
-%recoverable entry, but also from all entries in the value's entry set.
-This process will generally produce new recoverable entries, and
-continues until nothing is recoverable.
+\subsection{Topology and Signaling in Blockchain Systems} 
+Bitcoin propagates new transaction and
+block announcements by flooding throughout a p2p random graph of full
+nodes and miners. Each peer in the graph requests direct connections
+to 8 other peers, and accepts requests for connections from up to 117
+other peers. A peer will offer a newly created transaction to each
+neighbor via an \inv message, which reports the hash of the
+transaction content as its ID. If a peer does not already possess the
+transaction, it will request it using a {\tt getdata} message. Blocks
+are handled similarly: \inv messages describe a block by its ID, which
+is created from the hash of the block's contents.  Upon receiving the
+\inv, peers will request the block if they do not already have it.
+Hence, in today's topology, \inv messages cross every edge in the
+random graph once, while the actual transaction and block data
+typically propagate along only a spanning tree of the graph (more
+edges will be traversed if there are propagation delays).  For
+convenience, in this paper, we refer to the set of (unconfirmed)
+transaction IDs that a peer knows about as the {\em IDpool}. Actual
+transaction contents are placed in the mempool.
 
 \subsection{Related Work} 
 %Tschorsch et al.\cite{Tschorsch:2016} and  Bonneau et al.\cite{bonneau:2015} %, and Croman et al.\cite{Croman:2016} offer summaries of broad \bc research issues. But 
@@ -114,7 +81,60 @@ and accordingly, Corallo's {\em Compact Block} design~\cite{Corallo:2016} --- wh
  %appendix.
  
  %!TEX root = canary.tex
-\section{Graphene: Efficient Block Announcements}
+ \subsection{Overview of IBLTs}
+\para{Overview of IBLTs.}\label{sec:iblts-explained}\label{sec:network-rate}
+We make use of Invertible Bloom Lookup Tables (IBLTs)~\cite{goodrich:2011}, which is an efficient data structure  for {\em set reconciliation} between two peers.  Like 
+  Bloom filters~\cite{Bloom:1970}, IBLTs allow
+  two parties to determine, with high probability, which values from a
+  set they share in common.  But unlike Bloom filters, IBLTs enable the
+  recovery of any missing values, which are assumed to be of fixed
+  size and encoded as binary strings.  Key-value pairs can be
+  inserted, retrieved and deleted like an ordinary hash table.  An
+  IBLT consists of $m$ entries, each storing a \texttt{count}, a
+  \texttt{keySum}, and a \texttt{valueSum}, all initialized to zero. 
+  
+  A new value $v$ is inserted into location $i=h(v)$ based on
+the hash of its value such that $i < m$.  At entry $i$, all three
+fields are incremented or xored.  
+%  In particular, standard
+%  addition is used for the \texttt{count} field, but \texttt{xor} is
+%  used to add to the \texttt{keySum} and \texttt{valueSum} fields. An
+%  item can be deleted similarly: at the correct entry, \texttt{count}
+%  is subtracted by 1, and the \texttt{valueSum} and \texttt{keySum}
+%  fields are \texttt{xor}'ed.  When $\mbox{\texttt{count}} \equiv 1$
+%  the \texttt{valueSum} field contains the actual value of the sole
+%  item remaining in the cell.  (The purpose of the \texttt{keySum}
+%  field is to support a $\mbox{\texttt{GET}}()$ operation for a given
+%  key: that is, if $\mbox{\texttt{count}} \equiv 1$ and
+%  $\mbox{\texttt{keySum}} \equiv h(v)$, then
+%  $\mbox{\texttt{valueSum}} \equiv v$.)  } 
+  IBLTs use $k > 1$ hash
+functions to store each value in $k$ entries, which we collectively call a value's \emph{entry set}.  
+If table space is sufficient, then with high probability for at least one of the $k$
+entries, $\mbox{\texttt{count}} \equiv 1$.
+%, and so \texttt{keySum} and \texttt{valueSum} fields are recoverable~\cite{goodrich:2011}.
+
+Suppose that two peers each have a list of values, $V$ and $V'$,
+respectively, such that the difference is expected to be small.  The
+first peer constructs an IBLT $L$ (with $m$ entries) from $V$.  The
+second peer constructs $V'$ from $L'$ (also having $m$ entries).
+Eppstein et al.~\cite{eppstein:2011} showed that a cell-by-cell
+difference operator can be used to efficiently compute the symmetric
+difference $L \bigtriangleup L'$.  For each pair of fields $(f, f')$,
+at each entry in $L$ and $L'$, we compute either $f \oplus f'$ or
+\mbox{$f - f'$} depending on the field type.  When
+$|\mbox{\texttt{count}}| \equiv 1$ at any entry, the corresponding
+value can be recovered.  
+% If $\mbox{\texttt{count}} \equiv 1$, then the value belongs to
+% $L \setminus L'$.  And if $\mbox{\texttt{count}} \equiv -1$, then
+% the value belongs to $L' \setminus L$.
+  Peers proceed by removing the recoverable key-value pair from all entries in the value's entry set.
+%all values corresponding to these unit counts---not only from the
+%recoverable entry, but also from all entries in the value's entry set.
+This process will generally produce new recoverable entries, and
+continues until nothing is recoverable.
+ 
+\section{Graphene}
 
 In this section, we detail \emph{Graphene},
 %(i.e., the pending transactions they may

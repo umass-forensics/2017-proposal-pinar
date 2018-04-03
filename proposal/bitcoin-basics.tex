@@ -1,44 +1,78 @@
 %!TEX root = umthsmpl.tex
 \chapter{Overview of Blockchain Systems}
 
+In this chapter, we describe the basic operation of blockchains using Bitcoin as an example. Other cryptocurrencies such as Litecoin and Ethereum operate similarly with minor differences.
+
 \section{Basic Operation}
 
-\para{Account balances.} A Bitcoin is a unit of currency, which is
+\para{Accounts.} A Bitcoin is a unit of currency, which is
 fungible, divisible (up to eight decimal places), and recombinable.
 It is measured as a balance across multiple accounts, which are
 themselves manifested in \emph{addresses}.$\!$\footnote{Internally,
   Bitcoins exist only as ``unspent transaction outputs'' (UTXO), but
-  users of the system think of them as balances in addresses, and that
-  view does not affect the results of this paper.  } Each address
+  users of the system think of them as balances in addresses. } Each address
 comprises a stored asymmetric cryptographic key and an associated
 balance of Bitcoin. The public portions of an address are the public
 key and the balance of coin. When an address is involved in a
 \emph{transaction} with one or more other addresses, Bitcoins are
-transferred among them.
-%Addresses are explicitly pseudonyms, and not tied to a particular individual.
-% ; further, empty addresses can be created at no cost beyond
-% generating an asymmetric key pair.
+transferred among them. Addresses are explicitly pseudonyms, and not tied to a particular 
+individual; further, empty addresses can be created at no cost beyond
+ generating an asymmetric key pair.
 
-\para{Roles.} Users wishing to exchange coins broadcast the details of
-their transactions over Bitcoin's p2p network, signed with their
-private keys. A set of \emph{miners} on the p2p network verify that
-each transaction is signed correctly and does not conflict with
-another transaction. Miners independently agglomerate a set of valid
-transactions into a \emph{block} and attempt to solve a predefined
-proof-of-work (POW) problem involving this block and a chain of prior
-valid blocks. In Bitcoin, the POW computation is dynamically
-calibrated to take approximately ten minutes per block. The first
-miner to solve the problem broadcasts his solution to the network,
-adding it to the ever-growing \emph{blockchain}; the miners then start
-over, with the appended blockchain and the set of transactions that
-were not added as part of the previous block. When transactions appear
-in a block, they are considered \emph{confirmed}, and each subsequent
-block provides additional confirmation. The miners' incentive for
-discovering a block is a reward of coins, called the {\em coinbase},
-consisting of a predetermined {\em block reward} (currently 12.5 BTC)
+\para{Adding to the blockchain.} To be added to the {\em blockchain},
+transactions are broadcast by users on Bitcoin's peer-to-peer (p2p) network. A set of
+\emph{miners} on the p2p network verify that each transaction is
+signed correctly, does not conflict with a previous transaction, does not
+move more coin than is contained in the address, and other functions.
+Each miner independently agglomerates a set of valid transactions into
+a candidate \emph{block} and attempts to solve a predefined
+cryptographic puzzle as proof-of-work (POW), which involves data
+from the candidate block and a specific {\em prior block}. The
+new transactions  are only valid if they do not
+conflict with the set of transactions that are contained in all
+blocks that are direct ancestors.
+
+The first miner to solve the problem broadcasts his solution to the
+network, and by virtue of the solution, is able to add the block to
+the ever-growing blockchain as a child of the prior block. The miners
+then start over, using the newly appended blockchain and the set of
+remaining transactions. The miners' incentive for {\em discovering}
+a new block is a reward of coins, called the {\em coinbase},
+consisting of a predetermined {\em block reward} (currently worth 12.5 Bitcoins)
 and fees from transactions included in the block.
 
-\emph{Full nodes} are peers in the network that do not mine, but do
+In Bitcoin, the POW computation is dynamically calibrated to take
+approximately ten minutes per block. When transactions appear in a
+block, they are \emph{confirmed}, and each subsequent block
+provides additional confirmation. To announce a new block, a miner
+lists all transactions contained in the new block along with a header
+that contains an easily-verifiable POW solution. When a node or
+miner receives a new block, he validates each transaction in the block
+and the POW.
+
+Notably, if there is a fork on the chain, honest miners always select the prior block as the last block containing the largest amount of POW. However, due to propagation delays in the network, it is possible for the
+miners to receive competing (but valid) block announcements, which
+bifurcates the chain, until one of the two forks is appended to
+first. It is also possible and valid for a miner to receive a set of
+blocks that retroactively rewrites many blocks; doing so is a
+demonstration of computational work that miners accept despite the age
+or depth\footnote{The \emph{depth} of a block refers to the number of blocks that follow it; the \emph{height} of a block is the number of
+blocks that precede it.} of a rewritten block.
+
+%However,
+%due to propagation delays in the network, 
+%miners can receive competing (but valid) block announcements, which
+%bifurcates the chain, until one of the two forks is appended to first.
+
+Any entity can elect to be a miner for Bitcoin, and there is no
+centralized party from whom to seek approval for mining. If all miners
+were to simply vote on which block should be appended to the main chain, then the mining process would fall vulnerable to a Sybil
+attack~\cite{Douceur:2002}. The POW puzzle addresses this
+problem by performing a kind of decentralized leader election: the
+miner that solves the puzzle can decide which block to append to the
+chain.
+
+\para{Full nodes.} {\em Full nodes} are peers in the network that do not mine, but do
 generate, validate, and propagate transactions and blocks to other
 nodes including miners. Consumers (i.e., those who purchase goods or
 services) typically have no need to process and validate all
@@ -64,46 +98,17 @@ rely on full nodes to relay transactions-of-interest.
 % forward those transactions to the SPV node.
 
 \para{Bitcoin transaction consistency.} 
-The main goal of the Bitcoin p2p network is to provide a consistent
+The main goal of the p2p network is to provide a consistent
 view of blocks and unconfirmed transactions across all network peers.
 Each peer maintains a local snapshot of the transactions in a memory
 pool dubbed the \emph{mempool}. Blocks consist of a list of
 transactions that have already (almost always) been broadcast to
 miners and full nodes in the network.
 
-To announce a new block, a miner lists all transactions contained in
-the new block along with a header that provides an easily verifiable
-\emph{proof-of-work} (POW) solution.  When a full node or miner receives a new block, it
-validates each transaction in the block and the proof of work.
-
-Due to propagation delays in the network, it is possible for the
-miners to receive competing (but valid) block announcements, which
-bifurcates the chain, until one of the two forks is appended to
-first. It is also possible and valid for a miner to receive a set of
-blocks that retroactively rewrites many blocks; doing so is a
-demonstration of computational work that miners accept despite the age
-or depth\footnote{The \emph{depth} of a block refers to the number of
-  blocks that follow it; the \emph{height} of a block is the number of
-  blocks that precede it.} of a rewritten block.
-
-\para{Topology and flooding.} Bitcoin propagates new transaction and
-block announcements by flooding throughout a p2p random graph of full
-nodes and miners. Each peer in the graph requests direct connections
-to 8 other peers, and accepts requests for connections from up to 117
-other peers. A peer will offer a newly created transaction to each
-neighbor via an \inv message, which reports the hash of the
-transaction content as its ID. If a peer does not already possess the
-transaction, it will request it using a {\tt getdata} message. Blocks
-are handled similarly: \inv messages describe a block by its ID, which
-is created from the hash of the block's contents.  Upon receiving the
-\inv, peers will request the block if they do not already have it.
-Hence, in today's topology, \inv messages cross every edge in the
-random graph once, while the actual transaction and block data
-typically propagate along only a spanning tree of the graph (more
-edges will be traversed if there are propagation delays).  For
-convenience, in this paper, we refer to the set of (unconfirmed)
-transaction IDs that a peer knows about as the {\em IDpool}. Actual
-transaction contents are placed in the mempool.
+%To announce a new block, a miner lists all transactions contained in
+%the new block along with a header that provides an easily verifiable
+%\emph{proof-of-work} (POW) solution.  When a full node or miner receives a new block, it
+%validates each transaction in the block and the proof of work.
 
 %\subsection{Bitcoin}
 %\para{Accounts.} Bitcoin users store bitcoins in accounts called {\em
@@ -114,73 +119,3 @@ transaction contents are placed in the mempool.
 % private key signature, and the balance of each account can be 
 %derived from the blockchain. 
 %
-%\para{Adding to the blockchain.} To be added to the blockchain,
-%transactions are broadcast by users on Bitcoin's p2p network. A set of
-%\emph{miners} on the p2p network verify that each transaction is
-%signed correctly, does not conflict with a previous transaction, does not
-%move more coin than is contained in the address, and other functions.
-%Each miner independently agglomerates a set of valid transactions into
-%a candidate \emph{block} and attempts to solve a predefined
-%cryptographic puzzle as POW, which involves data
-%from the candidate block and a specific {\em prior block}. The
-%new transactions  are only valid if they do not
-%conflict with the set of transactions that are contained in all
-%blocks that are direct ancestors.
-%
-%The first miner to solve the problem broadcasts his solution to the
-%network, and by virtue of the solution, is able to add the block to
-%the ever-growing blockchain as a child of the prior block. The miners
-%then start over, using the newly appended blockchain and the set of
-%remaining transactions. The miners' incentive for {\em discovering}
-%a new block is a reward of coins, called the {\em coinbase},
-%consisting of a predetermined {\em block reward} (currently worth 12.5 Bitcoins)
-%and fees from transactions included in the block.
-%
-%In Bitcoin, the POW computation is dynamically calibrated to take
-%approximately ten minutes per block. When transactions appear in a
-%block, they are \emph{confirmed}, and each subsequent block
-%provides additional confirmation. To announce a new block, a miner
-%lists all transactions contained in the new block along with a header
-%that contains an easily-verifiable POW solution. When a node or
-%miner receives a new block, he validates each transaction in the block
-%and the POW.
-%
-%Notably, if there is a fork on the chain, honest miners always select the prior block as the last block containing the largest amount of POW. However,
-%due to propagation delays in the network, 
-%miners can receive competing (but valid) block announcements, which
-%bifurcates the chain, until one of the two forks is appended to first.
-%
-%
-%\para{Block Headers.} 
-%Any entity can elect to be a miner for Bitcoin, and there is no
-%centralized party from whom to seek approval for mining. If all miners
-%were to simply vote on which block should be appended to the main chain, then the mining process would fall vulnerable to a Sybil
-%attack~\cite{Douceur:2002}. The POW puzzle addresses this
-%problem by performing a kind of decentralized leader election: the
-%miner that solves the puzzle can decide which block to append to the
-%chain.
-%
-%\para{Proof-of-Work.} 
-%Bitcoin uses a simple POW algorithm based on cryptographic
-%hashing, proposed earlier by Douceur~\cite{Douceur:2002}.
-%Specifically, miners apply a 256-bit cryptographic hash algorithm~\cite{hashcash} to
-%an 80-byte {\em block header}, and the puzzle is solved if the
-%resulting value is less than a known {\em target}, $0<t<2^{256}$. The
-%header in Bitcoin consists of the Merkle root of the set of
-%transactions, a timestamp, the target (stored as $2^{224}/t$), a {\em
-%  nonce}, and the hash of the prior block's header. If the hash is not
-%less than the target, then a new nonce is selected to generate a new
-%hash (the Merkle root can be adjusted as well). This process repeats
-%until some miner finds a solution.
-%  
-%Each time a nonce is selected and the block
-%header is hashed, the miner is sampling a value from a discrete uniform
-%distribution with range $[0,2^{256}-1]$. The probability of solving the POW and
-%discovering a block is the cumulative probability of selecting a value
-%from $[0,t]$, which is $t/{2^{256}}$. Hence, in expectation, the
-%number of samples needed to discover a block is ${2^{256}/t}$. Bitcoin
-%adjusts the target so that on average it takes about 600 seconds to
-%find a block. Typically, the target is described for convenience as a
-%{\em difficulty}, defined to be $D=2^{224}/t$. Bitcoin's difficulty
-%is set once every two weeks.
-

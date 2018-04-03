@@ -9,24 +9,25 @@
 \contentsline {section}{\numberline {2.2}Problem Statement}{6}
 \contentsline {section}{\numberline {2.3}Preliminary Work}{7}
 \contentsline {subsection}{\numberline {2.3.1}Analysis of Bitcoin's Difficulty Estimation}{7}
-\contentsline {subsection}{\numberline {2.3.2}Alternative Estimation}{10}
+\contentsline {subsection}{\numberline {2.3.2}Alternative Time-Based Estimation}{10}
 \contentsline {subsection}{\numberline {2.3.3}Comparison of Estimators}{11}
 \contentsline {section}{\numberline {2.4}Proposed Work}{12}
-\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene}}{14}
+\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{14}
 \contentsline {section}{\numberline {3.1}Background}{14}
-\contentsline {subsection}{\numberline {3.1.1}Overview of IBLTs}{14}
-\contentsline {subsection}{\numberline {3.1.2}Related Work}{15}
-\contentsline {section}{\numberline {3.2}Graphene: Efficient Block Announcements}{16}
-\contentsline {subsection}{\numberline {3.2.1}The Protocol}{16}
-\contentsline {subsection}{\numberline {3.2.2}Comparison to Compact Blocks.}{18}
-\contentsline {subsection}{\numberline {3.2.3}Empirical Evaluation}{20}
-\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Bitcoin}}{21}
-\contentsline {section}{\numberline {4.1}Background}{21}
-\contentsline {subsection}{\numberline {4.1.1}Selfish Mining and Double-Spend Attacks}{21}
-\contentsline {subsection}{\numberline {4.1.2}Related Work}{23}
-\contentsline {section}{\numberline {4.2}Problem Statement}{24}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{27}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an MDP}{27}
-\contentsline {section}{\numberline {4.4}Proposed Work}{29}
-\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{30}
-\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{31}
+\contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{14}
+\contentsline {subsection}{\numberline {3.1.2}Related Work}{14}
+\contentsline {subsection}{\numberline {3.1.3}Overview of IBLTs}{15}
+\contentsline {section}{\numberline {3.2}Graphene}{16}
+\contentsline {subsection}{\numberline {3.2.1}The Protocol}{17}
+\contentsline {subsection}{\numberline {3.2.2}Comparison to Compact Blocks.}{19}
+\contentsline {subsection}{\numberline {3.2.3}Empirical Evaluation}{21}
+\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Bitcoin}}{22}
+\contentsline {section}{\numberline {4.1}Background}{22}
+\contentsline {subsection}{\numberline {4.1.1}Selfish Mining and Double-Spend Attacks}{22}
+\contentsline {subsection}{\numberline {4.1.2}Related Work}{24}
+\contentsline {section}{\numberline {4.2}Problem Statement}{25}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{28}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an MDP}{28}
+\contentsline {section}{\numberline {4.4}Proposed Work}{30}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{31}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{32}
