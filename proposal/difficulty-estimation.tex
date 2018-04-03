@@ -102,14 +102,14 @@ D_{i+1} &= \frac{2^{224}}{T_{i+1}} \\
 &= 10\beta D_i.
 \end{align}
 
-\para{Expected value of difficulty.}
-We can talk about the expected value of a term in sequence D, given its preceding term and the new data we see. 
-\begin{align}
-\EX[D_{i+1} | D_{i}, X_1, \dots, X_{n}] &= \EX\bigg[10n D_i \frac{1}{Y}\bigg] \\
-&= 10n D_i \EX\bigg[\frac{1}{Y}\bigg] \\
-&= 10n D_i \Bigg(\frac{1}{\beta(n-1)}\Bigg) \\
-&= \frac{10n D_i}{\beta(n-1)}.
-\end{align}
+%\para{Expected value of difficulty.}
+%We can talk about the expected value of a term in sequence D, given its preceding term and the new data we see. 
+%\begin{align}
+%\EX[D_{i+1} | D_{i}, X_1, \dots, X_{n}] &= \EX\bigg[10n D_i \frac{1}{Y}\bigg] \\
+%&= 10n D_i \EX\bigg[\frac{1}{Y}\bigg] \\
+%&= 10n D_i \Bigg(\frac{1}{\beta(n-1)}\Bigg) \\
+%&= \frac{10n D_i}{\beta(n-1)}.
+%\end{align}
 %Refer to \url{https://stats.stackexchange.com/questions/139467/expected-value-of-y-1-x-where-x-sim-gamma} for proof. 
 
 \para{Variance of difficulty.}
@@ -161,12 +161,12 @@ Using our estimation of $\beta$, we can adjust the difficulty for the $i+1$th ti
 D_{i+1} &= 10 D_i \hat{\beta}.
 \end{align}
 
-\para{Expected Value of New Difficulty.}
-\begin{align}
-\EX[D_{i+1} | D_{i}, X_1, \dots, X_{n}] &= \EX[10 D_i \hat{\beta}] \\
-&= 10 D_i \EX[\hat{\beta}] \\
-&= 10 D_i\beta.
-\end{align}
+%\para{Expected Value of New Difficulty.}
+%\begin{align}
+%\EX[D_{i+1} | D_{i}, X_1, \dots, X_{n}] &= \EX[10 D_i \hat{\beta}] \\
+%&= 10 D_i \EX[\hat{\beta}] \\
+%&= 10 D_i\beta.
+%\end{align}
 
 \para{Variance of New Difficulty.}
 \begin{align}
@@ -203,36 +203,23 @@ Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>
 \begin{align}
 \frac{(10 D_i\beta)^2}{n} \leq \Bigg(\frac{10n D_i}{\beta(n-1)} - 10\beta D_i\Bigg)^2 + \frac{(10n D_i)^2}{\beta^2(n-1)^2(n-2)}
 \end{align}
-Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>2$, $0<\beta<1$ and $D_i \in \mathcal{R}$. 
+Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>2$, $0<\beta<1$ and $D_i \in \mathcal{R}$. \reminder{Add figure for Bitcoin, Litecoin, Ethereum, Bitcoin Cash, Ripple.}
 %Reduce[\frac{(10 D \beta)^2}{n} \leq \Bigg(\frac{10n D}{\beta(n-1)} - 10 \beta D\Bigg)^2 + \frac{(10n D)^2}{\beta^2(n-1)^2(n-2)}, \beta<1]
 %So, time-based estimator is indeed better.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Proposed Work}
-To extend this chapter, I propose to answer a few key questions:
+We were able to show that our estimator performs better than Bitcoin's ad-hoc method. To extend this chapter, I propose to answer a few more key questions:
 \begin{enumerate}
-\item See what window works best here, how error changes with window
+\item Analyze different attacks against our estimator. What happens when the timestamps on the blocks are reported inaccurately by an attacker? How much error can an attacker introduce?
+\item How often should difficulty be adjusted? Should a sliding window or non-overlapping window of blocks be used?
+\item Given a required error rate, what is the shortest window of time (or number of blocks) needed to estimate difficulty correctly?
+\item Given that mining power is changing, how quickly can either estimator adapt to change?
+\item Attackers can easily lie about the timestamps on the blocks with this new estimator. Therefore, an alternative estimator I plan to develop uses status reports, which is a block header except that the POW does not satisfy the current target. Instead, the minimum hash value in the report represents the hash found since the last block broadcast on
+the chain. To be clear, each status report does not directly report the minimum hash value; instead, reports are of the input values to the POW algorithm. Because attackers can't lie about their POW, an estimator based on the minimum hash value found is safer and can be used to adjust the emergency difficulty when the network fails to produce a block for an unusually long time.
+\item What are the advantages and disadvantages of status reports compared to the time-based estimator? What are the variance and MSE of the status report based estimator?
+\item What are the Chernoff bounds associated with these estimators?
 \end{enumerate}
-
-Chernoff bounds (error bars) is replaced
-What happens when you introduce time as an error
-Given a required error rate, what is the shortest window of time
-Then set the difficulty
-Sliding window or weighted sliding window
-Emergency difficulty adjuster
-How often to adjust difficulty -- what if it was every 30 mins instead of every 15 seconds 
-what are potential attacks on status reports - what are the chernoff bounds
-how to hit the 10 min mark
-
-Given that the mining power is changing, how can you quickly adopt to that?
-2 week window of target adjustment is too much
-you can totally lie about your timesteps, like put the wrong timestamp on the block you create
-are there any attacks here
-you want the target to stay challenging so you can go back and forth
-how much of the mining power do you need to shift the target
-Malicious denial-of-service attacks and we quantify them here
-
-
 
 %\paragraph*{Overview}
 
