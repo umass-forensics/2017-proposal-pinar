@@ -1,12 +1,11 @@
-%!TEX root = canary.tex
+%!TEX root = umthsmpl.tex
 
 {
 \begin{myprot}{\textbf{Graphene}}
-\label{protocol:pblt}
-\STATE \sender Sends \textit{inv} for a block.
+\STATE \sender Sends {\tt inv} for a block.
 %
 \STATE \recvr \hspace{-.1mm}Requests unknown block; includes count of txns in her IDpool, $m$.
-\STATE \sender  Sends Bloom filter \S and IBLT \I (each created from the set of $n$ txn IDs in the block) and essential Bitcoin header fields.  The FPR of the filter is $f=\frac{a}{m-n}$, where $a=n/(c\tau)$.% $a$ is determined by Eq.~\ref{eq:min.a}.
+\STATE \sender  Sends Bloom filter \S  and IBLT \I (each created from the set of $n$ txn IDs in the block) and essential Bitcoin header fields.  The FPR of the filter is $f=a/(m-n)$, where $a=n/(c\tau)$.% $a$ is determined by Eq.~\ref{eq:min.a}.
 %
 \STATE \recvr Creates IBLT $\cal{I}'$ from the txn IDs that pass through $\cal{S}$. She decodes the {\em subtraction}~\cite{eppstein:2011} of the two blocks, $\cal{I} \bigtriangleup \cal{I'}$.\end{myprot}
 }
