@@ -215,10 +215,9 @@ We were able to show that our estimator performs better than Bitcoin's ad-hoc me
 \item How often should difficulty be adjusted? Should a sliding window or non-overlapping window of blocks be used?
 \item Given a required error rate, what is the shortest window of time (or number of blocks) needed to estimate difficulty correctly?
 \item Given that mining power is changing, how quickly can either estimator adapt to change?
-\item Attackers can easily lie about the timestamps on the blocks with this new estimator. Therefore, an alternative estimator I plan to develop uses status reports, which is a block header except that the POW does not satisfy the current target. Instead, the minimum hash value in the report represents the hash found since the last block broadcast on
-the chain. To be clear, each status report does not directly report the minimum hash value; instead, reports are of the input values to the POW algorithm. Because attackers can't lie about their POW, an estimator based on the minimum hash value found is safer and can be used to adjust the emergency difficulty when the network fails to produce a block for an unusually long time.
-\item What are the advantages and disadvantages of status reports compared to the time-based estimator? What are the variance and MSE of the status report based estimator?
-\item What are the Chernoff bounds associated with these estimators?
+\item Attackers can easily lie about the timestamps on the blocks with our new estimator. Therefore, an alternative estimator I plan to develop uses status reports, which is a block header except that the POW does not satisfy the current target. Instead, the minimum hash value in the report represents the hash found since the last block broadcast on
+the chain. To be clear, each status report does not directly report the minimum hash value; instead, reports are of the input values to the POW algorithm. Because attackers can't lie about their POW, an estimator based on the minimum hash value is safer and can be used to adjust the emergency difficulty when the network fails to produce a block for an unusually long time. What is the variance and MSE of the status report based estimator?
+\item What are the advantages and disadvantages of status reports compared to the time-based estimator? \item What are the Chernoff bounds associated with these estimators?
 \end{enumerate}
 
 %\paragraph*{Overview}
