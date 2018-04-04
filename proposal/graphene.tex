@@ -5,6 +5,7 @@
 \section{Background}
 In this section, we describe the signaling mechanism behind blockchain systems, explain the operation of IBLTs and summarize related work.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Topology and Signaling in Blockchain Systems} 
 Bitcoin propagates new transaction and
 block announcements by flooding throughout a p2p random graph of full
@@ -25,6 +26,7 @@ convenience, we refer to the set of (unconfirmed)
 transaction IDs that a peer knows about as the {\em IDpool}. Actual
 transaction contents are placed in the mempool.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Related Work} 
 The main limitation we are addressing with Graphene is the inefficiency of blockchain systems in disseminating block data.  A block announcement
 must be validated using  the transaction content comprising the block.  However, it is likely that the majority of the
@@ -45,6 +47,7 @@ and accordingly, Corallo's {\em Compact Block} design~\cite{Corallo:2016} --- wh
  receiver to recreate the block.
  As a result, Xtreme Thinblocks are larger than Compact Blocks but require just 2 roundtrip times. Relatedly, the community has discussed in forums the use of IBLTs (alone) for reducing block announcements\cite{andresen:2014,Russel:2014}, but these schemes have not been formally evaluated and are less efficient than our approach. Our novel method, which we prove and demonstrate is smaller than all of these recent works, requires just 2 roundtrip times for coordination.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \subsection{Overview of IBLTs}
 We make use of Invertible Bloom Lookup Tables (IBLTs)~\cite{goodrich:2011}, which is an efficient data structure  for {\em set reconciliation} between two peers.  Like 
   Bloom filters~\cite{Bloom:1970}, IBLTs allow
@@ -95,6 +98,7 @@ value can be recovered.
 This process will generally produce new recoverable entries, and
 continues until nothing is recoverable.
  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Graphene}
 
 In this section, we detail \emph{Graphene},
@@ -106,6 +110,7 @@ learns the set of specific transaction IDs that are contained in a
 
 \input{graphene-protocol}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Protocol}
 The intuition behind Graphene is as follows. The sender creates an IBLT \I
 from the set of transaction (txn) IDs in the block. To help the receiver
@@ -195,27 +200,6 @@ still very small). In our simulations, presented in the next section,
 this doubling was sufficient for the incredibly  few IBLTs that 
 failed.
 
-%\para{Example.} A receiver with an IDpool of $m=4000$ transactions
-%makes a request for a new block that has $n=2000$ transactions. The
-%value of $a$ that minimizes the cost is $a=n/(c\tau)=31.5$. The sender
-%creates a Bloom filter \S with $f=\frac{a}{m-n}=31.5/2000= 0.01577$,
-%with total size of $2000\times \frac{-ln( 0.01577)}{c}=2.1$KB.  The
-%sender also creates an IBLT with $a$ cells, totaling $16.5a=521B$. In
-%sum, a total of $2160B+521B=2.6KB$ bytes are sent.  The receiver
-%creates an IBLT of the same size, and using the technique introduced
-%in Eppstein et al.\cite{eppstein:2011}, the receiver subtracts one
-%IBLT from the other before decoding.
-
-
-%\subsection{Comparison to Compact Blocks}\label{sec:cbs}
-
-% Xtreme Thinblocks work as follows. After receiving an {\tt inv} for a
-% block, the receiver creates a Bloom filter of her mempool with FPR
-% $f=1/n$, where $n$ is the number of transactions in the block. The
-% sender then sends a \textit{thinblock transaction} that contains
-% block header information, all transaction IDs in the block and any
-% transactions that do not pass through the Bloom filter, enabling the
-% receiver to recreate the block.
 {\begin{myprot}{\textbf{CompactBlocks}}
 \label{protocol:compact}
 \STATE \sender Sends {\tt inv} for a block that has $n$ txns.
@@ -224,18 +208,19 @@ failed.
 \STATE \recvr Recreates the block and requests missing txns if there exist any.
 \end{myprot}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison to Compact Blocks} 
-Compact Blocks\cite{Corallo:2016} is to our knowledge the best-performing related work. It has several modes of operation. 
+Compact Blocks\cite{Corallo:2016} is to our knowledge the best-performing related work. It has several modes of operation, and 
 %The receiver has the
 %option of switching between three modes via a message to the sender:
 %\textit{Legacy Relaying}, \textit{High Bandwidth Relaying} and
 %\textit{Low Bandwidth Relaying}. 
-We examined the  \textit{Low Bandwidth
+we examined the \textit{Low Bandwidth
   Relaying} mode due to its bandwidth efficiency, which operates as follows. 
 %The receiver sends a message indicating the mode she wants to communicate in. 
 After fully
-validating a new block, the sender sends an {\tt inv}, for which the receiver sends a $getdata$ message if she
-doesn't have the block. The sender then sends a \textit{compact block}
+validating a new block, the sender sends an {\tt inv}, for which the receiver sends a {\tt getdata} message if she
+doesn't have the block. The sender then sends a {\tt compact block}
 that contains block header information, all  transaction IDs (shortened to 5 bytes)
 in the block, and any transactions that he predicts the receiver does
 not have (e.g., the coinbase). If the receiver still has missing transactions, she requests
@@ -243,27 +228,6 @@ them via an {\tt inv} message. Protocol~\ref{protocol:compact} outlines
 this  mode of Compact Blocks. The main difference between Graphene and Compact Blocks is that instead of
 sending a Bloom filter and an IBLT, the sender sends block header
 information and all shortened transaction IDs to the receiver. 
- 
-%{\relsize{-1}
-%\begin{myprot}{\textbf{XtremeThinblocks}$()$}
-%\label{protocol:distributed_mix}
-%\STATE \sender Sends {\tt inv} for a block or status report that has $n$ transactions.
-%\STATE \recvr If block is not in mempool, sends Bloom filter \R of their mempool. The FPR of the filter is $f=\frac{1}{n}$.
-%\STATE \sender Sends the block header information, all transaction IDs in the block and any transactions that do not pass through \R.
-%\STATE \recvr Recreates the block with additional information, and requests missing transactions if there exist any.
-%\end{myprot}
-%}
-
-% In comparison, for the same parameters as the example above, Xtreme
-% thinblocks will send a Bloom filter that is $m\frac{-\log(1/n)}{c}$
-% bytes and a list of all other transaction IDs. In this running
-% example, the cost is $4000\times\frac{-ln(1/2000)}{c}=7918B$ with an
-% additional $n*5B=10000B$ list of all $n$ transaction IDs, totaling
-% 17.5KB. In this example, Xtreme Thinblocks are over 660\% the size
-% of Graphene blocks.
-%% One can verify that in no scenario are Xtreme Thinblocks more
-%% efficient.
-
 
 A detailed example of how to calculate the size of each scheme is below; but we can state more generally the following result. For a
 block of $n$ transactions, Compact Blocks costs $5n$ bytes. For both
@@ -274,39 +238,15 @@ such that $m \geq n$. Assuming that $m > 0$ and $n > 0$, the following
 inequality must hold for Graphene to outperform Compact Blocks: 
 \begin{eqnarray}
 n\frac{-\ln(\frac{a}{m-n})}{c}+ a\tau &<& 5n\\
-n&>& \frac{m}{1287670}
+n&>& \frac{m}{1287670}.
 \end{eqnarray}
-%After algebraic simplification %, given that $a=n/(c\tau)$ and that $c$ and $\tau$ are constants,  
-%the above shows that our scheme is strictly smaller  whenever  .
-%
-%\begin{align} \label{eq:graphene-size}
-%n\frac{-\ln(\frac{a}{m-n})}{c}+ a\tau &< 5n \\
-%n\frac{-\ln(\frac{(n/(c\tau))}{m-n})}{c}+ \frac{n}{c\tau}\tau &< 5n \\
-%\frac{-\ln(\frac{(n/(c\tau))}{m-n})}{c}+ \frac{1}{c} &< 5 \\
-%-\ln\Big(\frac{n/c\tau}{m-n}\Big)+ 1 &< 5c \\
-%-\ln\Big(\frac{n/c\tau}{m-n}\Big) &< 5c -1 \\
-%\ln\Big(\frac{n/c\tau}{m-n}\Big) &> 1-5c \\
-%\frac{n/c\tau}{m-n} &> e^{1-5c} \\
-%\frac{n}{(m-n)c\tau} &> e^{1-5c} \\
-%\frac{n}{m-n} &> (c\tau) e^{1-5c}  \\
-%\frac{1}{(c\tau) e^{1-5c}} &>\frac{m-n}{n}   \\
-%1,287,669 &>\frac{m}{n} -1  \\
-%1,287,670 &>\frac{m}{n}  \\
-%n>\frac{m}{1,287,670 }
-%%\frac{1}{(c\tau) e^{1-5c}} &\geq\frac{m}{n}-1   \\
-%%\frac{1}{(c\tau) e^{1-5c}}+1 &\geq\frac{m}{n}   \\
-%%n &\geq\frac{m}{\frac{1}{(c\tau) e^{1-5c}}+1}  \\
-%%n &\geq\frac{m}{1287670} 
-%\end{align}
 In other words, Graphene is strictly more efficient than Compact Blocks {\em unless} the  set of unconfirmed transactions held by peers  is 1,287,670 times larger than the block size (e.g.,  over 22 billion unconfirmed transactions for the current block size.)  Finally, we note that Xtreme Thinblocks~\cite{Tschipper:2016} are  strictly larger than Compact Blocks since they contain all IDs and a Bloom filter, and therefore Graphene performs strictly better than Xtreme Thinblocks as well. 
-
-In Section~\ref{sec:eval}, we provide specific empirical results from network simulation, where we use real IBLTs and Bloom filters to evaluate Graphene and Compact Blocks.
 
 \para{Example.} A receiver with an IDpool of $m=4000$ transactions
 makes a request for a new block that has $n=2000$ transactions. The
 value of $a$ that minimizes the cost is $a=n/(c\tau)=31.5$. The sender
-creates a Bloom filter \S with $f=\frac{a}{m-n}=31.5/2000= 0.01577$,
-with total size of $2000\times \frac{-ln( 0.01577)}{c}=2.1$~KB.  The
+creates a Bloom filter \S with $f=a/(m-n)=31.5/2000= 0.01577$,
+with total size of $2000\times -ln(0.01577)/c=2.1$~KB.  The
 sender also creates an IBLT with $a$ cells, totaling $16.5a=521B$. In
 sum, a total of $2160B+521B=2.6$~KB bytes are sent.  The receiver
 creates an IBLT of the same size, and using the technique introduced
@@ -325,6 +265,8 @@ the list will be $n\log_2(n)$ bits long.  Even with this extra data, our approac
 %In the next section, we show the results of hundreds of simulations of
 %the full \bc system. In all trials, Compact Blocks are vastly more
 %expensive than Graphene.
+
+%In Section~\ref{sec:eval}, we provide specific empirical results from network simulation, where we use real IBLTs and Bloom filters to evaluate Graphene and Compact Blocks.
 
 \subsection{Empirical Evaluation}
 
