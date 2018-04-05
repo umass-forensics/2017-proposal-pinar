@@ -6,7 +6,7 @@ In this section, we describe double-spend and selfish mining attacks on blockcha
 
 \subsection{Selfish Mining}
 
-The standard Bitcoin protocol requires miners to broadcast a block they mined immediately. However, in the case of {\em selfish mining}, a miner purposefully withholds his blocks. The motivation is to bifurcate the chain and waste the computational resources of the honest miners should the network decide to build on the attacker's chain. An attacker can't profit economically since the number of blocks that can be created by a miner depends on the fraction of the mining power he has. However, selfish mining discards the honest miners' blocks, by releasing an alternative chain that takes over the current longest chain. If a selfish mining attack is successful, the selfish miners own a higher fraction of the blocks on the main chain because some portion of the blocks created by the honest network go to waste.
+The standard Bitcoin protocol requires miners to broadcast a block they mined immediately. However, in the case of {\em selfish mining}, a miner deliberately withholds transaction information. The motivation is to bifurcate the chain and waste the computational resources of the honest miners should the network decide to build on the attacker's chain. An attacker can't profit economically since the number of blocks that can be created by a miner depends on the fraction of the mining power he has. However, selfish mining discards the honest miners' blocks, by releasing an alternative chain that takes over the current longest chain. If a selfish mining attack is successful, the selfish miners own a higher fraction of the blocks on the main chain because some portion of the blocks created by the honest network go to waste.
 
 Eyal et al.~\cite{eyal:2014} modeled selfish mining using a Markov chain. Then Sapirshtein et al.~\cite{sapirshtein:2015} created a more complex model using a Markov decision process (MDP) for selfish mining and computed the $\epsilon$-optimal policy that increases a selfish miner's revenue. Recently, Gervais et al.~\cite{Gervais:2016} incorporated additional parameters such as network conditions and Bitcoin settings into the MDP to study the affects of such parameters on the attacker's policy. %that affect  attacker strategy, including mining power, block depth, connectivity, and the impact of eclipse attacks.
 
@@ -50,85 +50,56 @@ More recent work extends the scope of double-spends that can benefit from selfis
 %for attacker cost as a function of mining duration.  
 
 \section{Problem Statement}
-%In this project, we study a form of adversarial behavior in cryptocurrencies. Known as selfish mining, this behavior involves the deliberate withholding of transaction information. 
-The hash rate of miners is the primary quantitative factor that determines the security of any POW based blockchain consensus algorithm. Most analyses generally assume that the hash rate of honest and malicious miners is known.
-We study whether an attacker who wants to perform selfish mining or double-spending could use a reinforcement learning method to search for the optimal strategy. Furthermore, we compare the optimal policy found by RL algorithms to those cited in previous work.
+The hash rate of miners is the primary quantitative factor that determines the security of any POW based blockchain consensus algorithm. For example, recent MDP models of selfish mining and double-spending assume that the hash rate of honest and malicious miners is known. However, hash rate estimation in blockchain systems can introduce error into these models. 
 
-\para{Parametrization of $\beta$.}
-Let $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$, where $\beta = 1/\lambda$. The MLE estimator for $\beta$ is
-\begin{align}
-\hat{\beta} = \frac{\sum_{i=1}^{n} X_i}{n}
-\end{align}
-The expected value of the estimator is 
-\begin{align}
-\EX[\hat{\beta} | \beta] &= \frac{1}{n}\EX \Bigg[\sum_{i=1}^{n} X_i \Bigg] \\
-&= \frac{1}{n}n\beta \\
-&= \beta
-\end{align}
-This estimator \textit{not} biased. The bias is
-\begin{align}
-\text{bias}(\hat{\beta}) &= \EX[\hat{\beta} | \beta] - \beta \\
-&= \beta - \beta \\
-&= 0
-\end{align}
-The variance of the estimator is
-\begin{align}
-\text{Var}(\hat{\beta}) &= \text{Var}\Bigg(\frac{\sum_{i=1}^{n} X_i}{n}\Bigg) \\
-&= \frac{1}{n^2} \text{Var}\Bigg(\sum_{i=1}^{n} X_i\Bigg) \\
-&= \frac{1}{n^2} n\beta^2\\
-&= \frac{1}{n}\beta^2
-\end{align}
-Ideally, in Bitcoin $\beta = 1/10$ mins and in Ethereum $\beta = 1/15$ secs. Note that the variance increases with more data (more inter-arrival times).
-
-\para{Understanding the Relationship Between Hash Rate and $\beta$.}
 Given target $T_i$, the expected number of hashes, $h$, needed to meet the target for a block is
 \begin{align}
-\EX[h] = \frac{2^{256}-1}{T_i}
+\EX[h] = \frac{2^{256}-1}{T_i}.
 \end{align}
-However, $\EX[h]$ describes the \textit{total} number of expected hashes needed to find a block. We have observations regarding the \textit{time} it takes to generate a block. Let $r$ be the hash rate of the network in minutes (or the number of hashes per time unit), and $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$, where $\beta = 1/\lambda$. Note that $\lambda r$ is the expected number of hashes each time a block is created.  %We do not know the real value of $\beta$ but can use the estimator in eq. 1.
+$\EX[h]$ describes the \textit{total} number of expected hashes needed to find a block. We have observations regarding the \textit{time} it takes to generate a block. Let $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$ with $\beta = 1/\lambda$. Note that in this scenario, $X$ is a random variable representing the inter-arrival time of blocks discovered by a {\em single miner}. We could also estimate the network-wide hash rate if we used {\em all} blocks instead of those by a specific miner. In Section~\ref{sec:time-based}, we have shown that the unbiased MLE estimator for $\beta$ is equation~\ref{eq:beta-hat}. Let $r$ be the hash rate of the network in minutes (or the number of hashes per time unit), and $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$, where $\beta = 1/\lambda$. We can use our estimate, $\hat{\beta}$, of $\beta$ to calculate a given miner's hash rate.
+%Note that $\lambda r$ is the expected number of hashes each time a block is created 
 \begin{align}
 \EX[h] = r \lambda &= r \frac{1}{\beta}  \\
-r &= \EX[h] \beta
+r &= \EX[h] \hat{\beta}
 \end{align}
-
-\para{Expected Value of Hash Rate.}
-\begin{align}
-\EX[r|T_i,X_1,...,X_n] &= \EX\bigg[\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg] \\
-&= \frac{(2^{256}-1)}{T_i}\EX[\hat{\beta}] \\
-&= \frac{(2^{256}-1)\beta}{T_i}
-\end{align}
-
-\para{Variance of Hash Rate.}
+The hash rate computed for a specific miner,  
+given target $T_i$ and $n$ inter-arrival times for $n+1$ blocks discovered by the miner is 
+%\para{Expected Value of Hash Rate.}
+%\begin{align}
+%\EX[r|T_i,X_1,...,X_n] &= \EX\bigg[\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg] \\
+%&= \frac{(2^{256}-1)}{T_i}\EX[\hat{\beta}] \\
+%&= \frac{(2^{256}-1)\beta}{T_i}
+%\end{align}
+%
+%\para{Variance of Hash Rate.}
 \begin{align}
 \text{Var}(r|T_i,X_1,...,X_n) &= \text{Var}\bigg(\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg) \\
 &= \frac{(2^{256}-1)^2}{T_i^2} \text{Var}(\hat{\beta}) \\
-&= \frac{(2^{256}-1)^2\beta^2}{T_i^2n}
+&= \frac{(2^{256}-1)^2\beta^2}{T_i^2n}.
 \end{align}
 
-\para{Bias of Hash Rate.}
-\begin{align}
-\text{bias}(r|T_i,X_1,...,X_n) &= \EX[r|T_i,X_1,...,X_n] - r \\
-&= \frac{(2^{256}-1)\beta}{T_i} - \frac{(2^{256}-1)\beta}{T_i} \\
-&= 0
-\end{align}
-
-The variance for estimating the miner hash rate is huge! You'd require more blocks than those that are in the blockchain to reduce variance! Therefore, let's use RL. 
+%\para{Bias of Hash Rate.}
+%\begin{align}
+%\text{bias}(r|T_i,X_1,...,X_n) &= \EX[r|T_i,X_1,...,X_n] - r \\
+%&= \frac{(2^{256}-1)\beta}{T_i} - \frac{(2^{256}-1)\beta}{T_i} \\
+%&= 0
+%\end{align}
 
 \para{Example.}
-The current Bitcoin difficulty, $D_i$, is $1,590,896,927,258 \approx 2^{40}$. This means the current target, $T_i$, is
+The current Bitcoin difficulty, $D_i$, is $1,590,896,927,258 \approx 2^{40}$. Therefore, the current target, $T_i$, is
 \begin{align}
 T_i &= \frac{2^{224}}{D_i} = \frac{2^{224}}{2^{40}} \\
-&\approx 2^{184}
+&\approx 2^{184}.
 \end{align}
-Then approximately the variance associated with the hash rate is 
+Then the variance associated with the hash rate approximately is
 \begin{align}
 \text{Var}(r|T_i,X_1,...,X_n) &= \frac{(2^{256}-1)^2\beta^2}{T_i^2n} \\
 &\approx  \frac{(2^{256})^2\beta^2}{T_i^2n} \\
 &\approx  \frac{(2^{256})^2\beta^2}{(2^{184})^2n} \\
 &\approx  \frac{2^{512}\beta^2}{2^{368}n} \\
-&\approx  2^{144}\frac{\beta^2}{n}
+&\approx  2^{144}\frac{\beta^2}{n}.
 \end{align}
-A huge number no matter what $\beta$ or $n$ is!
+The variance associated with estimating hash rate for a miner is large for $0 \leq \beta \leq 1$ and for any $n$. We need more blocks than those that are on the Bitcoin blockchain to reduce variance. Reinforcement Learning (RL) provides a solution to this problem because it assumes that an agents acts in an environment where there is uncertainty. Therefore, we use RL methods to search for the optimal strategies for an attacker, who wants to perform selfish mining or double-spending attacks. Then we compare the optimal policy found by RL algorithms to those cited in previous work.
 
 \section{Preliminary Work}
 \subsection{Formulating the Problem as an MDP}

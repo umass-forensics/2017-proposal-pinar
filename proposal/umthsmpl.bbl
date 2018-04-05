@@ -54,12 +54,6 @@ Eyal, Ittay, and Sirer, Emin~G{\"u}n.
 \newblock {Majority is not enough: Bitcoin mining is vulnerable}.
 \newblock {\em Financial Cryptography\/} (2014), 436--454.
 
-\bibitem{Feller:1968}
-Feller, William.
-\newblock {\em An Introduction to Probability Theory and its Applications:
-  Volume I}, 3~ed.
-\newblock John Wiley \& Sons London-New York-Sydney-Toronto, 1968.
-
 \bibitem{Gervais:2016}
 Gervais, Arthur, O.~Karame, Ghassan, Wust, Karl, Glykantzis, Vasileios,
   Ritzdorf, Hubert, and Capkun, Srdjan.
@@ -90,11 +84,6 @@ Heilman, Ethan, Kendler, Alison, Zohar, Aviv, and Goldberg, Sharon.
 Nakamoto, Satoshi.
 \newblock {Bitcoin: A Peer-to-Peer Electronic Cash System}, May 2009.
 
-\bibitem{Rosenfeld:2012}
-Rosenfeld, Meni.
-\newblock Analysis of hashrate-based double-spending.
-\newblock \url{https://bitcoil.co.il/Doublespend.pdf}, December 2012.
-
 \bibitem{Russel:2014}
 Russel, Rusty.
 \newblock Playing with invertible bloom lookup tables and bitcoin transactions.
@@ -123,12 +112,5 @@ Tschipper, Peter.
 \newblock
   \url{https://bitco.in/forum/threads/buip010-passed-xtreme-thinblocks.774/},
   Jan 2016.
-
-\bibitem{Vukolic:2015}
-Vukoli{\'c}, Marko.
-\newblock {The quest for scalable blockchain fabric: Proof-of-work vs. BFT
-  replication}.
-\newblock In {\em Wkshop Open Problems in Network Security\/} (2015),
-  pp.~112--125.
 
 \end{thebibliography}

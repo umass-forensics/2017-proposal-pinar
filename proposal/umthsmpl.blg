@@ -11,45 +11,45 @@ Repeated entry---line 2841 of file umthsmpl.bib
  : @misc{nakamoto:2009
  :                    ,
 I'm skipping whatever remains of this entry
-You've used 24 entries,
+You've used 21 entries,
             2249 wiz_defined-function locations,
-            659 strings with 7238 characters,
-and the built_in function-call counts, 6133 in all, are:
-= -- 574
-> -- 247
+            640 strings with 6774 characters,
+and the built_in function-call counts, 5292 in all, are:
+= -- 490
+> -- 226
 < -- 0
-+ -- 105
-- -- 80
-* -- 330
-:= -- 996
-add.period$ -- 67
-call.type$ -- 24
-change.case$ -- 110
++ -- 95
+- -- 74
+* -- 291
+:= -- 869
+add.period$ -- 58
+call.type$ -- 21
+change.case$ -- 98
 chr.to.int$ -- 0
-cite$ -- 24
-duplicate$ -- 232
-empty$ -- 590
-format.name$ -- 80
-if$ -- 1324
+cite$ -- 21
+duplicate$ -- 190
+empty$ -- 505
+format.name$ -- 74
+if$ -- 1133
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 10
-newline$ -- 118
-num.names$ -- 46
-pop$ -- 196
+int.to.str$ -- 21
+missing$ -- 7
+newline$ -- 103
+num.names$ -- 40
+pop$ -- 173
 preamble$ -- 1
-purify$ -- 89
+purify$ -- 80
 quote$ -- 0
-skip$ -- 186
+skip$ -- 154
 stack$ -- 0
-substring$ -- 235
-swap$ -- 40
+substring$ -- 187
+swap$ -- 29
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 94
+type$ -- 84
 warning$ -- 0
-while$ -- 56
-width$ -- 26
-write$ -- 229
+while$ -- 47
+width$ -- 23
+write$ -- 198
 (There were 2 error messages)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  5 APR 2018 17:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  5 APR 2018 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -698,9 +698,9 @@ Package pdftex.def Info: Requested size: 216.81pt x 173.44933pt on input line 3
 Chapter 4.
 [25
 
-] [26] [27] [28] [29] [30] [31]) (./timeline.tex [32]
+] [26] [27] [28] [29] [30]) (./timeline.tex [31]
 Chapter 5.
-) (./umthsmpl.bbl [33
+) (./umthsmpl.bbl [32
 
 ]
 Underfull \hbox (badness 7522) in paragraph at lines 19--24
@@ -720,31 +720,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--24
 -[]be-[]confirmed/$\OT1/cmr/m/n/12 ,
  []
 
-[34
+[33
 
 ]
-Underfull \hbox (badness 6876) in paragraph at lines 99--104
+Underfull \hbox (badness 6876) in paragraph at lines 88--93
 \OT1/cmr/m/n/12 trans-ac-tions.  $\OT1/cmtt/m/n/12 http : / / rustyrussell . gi
 thub . io / pettycoin / 2014 / 11 / 05 /
  []
 
 
-Overfull \hbox (20.60774pt too wide) in paragraph at lines 99--104
+Overfull \hbox (20.60774pt too wide) in paragraph at lines 88--93
 \OT1/cmtt/m/n/12 Playing-[]with-[]invertible-[]bloom-[]lookup-[]tables-[]and-[]
 bitcoin-[]transactions .
  []
 
-) [35] (./umthsmpl.aux)
+) [34] (./umthsmpl.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 12902 strings out of 492990
- 242093 string characters out of 6132635
- 283450 words of memory out of 5000000
- 16293 multiletter control sequences out of 15000+600000
+ 12900 strings out of 492990
+ 242071 string characters out of 6132635
+ 284463 words of memory out of 5000000
+ 16291 multiletter control sequences out of 15000+600000
  546978 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,19n,33p,10359b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -771,10 +771,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on umthsmpl.pdf (44 pages, 314517 bytes).
+Output written on umthsmpl.pdf (43 pages, 310914 bytes).
 PDF statistics:
- 251 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
+ 248 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
