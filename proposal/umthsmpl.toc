@@ -23,11 +23,11 @@
 \contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{21}
 \contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Bitcoin}}{25}
 \contentsline {section}{\numberline {4.1}Background}{25}
-\contentsline {subsection}{\numberline {4.1.1}Selfish Mining and Double-Spend Attacks}{25}
-\contentsline {subsection}{\numberline {4.1.2}Related Work}{27}
-\contentsline {section}{\numberline {4.2}Problem Statement}{28}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{31}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an MDP}{31}
-\contentsline {section}{\numberline {4.4}Proposed Work}{33}
-\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{34}
-\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{35}
+\contentsline {subsection}{\numberline {4.1.1}Selfish Mining}{25}
+\contentsline {subsection}{\numberline {4.1.2}Double Spending}{26}
+\contentsline {section}{\numberline {4.2}Problem Statement}{27}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{30}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an MDP}{30}
+\contentsline {section}{\numberline {4.4}Proposed Work}{32}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{33}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{34}
