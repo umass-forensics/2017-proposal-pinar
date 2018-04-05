@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  4 APR 2018 20:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  4 APR 2018 21:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -681,19 +681,19 @@ he in-ef-fi-ciency of blockchain
 <graphs/graphene.pdf, id=119, pagebox=cropbox, 433.62pt x 289.08pt>
 File: graphs/graphene.pdf Graphic file (type pdf)
 <use graphs/graphene.pdf>
-Package pdftex.def Info: graphs/graphene.pdf  used on input line 288. on input 
-line 288.
+Package pdftex.def Info: graphs/graphene.pdf  used on input line 290. on input 
+line 290.
 Package pdftex.def Info: Requested size: 368.57964pt x 245.73238pt on input lin
-e 288.
+e 290.
  [22 <./graphs/graphene.pdf>]
 <graphs/sim-proto-results-wo-txns.pdf, id=130, pagebox=cropbox, 361.35pt x 289.
 08pt>
 File: graphs/sim-proto-results-wo-txns.pdf Graphic file (type pdf)
 <use graphs/sim-proto-results-wo-txns.pdf>
 Package pdftex.def Info: graphs/sim-proto-results-wo-txns.pdf  used on input li
-ne 314. on input line 314.
+ne 316. on input line 316.
 Package pdftex.def Info: Requested size: 216.81pt x 173.44933pt on input line 3
-14.
+16.
  [23 <./graphs/sim-proto-results-wo-txns.pdf>]) (./selfishRL.tex [24]
 Chapter 4.
 [25
@@ -779,7 +779,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on umthsmpl.pdf (45 pages, 316628 bytes).
+Output written on umthsmpl.pdf (45 pages, 316716 bytes).
 PDF statistics:
  254 PDF objects out of 1000 (max. 8388607)
  179 compressed objects within 2 object streams

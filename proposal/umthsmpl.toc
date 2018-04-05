@@ -19,7 +19,7 @@
 \contentsline {subsection}{\numberline {3.1.3}Overview of IBLTs}{16}
 \contentsline {section}{\numberline {3.2}Graphene}{17}
 \contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{19}
-\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{19}
+\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{20}
 \contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{21}
 \contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Bitcoin}}{25}
 \contentsline {section}{\numberline {4.1}Background}{25}
