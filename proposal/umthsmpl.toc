@@ -27,7 +27,7 @@
 \contentsline {subsection}{\numberline {4.1.2}Double Spending}{26}
 \contentsline {section}{\numberline {4.2}Problem Statement}{27}
 \contentsline {section}{\numberline {4.3}Preliminary Work}{29}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an MDP}{29}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{29}
 \contentsline {section}{\numberline {4.4}Proposed Work}{31}
 \contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{32}
 \contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{33}
