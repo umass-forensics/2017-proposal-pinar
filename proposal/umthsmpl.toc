@@ -21,7 +21,7 @@
 \contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{19}
 \contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{20}
 \contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{21}
-\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Bitcoin}}{25}
+\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Blockchain Systems}}{25}
 \contentsline {section}{\numberline {4.1}Background}{25}
 \contentsline {subsection}{\numberline {4.1.1}Selfish Mining}{25}
 \contentsline {subsection}{\numberline {4.1.2}Double Spending}{26}
