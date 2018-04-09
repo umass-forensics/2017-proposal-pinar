@@ -2,32 +2,32 @@
 \contentsline {FrontMatter}{\MakeTextUppercase {List of Tables}}{viii}
 \contentsline {FrontMatter}{\MakeTextUppercase {List of Figures}}{ix}
 \contentsline {Chapter}{\MakeTextUppercase {Introduction}}{1}
-\contentsline {Chapter}{\numberline {1.}\MakeTextUppercase {Overview of Blockchain Systems}}{2}
-\contentsline {section}{\numberline {1.1}Basic Operation}{2}
-\contentsline {Chapter}{\numberline {2.}\MakeTextUppercase {Difficulty Estimation}}{5}
-\contentsline {section}{\numberline {2.1}POW in Blockchain Systems}{5}
-\contentsline {section}{\numberline {2.2}Problem Statement}{6}
-\contentsline {section}{\numberline {2.3}Preliminary Work}{7}
-\contentsline {subsection}{\numberline {2.3.1}Analysis of Bitcoin's Difficulty Estimation}{7}
-\contentsline {subsection}{\numberline {2.3.2}Alternative Time-Based Estimation}{10}
-\contentsline {subsection}{\numberline {2.3.3}Comparison of Estimators}{11}
-\contentsline {section}{\numberline {2.4}Proposed Work}{12}
-\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{14}
-\contentsline {section}{\numberline {3.1}Background}{14}
-\contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{14}
-\contentsline {subsection}{\numberline {3.1.2}Related Work}{15}
-\contentsline {subsection}{\numberline {3.1.3}Overview of IBLTs}{16}
-\contentsline {section}{\numberline {3.2}The Protocol}{17}
-\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{19}
-\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{20}
-\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{21}
-\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Blockchain Systems}}{25}
-\contentsline {section}{\numberline {4.1}Background}{25}
-\contentsline {subsection}{\numberline {4.1.1}Selfish Mining}{25}
-\contentsline {subsection}{\numberline {4.1.2}Double Spending}{26}
-\contentsline {section}{\numberline {4.2}Problem Statement}{27}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{29}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{29}
-\contentsline {section}{\numberline {4.4}Proposed Work}{31}
-\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{33}
-\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{34}
+\contentsline {Chapter}{\numberline {1.}\MakeTextUppercase {Overview of Blockchain Systems}}{4}
+\contentsline {section}{\numberline {1.1}Basic Operation}{4}
+\contentsline {Chapter}{\numberline {2.}\MakeTextUppercase {Difficulty Estimation}}{7}
+\contentsline {section}{\numberline {2.1}POW in Blockchain Systems}{7}
+\contentsline {section}{\numberline {2.2}Problem Statement}{8}
+\contentsline {section}{\numberline {2.3}Preliminary Work}{9}
+\contentsline {subsection}{\numberline {2.3.1}Analysis of Bitcoin's Difficulty Estimation}{9}
+\contentsline {subsection}{\numberline {2.3.2}Alternative Time-Based Estimation}{12}
+\contentsline {subsection}{\numberline {2.3.3}Comparison of Estimators}{13}
+\contentsline {section}{\numberline {2.4}Proposed Work}{14}
+\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{16}
+\contentsline {section}{\numberline {3.1}Background}{16}
+\contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{16}
+\contentsline {subsection}{\numberline {3.1.2}Related Work}{17}
+\contentsline {subsection}{\numberline {3.1.3}Overview of IBLTs}{18}
+\contentsline {section}{\numberline {3.2}The Protocol}{19}
+\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{21}
+\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{22}
+\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{23}
+\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Blockchain Systems}}{27}
+\contentsline {section}{\numberline {4.1}Background}{27}
+\contentsline {subsection}{\numberline {4.1.1}Selfish Mining}{27}
+\contentsline {subsection}{\numberline {4.1.2}Double Spending}{28}
+\contentsline {section}{\numberline {4.2}Problem Statement}{29}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{31}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{31}
+\contentsline {section}{\numberline {4.4}Proposed Work}{33}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{35}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{36}

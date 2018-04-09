@@ -71,6 +71,11 @@ Hanke, Timo.
 \newblock {A Speedup for Bitcoin Mining}.
 \newblock \url{http://arxiv.org/pdf/1604.00575.pdf} (Rev. 5), March 31 2016.
 
+\bibitem{harris:2014}
+Harris, Elizabeth~A., and Perlroth, Nicole.
+\newblock {For Target, the Breach Numbers Grow}.
+\newblock {\em The New York Times\/} (Jan.\ 11 2014), B1.
+
 \bibitem{hashcash}
 Hashcash.
 \newblock \url{https://en.bitcoin.it/wiki/Hashcash}, Last retrieved June 2017.
@@ -83,6 +88,18 @@ Heilman, Ethan, Kendler, Alison, Zohar, Aviv, and Goldberg, Sharon.
 \bibitem{Nakamoto:2009}
 Nakamoto, Satoshi.
 \newblock {Bitcoin: A Peer-to-Peer Electronic Cash System}, May 2009.
+
+\bibitem{equifax}
+Newman, Lily~Hay.
+\newblock Security news this week: Equifax found 2.4 million more people
+  affected by its 2017 breach.
+\newblock
+  \url{https://www.wired.com/story/equifax-found-millions-more-people-affected-2017-breach/}.
+
+\bibitem{perlroth:2013}
+Perlroth, Nicole.
+\newblock Target struck in the cat-and-mouse game of credit theft.
+\newblock {\em The New York Times\/} (20 December 2013), B1.
 
 \bibitem{Russel:2014}
 Russel, Rusty.

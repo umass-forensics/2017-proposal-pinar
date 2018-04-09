@@ -3,53 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: umthsmpl.aux
 The style file: umassthesis.bst
 Database file #1: umthsmpl.bib
-Repeated entry---line 2805 of file umthsmpl.bib
- : @article{eyal:2014
- :                   ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2841 of file umthsmpl.bib
- : @misc{nakamoto:2009
- :                    ,
-I'm skipping whatever remains of this entry
-You've used 21 entries,
+You've used 24 entries,
             2249 wiz_defined-function locations,
-            640 strings with 6774 characters,
-and the built_in function-call counts, 5292 in all, are:
-= -- 490
-> -- 226
+            656 strings with 7196 characters,
+and the built_in function-call counts, 5981 in all, are:
+= -- 556
+> -- 252
 < -- 0
-+ -- 95
-- -- 74
-* -- 291
-:= -- 869
-add.period$ -- 58
-call.type$ -- 21
-change.case$ -- 98
++ -- 106
+- -- 82
+* -- 330
+:= -- 989
+add.period$ -- 67
+call.type$ -- 24
+change.case$ -- 111
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 190
-empty$ -- 505
-format.name$ -- 74
-if$ -- 1133
+cite$ -- 24
+duplicate$ -- 213
+empty$ -- 569
+format.name$ -- 82
+if$ -- 1278
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 7
-newline$ -- 103
-num.names$ -- 40
-pop$ -- 173
+int.to.str$ -- 24
+missing$ -- 9
+newline$ -- 118
+num.names$ -- 46
+pop$ -- 185
 preamble$ -- 1
-purify$ -- 80
+purify$ -- 90
 quote$ -- 0
-skip$ -- 154
+skip$ -- 175
 stack$ -- 0
-substring$ -- 187
-swap$ -- 29
+substring$ -- 214
+swap$ -- 32
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 84
+type$ -- 96
 warning$ -- 0
-while$ -- 47
-width$ -- 23
-write$ -- 198
-(There were 2 error messages)
+while$ -- 55
+width$ -- 26
+write$ -- 227

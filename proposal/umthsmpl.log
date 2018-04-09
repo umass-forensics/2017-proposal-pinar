@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  9 APR 2018 10:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  9 APR 2018 17:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -587,18 +587,18 @@ Missing character: There is no Õ in font cmr12!
 
  [9
 
-] (./intro.tex) (./bitcoin-basics.tex [1
+] (./intro.tex [1
 
 
-]
+] [2]) (./bitcoin-basics.tex [3]
 Chapter 1.
-[2
+[4
 
-] [3]) (./difficulty-estimation.tex [4]
+] [5]) (./difficulty-estimation.tex [6]
 Chapter 2.
-[5
+[7
 
-] [6] [7]
+] [8] [9]
 LaTeX Font Info:    Calculating math sizes for size <8.39996> on input line 81.
 
 
@@ -614,7 +614,7 @@ LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.19998> not available
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.19998> not available
 (Font)              size <5> substituted on input line 81.
 
-[8] [9] [10] [11] [12]) (./graphene.tex [13]
+[10] [11] [12] [13] [14]) (./graphene.tex [15]
 Chapter 3.
 
 Overfull \hbox (0.50328pt too wide) in paragraph at lines 10--28
@@ -628,30 +628,30 @@ Overfull \hbox (10.54068pt too wide) in paragraph at lines 31--36
 he in-ef-fi-ciency of blockchain
  []
 
-[14
+[16
 
-] [15] [16] (./graphene-protocol.tex) [17] [18] [19] [20] [21]
-<graphs/graphene.pdf, id=119, 433.62pt x 289.08pt>
+] [17] [18] (./graphene-protocol.tex) [19] [20] [21] [22] [23]
+<graphs/graphene.pdf, id=126, 433.62pt x 289.08pt>
 File: graphs/graphene.pdf Graphic file (type pdf)
  <use graphs/graphene.pdf>
 Package pdftex.def Info: graphs/graphene.pdf used on input line 290.
 (pdftex.def)             Requested size: 368.57964pt x 245.73238pt.
 
-[22 <./graphs/graphene.pdf>]
-<graphs/sim-proto-results-wo-txns.pdf, id=130, 361.35pt x 289.08pt>
+[24 <./graphs/graphene.pdf>]
+<graphs/sim-proto-results-wo-txns.pdf, id=136, 361.35pt x 289.08pt>
 File: graphs/sim-proto-results-wo-txns.pdf Graphic file (type pdf)
 
 <use graphs/sim-proto-results-wo-txns.pdf>
 Package pdftex.def Info: graphs/sim-proto-results-wo-txns.pdf used on input lin
 e 316.
 (pdftex.def)             Requested size: 216.81pt x 173.44933pt.
- [23 <./graphs/sim-proto-results-wo-txns.pdf>]) (./selfishRL.tex [24]
+ [25 <./graphs/sim-proto-results-wo-txns.pdf>]) (./selfishRL.tex [26]
 Chapter 4.
-[25
+[27
 
-] [26] [27] [28] [29] [30] [31]) (./timeline.tex [32]
+] [28] [29] [30] [31] [32] [33]) (./timeline.tex [34]
 Chapter 5.
-) (./umthsmpl.bbl [33
+) (./umthsmpl.bbl [35
 
 ]
 Underfull \hbox (badness 7522) in paragraph at lines 19--24
@@ -671,31 +671,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--24
 -[]be-[]confirmed/$\OT1/cmr/m/n/12 ,
  []
 
-[34
+[36
 
 ]
-Underfull \hbox (badness 6876) in paragraph at lines 88--93
+Underfull \hbox (badness 6876) in paragraph at lines 105--110
 \OT1/cmr/m/n/12 trans-ac-tions.  $\OT1/cmtt/m/n/12 http : / / rustyrussell . gi
 thub . io / pettycoin / 2014 / 11 / 05 /
  []
 
 
-Overfull \hbox (20.60774pt too wide) in paragraph at lines 88--93
+Overfull \hbox (20.60774pt too wide) in paragraph at lines 105--110
 \OT1/cmtt/m/n/12 Playing-[]with-[]invertible-[]bloom-[]lookup-[]tables-[]and-[]
 bitcoin-[]transactions .
  []
 
-) [35] (./umthsmpl.aux)
+) [37] (./umthsmpl.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 12233 strings out of 492995
- 224782 string characters out of 6132704
- 266909 words of memory out of 5000000
- 15618 multiletter control sequences out of 15000+600000
+ 12236 strings out of 492995
+ 224819 string characters out of 6132704
+ 266921 words of memory out of 5000000
+ 15621 multiletter control sequences out of 15000+600000
  20346 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,19n,33p,10359b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -722,10 +722,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on umthsmpl.pdf (44 pages, 318828 bytes).
+Output written on umthsmpl.pdf (46 pages, 324591 bytes).
 PDF statistics:
- 251 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
+ 257 PDF objects out of 1000 (max. 8388607)
+ 181 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
