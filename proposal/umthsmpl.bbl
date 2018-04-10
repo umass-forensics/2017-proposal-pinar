@@ -113,6 +113,12 @@ Sapirshtein, Ayelet, Sompolinsky, Yonatan, and Zohar, Aviv.
 \newblock {Optimal Selfish Mining Strategies in Bitcoin}.
 \newblock \url{https://arxiv.org/pdf/1507.06183.pdf}, July 2015.
 
+\bibitem{sasson:2014}
+Sasson, Eli~Ben, Chiesa, Alessandro, Garman, Christina, Green, Matthew, Miers,
+  Ian, Tromer, Eran, and Virza, Madars.
+\newblock Zerocash: Decentralized anonymous payments from bitcoin.
+\newblock In {\em IEEE S\&P\/} (2014), pp.~459--474.
+
 \bibitem{Sompolinsky:2015}
 Sompolinsky, Yonatan, and Zohar, Aviv.
 \newblock {Secure high-rate transaction processing in Bitcoin}.
