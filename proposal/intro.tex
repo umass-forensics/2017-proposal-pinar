@@ -17,28 +17,13 @@ privacy. While VCs offer solutions to some problems posed by centralized entitie
 We contribute several complementary mechanisms to increase a blockchain system's security, efficiency, and transparency. Our proposed mechanisms work together or are separately deployable, and are applicable to any blockchain-based network protocol.
 
 \section*{Contributions}
-The following is a summary of the contributions in each chapter of this proposal. 
-\begin{itemize}
-\item Firstly, we propose an accurate method of hash rate estimation that is based
-  on compact {\em status reports} issued by miners. The reports add no
-  computational load to miners, and are stored neither on the
-  blockchain nor at peers that receive them past their usefulness.   They are very small and  can be broadcast
-  out-of-band, for example via RSS or Twitter. Just like block
-  headers, reports are verifiable as authentic POW by third
-  parties. 
-  %Optionally, they can be used to set the blockchain difficulty, in which case they would need to be stored on the blockchain. This technique can be deployed incrementally because a combination of our estimators can be used together.
-  \item Secondly, we present two estimators that leverage only information from blocks that are published to the blockchain. One method uses {\em time} data, while the other uses time and the POW {\em hash values} of blocks. Both require {\em no cooperation from the miners}. These estimators are statistically \emph{biased} but \emph{consistent}. In quantitative comparisons, we show that the time-based estimator is more accurate. However, this accuracy depends on reliable time measurements. For example, although blocks contain timestamps, Bitcoin has weak time synchronization requirements allowing for falsification. Any third-party's out-of-band record of the time cannot be secured using  only information in the blockchain. We find that a time-and-hash based estimator is less accurate (given the same number of samples) despite leveraging more information.  
-  % via the PoW algorithm
-\end{itemize}
-We also examine hybrid approaches that allow for incremental deployment. 
+The following is a summary of the contributions in each chapter of this dissertation. 
+\begin{enumerate}
+\item \textbf{Analysis and improvement of algorithm for setting difficulty.} We show that the current algorithm for setting difficulty has bias and high variance, and derive an alternative estimator based on information available in the blockchain. We show that by using only the inter-arrival time of blocks (if accurate), we can estimate difficulty with no bias and lower variance. However, because many blockchain systems have weak time synchronization requirements allowing for falsification, any third-party's out-of-band record of the time cannot be secured using only information in the blockchain. Therefore, I also propose to create a second estimator based on compact {\em status reports} regularly broadcast from miners of their partial POW. These reports add no computational load to miners, and are stored neither on the blockchain nor at peers that receive them past their usefulness. They are small and can be broadcast out-of-band, for example via RSS or Twitter. Just like block headers, reports are verifiable as authentic POW by third parties. I plan to examine hybrid approaches that use both estimators, allowing for incremental deployment. 
+\item \textbf{Novel method for status report and block distribution.}
+\item \textbf{Evaluation of the practical feasibility of selfish mining and double-spend attacks.} Yet, all earlier studies of the economics of double-spend attacks fall short because of the simplicity of their model and resulting inability to capture the full complexity of the problem. In the present work, we derive a novel, continuous-time model for the double-spend attack.
+\end{enumerate}
 Our results can be used by blockchain designers to understand the consequences of setting the parameters of their difficulty algorithms. 
-
-\paragraph*{1.}
-
-\paragraph*{We introduce three different estimators that quantify the real-time hash rate of a blockchain. First, we propose a method based on status reports regularly broadcast from some or all miners of their partial proof-of-work (POW). These status report based estimates are accurate, do not need to be stored on the blockchain, and are small enough to be released as Web feeds or via Twitter. Second, we derive estimators based on information available in the blockchain and do no require support of miners. We show that by using only the inter-arrival time of blocks (if accurate), we can estimate and measure the hash rate of all miners or individual miners with quantifiable accuracy, which is less than status reports. We define a third estimator that uses time and the POW represented by blocks. We show that although it uses additional information, it is the least accurate estimate.}
-
-\paragraph*{}Yet, all earlier studies of the economics of double-spend attacks fall short because of the simplicity of their model and resulting inability to capture the full complexity of the problem. In the present work, we derive a novel, continuous-time model for the double-spend attack
-
 
 \section*{Collaborators}
 All research activities are conducted under the supervision of Brian Levine. Preliminary work for Chapter 2 was completed in collaboration with George Bissias and Brian Levine; that for Chapter 3 was completed in collaboration with Gavin Andresen, George Bissias, Amir Houmansadr and Brian Levine; and that for Chapter 4 was completed in collaboration with Philip Thomas and Brian Levine.
