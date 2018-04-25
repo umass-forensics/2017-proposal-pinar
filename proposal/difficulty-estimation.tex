@@ -2,7 +2,7 @@
 \chapter{Difficulty Estimation}
 \label{difficulty-estimation}
 
-\section{POW in Blockchain Systems}
+\section{Proof-of-work in Blockchain Systems}
 Bitcoin Core uses a simple POW algorithm based on cryptographic
 hashing, proposed earlier by Douceur~\cite{Douceur:2002}.
 Specifically, miners apply a 256-bit cryptographic hash algorithm~\cite{hashcash} to
@@ -162,7 +162,7 @@ D_{i+1} &= 10\beta D_i.
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Alternative Time-Based Estimation}\label{sec:time-based}
+\subsection{Alternative Time Based Estimation}\label{sec:time based}
 Now we propose an alternative estimator and show that it has lower variance, bias and MSE.
 %In this section, we describe two blockchain-only methods of estimating
 %miner hash rates. 
@@ -232,19 +232,21 @@ Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>
 Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>2$, $0<\beta<1$ and $D_i \in \mathcal{R}$. \reminder{Add figure for Bitcoin Core, Litecoin, Ethereum, Bitcoin Core Cash, Ripple. After 2016 blocks generated, Litecoin will adjust difficulty to estimated difficulty in order to keep the block generation time at 150 seconds. Bitcoin Core cash has a window of only 144 blocks. and uses a sliding window. Ethereum uses 1 block, can't find ripple}
 
 %Reduce[\frac{(10 D \beta)^2}{n} \leq \Bigg(\frac{10n D}{\beta(n-1)} - 10 \beta D\Bigg)^2 + \frac{(10n D)^2}{\beta^2(n-1)^2(n-2)}, \beta<1]
-%So, time-based estimator is indeed better.
+%So, time based estimator is indeed better.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Proposed Work} \label{section:difficulty-proposed-work}
-We were able to show that our estimator performs better than Bitcoin Core's unjustified method. To extend this chapter, we propose to answer a few more key questions:
+\subsection{Status Reports}
+Attackers can easily lie about the timestamps on the blocks with our new time based estimator. Therefore, an alternative estimator we plan to develop uses status reports, which is a block header except that the POW does not satisfy the current target. Every $\alpha$ minutes, a parameter determined by the network, the miners send periodic status reports that include the minimum hash value, which represents the hash found since the last block broadcast on the chain. To be clear, each status report does not directly report the minimum hash value; instead, reports are of the input values to the POW algorithm. Because attackers can't lie about their POW, an estimator based on the minimum hash value is safer and can be used to adjust the emergency difficulty when the network fails to produce a block for an unusually long time. We plan to compute the the variance and MSE of the status report based estimator, and compare its performance with other methods.
+
+\subsection{Key Questions}
+We were able to show that our time based estimator performs better than Bitcoin Core's unjustified method. To extend this chapter, we propose to answer a few more key questions:
 \begin{enumerate}
-\item Analyze different attacks against our estimator. What happens when the timestamps on the blocks are reported inaccurately by an attacker? How much error can an attacker introduce?
+\item What happens when the timestamps on the blocks are reported inaccurately by an attacker? How much error can an attacker introduce? Analyze different attacks against our estimator. 
 \item How often should difficulty be adjusted? Should a sliding window or non-overlapping window of blocks be used?
 \item Given a required error rate, what is the shortest window of time (or number of blocks) needed to estimate difficulty correctly?
 \item Given that mining power is changing, how quickly can either estimator adapt to change?
-\item Attackers can easily lie about the timestamps on the blocks with our new estimator. Therefore, an alternative estimator I plan to develop uses status reports, which is a block header except that the POW does not satisfy the current target. Instead, the minimum hash value in the report represents the hash found since the last block broadcast on
-the chain. To be clear, each status report does not directly report the minimum hash value; instead, reports are of the input values to the POW algorithm. Because attackers can't lie about their POW, an estimator based on the minimum hash value is safer and can be used to adjust the emergency difficulty when the network fails to produce a block for an unusually long time. What is the variance and MSE of the status report based estimator?
-\item What are the advantages and disadvantages of status reports compared to the time-based estimator? \item What are the Chernoff bounds associated with these estimators?
+\item What are the advantages and disadvantages of status reports compared to the time based estimator? \item What are the Chernoff bounds associated with these estimators?
 \end{enumerate}
 
 %\paragraph*{Overview}

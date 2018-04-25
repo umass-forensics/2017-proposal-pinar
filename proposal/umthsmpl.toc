@@ -5,29 +5,31 @@
 \contentsline {Chapter}{\numberline {1.}\MakeTextUppercase {Overview of Blockchain Systems}}{4}
 \contentsline {section}{\numberline {1.1}Basic Operation}{4}
 \contentsline {Chapter}{\numberline {2.}\MakeTextUppercase {Difficulty Estimation}}{7}
-\contentsline {section}{\numberline {2.1}POW in Blockchain Systems}{7}
+\contentsline {section}{\numberline {2.1}Proof-of-work in Blockchain Systems}{7}
 \contentsline {section}{\numberline {2.2}Problem Statement}{8}
 \contentsline {section}{\numberline {2.3}Preliminary Work}{9}
 \contentsline {subsection}{\numberline {2.3.1}Analysis of Bitcoin Core's Difficulty Estimation}{9}
-\contentsline {subsection}{\numberline {2.3.2}Alternative Time-Based Estimation}{13}
+\contentsline {subsection}{\numberline {2.3.2}Alternative Time Based Estimation}{13}
 \contentsline {subsection}{\numberline {2.3.3}Comparison of Estimators}{15}
 \contentsline {section}{\numberline {2.4}Proposed Work}{15}
-\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{17}
-\contentsline {section}{\numberline {3.1}Background}{17}
-\contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{17}
-\contentsline {subsection}{\numberline {3.1.2}Related Work}{18}
-\contentsline {subsection}{\numberline {3.1.3}Overview of IBLTs}{19}
-\contentsline {section}{\numberline {3.2}The Protocol}{20}
-\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{22}
-\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{23}
-\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{24}
-\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Blockchain Systems}}{28}
-\contentsline {section}{\numberline {4.1}Background}{28}
-\contentsline {subsection}{\numberline {4.1.1}Double Spending}{28}
-\contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{30}
-\contentsline {section}{\numberline {4.2}Problem Statement}{30}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{32}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{32}
-\contentsline {section}{\numberline {4.4}Proposed Work}{34}
-\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{36}
-\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{37}
+\contentsline {subsection}{\numberline {2.4.1}Status Reports}{15}
+\contentsline {subsection}{\numberline {2.4.2}Key Questions}{16}
+\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{18}
+\contentsline {section}{\numberline {3.1}Background}{18}
+\contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{18}
+\contentsline {subsection}{\numberline {3.1.2}Related Work}{19}
+\contentsline {subsection}{\numberline {3.1.3}Overview of IBLTs}{20}
+\contentsline {section}{\numberline {3.2}The Protocol}{21}
+\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{23}
+\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{24}
+\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{25}
+\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Blockchain Systems}}{29}
+\contentsline {section}{\numberline {4.1}Background}{29}
+\contentsline {subsection}{\numberline {4.1.1}Double Spending}{29}
+\contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{31}
+\contentsline {section}{\numberline {4.2}Problem Statement}{31}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{33}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{33}
+\contentsline {section}{\numberline {4.4}Proposed Work}{35}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{37}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{38}
