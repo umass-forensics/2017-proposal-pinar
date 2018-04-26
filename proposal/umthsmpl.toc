@@ -6,14 +6,13 @@
 \contentsline {section}{\numberline {1.1}Basic Operation}{4}
 \contentsline {Chapter}{\numberline {2.}\MakeTextUppercase {Difficulty Estimation}}{7}
 \contentsline {section}{\numberline {2.1}Proof-of-work in Blockchain Systems}{7}
-\contentsline {section}{\numberline {2.2}Problem Statement}{8}
-\contentsline {section}{\numberline {2.3}Preliminary Work}{9}
-\contentsline {subsection}{\numberline {2.3.1}Analysis of Bitcoin Core's Difficulty Estimation}{9}
-\contentsline {subsection}{\numberline {2.3.2}Alternative Time Based Estimation}{13}
-\contentsline {subsection}{\numberline {2.3.3}Comparison of Estimators}{15}
-\contentsline {section}{\numberline {2.4}Proposed Work}{15}
-\contentsline {subsection}{\numberline {2.4.1}Status Reports}{15}
-\contentsline {subsection}{\numberline {2.4.2}Key Questions}{16}
+\contentsline {section}{\numberline {2.2}Preliminary Work}{9}
+\contentsline {subsection}{\numberline {2.2.1}Analysis of Bitcoin Core's Difficulty Estimation}{9}
+\contentsline {subsection}{\numberline {2.2.2}Alternative Time Based Estimation}{13}
+\contentsline {subsection}{\numberline {2.2.3}Comparison of Estimators}{15}
+\contentsline {section}{\numberline {2.3}Proposed Work}{15}
+\contentsline {subsection}{\numberline {2.3.1}Status Reports}{16}
+\contentsline {subsection}{\numberline {2.3.2}Key Questions}{16}
 \contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{18}
 \contentsline {section}{\numberline {3.1}Background}{18}
 \contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{18}

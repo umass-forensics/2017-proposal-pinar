@@ -2,6 +2,8 @@
 \chapter{Difficulty Estimation}
 \label{difficulty-estimation}
 
+Developers have resorted to adhoc methods for updating the difficulty in many blockchain systems. So far, there has been no previous work on analyzing the efficiency and correctness of these methods. In fact, because some blockchain systems do not accurately update difficulty, networks see enormous variance in inter-block delay. If mining power were constant in these networks, then difficulty could be kept constant. However, as seen with many blockchain systems, including a recent example with Bitcoin Cash, mining power fluctuates within these networks, requiring a readjustment of network parameters, including difficulty. Therefore, in this chapter, we use the most prominent cryptocurrency, Bitcoin Core, as a testbed for analyzing difficulty, and then propose alternative methods that could potentially increase efficiency. 
+
 \section{Proof-of-work in Blockchain Systems}
 Bitcoin Core uses a simple POW algorithm based on cryptographic
 hashing, proposed earlier by Douceur~\cite{Douceur:2002}.
@@ -51,8 +53,8 @@ fact, the presence of abandoned forks is additional data which improves our
 estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Problem Statement}
-Developers have resorted to adhoc methods for updating the difficulty in many blockchain systems. So far, there has been no previous work on analyzing the efficiency and correctness of these methods. In fact, because some blockchain systems do not accurately update difficulty, networks see enormous variance in inter-block delay. If mining power were constant in these networks, then difficulty could be kept constant. However, as seen with many blockchain systems, including a recent example with Bitcoin Cash, mining power fluctuates within these networks, requiring a readjustment of network parameters, including difficulty. Therefore, in this chapter, we use the most prominent cryptocurrency, Bitcoin Core, as a testbed for analyzing difficulty, and then propose alternative methods that could potentially increase efficiency. 
+%\section{Problem Statement}
+%Developers have resorted to adhoc methods for updating the difficulty in many blockchain systems. So far, there has been no previous work on analyzing the efficiency and correctness of these methods. In fact, because some blockchain systems do not accurately update difficulty, networks see enormous variance in inter-block delay. If mining power were constant in these networks, then difficulty could be kept constant. However, as seen with many blockchain systems, including a recent example with Bitcoin Cash, mining power fluctuates within these networks, requiring a readjustment of network parameters, including difficulty. Therefore, in this chapter, we use the most prominent cryptocurrency, Bitcoin Core, as a testbed for analyzing difficulty, and then propose alternative methods that could potentially increase efficiency. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminary Work}
@@ -236,17 +238,20 @@ Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Proposed Work} \label{section:difficulty-proposed-work}
+In this section, we introduce \textit{status reports} that are to be used for a second estimator, and then proposed work relating to this chapter.
+
 \subsection{Status Reports}
 Attackers can easily lie about the timestamps on the blocks with our new time based estimator. Therefore, an alternative estimator we plan to develop uses status reports, which is a block header except that the POW does not satisfy the current target. Every $\alpha$ minutes, a parameter determined by the network, the miners send periodic status reports that include the minimum hash value, which represents the hash found since the last block broadcast on the chain. To be clear, each status report does not directly report the minimum hash value; instead, reports are of the input values to the POW algorithm. Because attackers can't lie about their POW, an estimator based on the minimum hash value is safer and can be used to adjust the emergency difficulty when the network fails to produce a block for an unusually long time. We plan to compute the the variance and MSE of the status report based estimator, and compare its performance with other methods.
 
 \subsection{Key Questions}
-We were able to show that our time based estimator performs better than Bitcoin Core's unjustified method. To extend this chapter, we propose to answer a few more key questions:
+We were able to show that our time based estimator performs better than Bitcoin Core's unjustified method. To extend this chapter, we propose to answer the following questions centered around a few key themes:
 \begin{enumerate}
-\item What happens when the timestamps on the blocks are reported inaccurately by an attacker? How much error can an attacker introduce? Analyze different attacks against our estimator. 
-\item How often should difficulty be adjusted? Should a sliding window or non-overlapping window of blocks be used?
-\item Given a required error rate, what is the shortest window of time (or number of blocks) needed to estimate difficulty correctly?
-\item Given that mining power is changing, how quickly can either estimator adapt to change?
-\item What are the advantages and disadvantages of status reports compared to the time based estimator? \item What are the Chernoff bounds associated with these estimators?
+\item \textbf{Analysis of attacks against our estimators.} What happens when the timestamps on the blocks are reported inaccurately by an attacker? How much error can an attacker introduce?
+\item \textbf{Security bounds of the estimators.} What are the Chernoff bounds associated with our estimators?
+\item \textbf{Settings of network parameters and their consequences.} How often should difficulty be adjusted? How often should miners send status reports? Should non-overlapping windows of blocks be used to compute difficulty at each iteration? Should there be some overlap of blocks between windows at each iteration?
+\item \textbf{Individual parameter settings for peers.} Given a required error rate, what is the shortest window of time (or number of blocks) needed to estimate difficulty correctly?
+\item \textbf{Fluctuations in mining power.} Given that mining power is changing, how quickly can either estimator adapt to change?
+\item \textbf{Pros and cons of our estimators.} What are the advantages and disadvantages of status reports compared to the time based estimator? For example, the status report based estimator uses the minimum hash value, which is arguably safer because miners have to show their POW. On the other hand, for the time based estimator, there is no POW required when reporting timestamps.
 \end{enumerate}
 
 %\paragraph*{Overview}

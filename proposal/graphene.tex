@@ -2,6 +2,12 @@
 \chapter{Graphene: Efficient Block Announcements}
 \label{graphene}
 
+The main limitation we are addressing with Graphene is the inefficiency of blockchain systems in disseminating block data.  A block announcement
+must be validated using  the transaction content comprising the block.  However, it is likely that the majority of the
+peers have already received these transactions, and they only
+need to discern them from those in their
+mempool. Additionally, in Section~\ref{section:difficulty-proposed-work}, we propose using status reports, blocks announcement that do not satisfy the difficulty requirement of the network, for the emergency difficulty algorithm. Therefore, on top standard blocks, we are proposing to add more network traffic, requiring an even more efficient method of block propagation.
+
 \section{Background}
 In this section, we describe the signaling mechanism behind blockchain systems, explain the operation of IBLTs and summarize related work.
 
@@ -28,12 +34,6 @@ transaction contents are placed in the mempool.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Related Work} 
-The main limitation we are addressing with Graphene is the inefficiency of blockchain systems in disseminating block data.  A block announcement
-must be validated using  the transaction content comprising the block.  However, it is likely that the majority of the
-peers have already received these transactions, and they only
-need to discern them from those in their
-mempool. Additionally, in Section~\ref{section:difficulty-proposed-work}, we propose using status reports, blocks announcement that do not satisfy the difficulty requirement of the network, for the emergency difficulty algorithm. Therefore, on top standard blocks, we are proposing to add more network traffic, requiring an even more efficient method of block propagation.
-
 In principle, a block announcement needs to include only the IDs of those transactions,
 and accordingly, Corallo's {\em Compact Block} design~\cite{Corallo:2016} --- which has been recently deployed --- significantly reduces block size by including a  transaction ID list at the cost of increasing coordination to 3 roundtrip times.
 %After the block's {\tt inv} has been sent, the receiver requests the block. The sender sends the IDs of transactions (in fact, just the first 5 bytes of each). The receiver then requests the contents of any transaction if previously unseen.
