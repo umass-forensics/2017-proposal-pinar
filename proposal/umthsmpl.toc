@@ -17,18 +17,18 @@
 \contentsline {section}{\numberline {3.1}Background}{18}
 \contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{18}
 \contentsline {subsection}{\numberline {3.1.2}Related Work}{19}
-\contentsline {subsection}{\numberline {3.1.3}Overview of IBLTs}{20}
+\contentsline {subsection}{\numberline {3.1.3}Overview of Invertible Bloom Lookup Tables}{20}
 \contentsline {section}{\numberline {3.2}The Protocol}{21}
-\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{23}
+\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{24}
 \contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{24}
-\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{25}
-\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Blockchain Systems}}{29}
-\contentsline {section}{\numberline {4.1}Background}{29}
-\contentsline {subsection}{\numberline {4.1.1}Double Spending}{29}
-\contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{31}
-\contentsline {section}{\numberline {4.2}Problem Statement}{31}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{33}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{33}
-\contentsline {section}{\numberline {4.4}Proposed Work}{35}
-\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{37}
-\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{38}
+\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{26}
+\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Blockchain Systems}}{30}
+\contentsline {section}{\numberline {4.1}Background}{30}
+\contentsline {subsection}{\numberline {4.1.1}Double Spending}{30}
+\contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{32}
+\contentsline {section}{\numberline {4.2}Problem Statement}{32}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{34}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{34}
+\contentsline {section}{\numberline {4.4}Proposed Work}{36}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{38}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{39}

@@ -2,14 +2,10 @@
 \chapter{Graphene: Efficient Block Announcements}
 \label{graphene}
 
-The main limitation we are addressing with Graphene is the inefficiency of blockchain systems in disseminating block data.  A block announcement
-must be validated using  the transaction content comprising the block.  However, it is likely that the majority of the
-peers have already received these transactions, and they only
-need to discern them from those in their
-mempool. Additionally, in Section~\ref{section:difficulty-proposed-work}, we propose using status reports, blocks announcement that do not satisfy the difficulty requirement of the network, for the emergency difficulty algorithm. Therefore, on top standard blocks, we are proposing to add more network traffic, requiring an even more efficient method of block propagation.
+In this chapter, we explain Graphene, a novel protocol for the propagation of blocks and status reports. The main limitation we are addressing with Graphene is the inefficiency of blockchain systems in propagating block data.  A block announcement must be validated using  the transaction content comprising the block.  However, it is likely that the majority of the peers have already received these transactions, and they only need to discern them from those in their \textit{mempool}. Additionally, in Section~\ref{section:difficulty-proposed-work}, we propose using status reports, blocks announcements that do not satisfy the difficulty requirement of the network, for the emergency difficulty algorithm. Therefore, on top standard blocks, we are proposing to add more network traffic, requiring an even more efficient method of block propagation.
 
 \section{Background}
-In this section, we describe the signaling mechanism behind blockchain systems, explain the operation of IBLTs and summarize related work.
+In this subsection, we describe the signaling mechanism behind blockchain systems, explain the operation of Invertible Bloom Lookup Tables and summarize related work.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Topology and Signaling in Blockchain Systems} 
@@ -30,7 +26,7 @@ typically propagate along only a spanning tree of the graph (more
 edges will be traversed if there are propagation delays).  For
 convenience, we refer to the set of (unconfirmed)
 transaction IDs that a peer knows about as the {\em IDpool}. Actual
-transaction contents are placed in the mempool.
+transaction contents are placed in the \textit{mempool}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Related Work} 
@@ -48,8 +44,8 @@ and accordingly, Corallo's {\em Compact Block} design~\cite{Corallo:2016} --- wh
  As a result, Xtreme Thinblocks are larger than Compact Blocks but require just 2 roundtrip times. Relatedly, the community has discussed in forums the use of IBLTs (alone) for reducing block announcements\cite{andresen:2014,Russel:2014}, but these schemes have not been formally evaluated and are less efficient than our approach. Our novel method, which we prove and demonstrate is smaller than all of these recent works, requires just 2 roundtrip times for coordination.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \subsection{Overview of IBLTs}
-We make use of Invertible Bloom Lookup Tables (IBLTs)~\cite{goodrich:2011}, which is an efficient data structure  for {\em set reconciliation} between two peers.  Like 
+ \subsection{Overview of Invertible Bloom Lookup Tables}
+We make use of IBLTs~\cite{goodrich:2011}, which is an efficient data structure  for {\em set reconciliation} between two peers.  Like 
   Bloom filters~\cite{Bloom:1970}, IBLTs allow
   two parties to determine, with high probability, which values from a
   set they share in common.  But unlike Bloom filters, IBLTs enable the

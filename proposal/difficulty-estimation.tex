@@ -6,7 +6,7 @@ Developers have resorted to adhoc methods for updating the difficulty in many bl
 
 \section{Proof-of-work in Blockchain Systems}
 Bitcoin Core uses a simple POW algorithm based on cryptographic
-hashing, proposed earlier by Douceur~\cite{Douceur:2002}.
+hashing, proposed earlier by \textbf{Update}Douceur~\cite{Douceur:2002}.
 Specifically, miners apply a 256-bit cryptographic hash algorithm~\cite{hashcash} to
 an 80-byte {\em block header}, and the puzzle is solved if the
 resulting value is less than a known {\em target}, $0<t<2^{256}$. The
@@ -27,6 +27,8 @@ adjusts the target so that on average it takes about 600 minutes to
 find a block. Typically, the target is described for convenience as a
 {\em difficulty}, defined to be $D=2^{224}/t$. Bitcoin Core's difficulty
 is set once every two weeks.
+
+\textbf{Explain emergency difficulty}
 
 \para{Ethereum.} Ethereum operates very similarly to Bitcoin Core. Miners solve a POW problem that is more complicated
 than Bitcoin Core in an attempt to disadvantage miners with custom ASICs.
@@ -231,7 +233,7 @@ Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>
 \begin{align}
 \frac{(10 D_i\beta)^2}{n} \leq \Bigg(\frac{10n D_i}{\beta(n-1)} - 10\beta D_i\Bigg)^2 + \frac{(10n D_i)^2}{\beta^2(n-1)^2(n-2)}
 \end{align}
-Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>2$, $0<\beta<1$ and $D_i \in \mathcal{R}$. \reminder{Add figure for Bitcoin Core, Litecoin, Ethereum, Bitcoin Core Cash, Ripple. After 2016 blocks generated, Litecoin will adjust difficulty to estimated difficulty in order to keep the block generation time at 150 seconds. Bitcoin Core cash has a window of only 144 blocks. and uses a sliding window. Ethereum uses 1 block, can't find ripple}
+Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>2$, $0<\beta<1$ and $D_i \in \mathcal{R}$. \reminder{\textbf{Update}Add figure for Bitcoin Core, Litecoin, Ethereum, Bitcoin Core Cash, Ripple. After 2016 blocks generated, Litecoin will adjust difficulty to estimated difficulty in order to keep the block generation time at 150 seconds. Bitcoin Core cash has a window of only 144 blocks. and uses a sliding window. Ethereum uses 1 block, can't find ripple}
 
 %Reduce[\frac{(10 D \beta)^2}{n} \leq \Bigg(\frac{10n D}{\beta(n-1)} - 10 \beta D\Bigg)^2 + \frac{(10n D)^2}{\beta^2(n-1)^2(n-2)}, \beta<1]
 %So, time based estimator is indeed better.
