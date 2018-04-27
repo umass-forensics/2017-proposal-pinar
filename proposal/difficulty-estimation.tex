@@ -235,6 +235,18 @@ Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>
 \end{align}
 Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>2$, $0<\beta<1$ and $D_i \in \mathcal{R}$. \reminder{\textbf{Update}Add figure for Bitcoin Core, Litecoin, Ethereum, Bitcoin Core Cash, Ripple. After 2016 blocks generated, Litecoin will adjust difficulty to estimated difficulty in order to keep the block generation time at 150 seconds. Bitcoin Core cash has a window of only 144 blocks. and uses a sliding window. Ethereum uses 1 block, can't find ripple}
 
+\begin{figure}\begin{center}
+	\includegraphics[width=0.6\textwidth]{graphs/variance}
+	\caption{
+	\label{fig:variance}}
+\end{center}\end{figure}
+
+\begin{figure}\begin{center}
+	\includegraphics[width=0.6\textwidth]{graphs/MSE}
+	\caption{
+	\label{fig:MSE}}
+\end{center}\end{figure}
+
 %Reduce[\frac{(10 D \beta)^2}{n} \leq \Bigg(\frac{10n D}{\beta(n-1)} - 10 \beta D\Bigg)^2 + \frac{(10n D)^2}{\beta^2(n-1)^2(n-2)}, \beta<1]
 %So, time based estimator is indeed better.
 
