@@ -1,12 +1,67 @@
 %!TEX root = umthsmpl.tex
-\chapter{RL Applied to Blockchain Systems}\label{selfishRL}
+\chapter{Reinforcement Learning Applied to Blockchain Systems}\label{selfishRL}
+The hash rate of miners is the primary quantitative factor that determines the security of any POW based blockchain consensus algorithm. Recent models on attacks against blockchain systems assume that the hash rate of honest and malicious miners is known. However, hash rate estimation in blockchain systems introduces error into these models. Next, we quantify the error associated with estimating the hash rate of miners on Bitcoin Core, and justify our reasoning for using Reinforcement Learning (RL) methods.
+
+\section{Hash Rate Estimation}
+Given target $T_i$, the expected number of hashes, $h$, needed to meet the target for a block is
+\begin{align}
+\EX[h] = \frac{2^{256}-1}{T_i}.
+\end{align}
+$\EX[h]$ describes the \textit{total} number of expected hashes needed to find a block. We have observations regarding the \textit{time} it takes to generate a block. Let $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$ with $\beta = 1/\lambda$. Note that in this scenario, $X$ is a random variable representing the inter-arrival time of blocks discovered by a {\em single miner}. We could also estimate the network-wide hash rate if we used {\em all} blocks instead of those by a specific miner. In Section~\ref{sec:time based} we have shown that the unbiased MLE estimator for $\beta$ is equation~\ref{eq:beta-hat}. Let $r$ be the miner's hash rate in minutes (i.e., the number of hashes per time unit), and $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$, where $\beta = 1/\lambda$. We can use our estimate, $\hat{\beta}$, of $\beta$ to calculate a given miner's hash rate.
+%Note that $\lambda r$ is the expected number of hashes each time a block is created 
+\begin{align}
+\EX[h] = r \lambda &= r \frac{1}{\beta}  \\
+r &= \EX[h] \hat{\beta}
+\end{align}
+A miner's estimated hash rate 
+given target $T_i$ and $n$ inter-arrival times for $n+1$ blocks discovered by that miner is 
+\begin{align}
+\frac{(2^{256}-1)\hat{\beta}}{T_i}.
+\end{align}
+%\para{Expected Value of Hash Rate.}
+%\begin{align}
+%\EX[r|T_i,X_1,...,X_n] &= \EX\bigg[\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg] \\
+%&= \frac{(2^{256}-1)}{T_i}\EX[\hat{\beta}] \\
+%&= \frac{(2^{256}-1)\beta}{T_i}
+%\end{align}
+%
+%\para{Variance of Hash Rate.}
+The variance associated with this estimate is
+\begin{align}
+\text{Var}(r|T_i,X_1,...,X_n) &= \text{Var}\bigg(\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg) \\
+&= \frac{(2^{256}-1)^2}{T_i^2} \text{Var}(\hat{\beta}) \\
+&= \frac{(2^{256}-1)^2\beta^2}{T_i^2n}.
+\end{align}
+
+%\para{Bias of Hash Rate.}
+%\begin{align}
+%\text{bias}(r|T_i,X_1,...,X_n) &= \EX[r|T_i,X_1,...,X_n] - r \\
+%&= \frac{(2^{256}-1)\beta}{T_i} - \frac{(2^{256}-1)\beta}{T_i} \\
+%&= 0
+%\end{align}
+
+\para{Example.}
+The current Bitcoin Core difficulty, $D_i$, is $1,590,896,927,258 \approx 2^{40}$. Therefore, the current target, $T_i$, is
+\begin{align}
+T_i &= \frac{2^{224}}{D_i} = \frac{2^{224}}{2^{40}} \\
+&\approx 2^{184}.
+\end{align}
+Then the variance associated with hash rate estimation approximately is
+\begin{align}
+\text{Var}(r|T_i,X_1,...,X_n) &= \frac{(2^{256}-1)^2\beta^2}{T_i^2n} \\
+&\approx  \frac{(2^{256})^2\beta^2}{T_i^2n} \\
+&\approx  \frac{(2^{256})^2\beta^2}{(2^{184})^2n} \\
+&\approx  \frac{2^{512}\beta^2}{2^{368}n} \\
+&\approx  2^{144}\frac{\beta^2}{n}.
+\end{align}
+The variance associated with estimating hash rate for $0 \leq \beta \leq 1$ and for any $n \in \mathbb{Z}^+ $ is large. We need more blocks than those that are on the Bitcoin Core blockchain to reduce variance. RL provides a solution to this problem because it assumes that an agents acts in an environment where there is uncertainty. Therefore, we use RL methods to search for the optimal strategies for an attacker, who wants to perform attacks on blockchain networks. Then we compare the optimal policy found by RL algorithms to those cited in previous work.
 
 \section{Background}
-In this section, we describe double-spend and selfish mining attacks on blockchain systems, and explain the paradigms used to analyze these attacks.
+In this section, we describe double spend and selfish mining attacks on blockchain systems, and explain the paradigms used to analyze these attacks.
 
 \subsection{Double Spending} 
 %A fundamental attack against Bitcoin is the 
-{\em Double-spend} attacks~\cite{Nakamoto:2009} work as follows. An attacker creates a transaction that moves
+{\em Double spend} attacks~\cite{Nakamoto:2009} work as follows. An attacker creates a transaction that moves
 funds to a merchant's address. After the transaction appears in the
 newest block on the main branch, the attacker takes possession of the purchased
 goods. Using his mining power, the attacker then immediately releases
@@ -34,7 +89,7 @@ confirmations''~\cite{Bonneau:2015a}.
 %As the {\em depth} of a block on the main chain increases, there is an exponentially decreasing probability that network consensus will switch the main chain to a fork that does not include the block~\cite{Nakamoto:2009,Feller:1968}. This result assumes that the attacker never stops mining on the alternative fork, regardless of cost.  A more realistic model assumes that attackers have finite  time and resources, and would not expend resources on an attack that isn't expected to be profitable. 
 %Furthermore, only in theory do blockchains accept new forks of any length from  attackers;  in practice, the largest attacks on blockchains have been manually set aside~\cite{Castillo:2016,Castillo:2016a,Gervais:2014}. 
 
-Recently, Gervais et al.~\cite{Gervais:2016} evaluated the security of blockchains in terms of an attacker's economic profitably and assuming finite resources. They modeled a double-spending attacker's strategy  as a Markov Decision Process (MDP). MDPs are defined by a finite set of discrete states, a set of actions, a transition function, and a reward function. They defined each  state in the MDP as a tuple representing the following: the status of the fork, and the number of blocks mined by an attacker,  the number of blocks mined by the honest miners, and  the number of blocks mined by an {\em eclipse attack} victim~\cite{Heilman:2015}, respectively.   Gervais et al.\ encoded several factors into the MDP that affect  attacker strategy, including mining power, block depth, connectivity, and the impact of eclipse attacks. The MDP was implemented with a cutoff value of 20 blocks, representing an attack of finite duration. Using a search algorithm over the space defined by the MDP and a simulation of a blockchain system, they determined the maximum transaction value that would be safe from double spending by an economically rational attacker. This  approach is rich, capturing the optimal strategy for  double-spending (as well as selfish mining~\cite{eyal:2014,sapirshtein:2015}) given  network conditions and blockchain parameters.  Gervais et al.\ were able to reach interesting conclusions about the comparative performance and security of several widely used blockchains.
+Recently, Gervais et al.~\cite{Gervais:2016} evaluated the security of blockchains in terms of an attacker's economic profitably and assuming finite resources. They modeled a double-spending attacker's strategy  as a Markov Decision Process (MDP). MDPs are defined by a finite set of discrete states, a set of actions, a transition function, and a reward function. They defined each  state in the MDP as a tuple representing the following: the status of the fork, and the number of blocks mined by an attacker,  the number of blocks mined by the honest miners, and  the number of blocks mined by an {\em eclipse attack} victim~\cite{Heilman:2015}, respectively.   Gervais et al.\ encoded several factors into the MDP that affect  attacker strategy, including mining power, block depth, connectivity, and the impact of eclipse attacks. The MDP was implemented with a cutoff value of 20 blocks, representing an attack of finite duration. Using a search algorithm over the space defined by the MDP that simulates a blockchain system, they determined the maximum transaction value that would be safe from double spending by an economically rational attacker. This  approach is rich, capturing the optimal strategy for  double-spending (as well as selfish mining~\cite{eyal:2014,sapirshtein:2015}) given  network conditions and blockchain parameters.  Gervais et al.\ were able to reach interesting conclusions about the comparative performance and security of several widely used blockchains.
 
 Sapirshtein et al.~\cite{sapirshtein:2015} first observed that some double-spend attacks can be carried out essentially cost-free in the presence of a concurrent selfish mining~\cite{eyal:2014} attack. 
 More recent work extends the scope of double-spends that can benefit from selfish mining to cases where the attacker is capable of \emph{pre-mining} blocks on a secret branch at little or no opportunity cost~\cite{Sompolinsky:2016}. The papers identify the optimal mining strategy for an attacker and quantify the advantage he can expect to have over the merchant in terms of pre-mined blocks.
@@ -49,60 +104,8 @@ The standard Bitcoin protocol requires miners to broadcast a block they mined im
 
 Eyal et al.~\cite{eyal:2014} modeled selfish mining using a Markov chain. Then Sapirshtein et al.~\cite{sapirshtein:2015} created a more complex model using a Markov decision process (MDP) for selfish mining and computed the $\epsilon$-optimal policy that increases a selfish miner's revenue. Recently, Gervais et al.~\cite{Gervais:2016} incorporated additional parameters such as network conditions and Bitcoin settings into the MDP to study the affects of such parameters on the attacker's policy. %that affect  attacker strategy, including mining power, block depth, connectivity, and the impact of eclipse attacks.
 
-\section{Problem Statement}
-The hash rate of miners is the primary quantitative factor that determines the security of any POW based blockchain consensus algorithm. For example, recent MDP models of selfish mining and double-spending assume that the hash rate of honest and malicious miners is known. However, hash rate estimation in blockchain systems can introduce error into these models. 
-
-Given target $T_i$, the expected number of hashes, $h$, needed to meet the target for a block is
-\begin{align}
-\EX[h] = \frac{2^{256}-1}{T_i}.
-\end{align}
-$\EX[h]$ describes the \textit{total} number of expected hashes needed to find a block. We have observations regarding the \textit{time} it takes to generate a block. Let $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$ with $\beta = 1/\lambda$. Note that in this scenario, $X$ is a random variable representing the inter-arrival time of blocks discovered by a {\em single miner}. We could also estimate the network-wide hash rate if we used {\em all} blocks instead of those by a specific miner. In Section~\ref{sec:time-based}, we have shown that the unbiased MLE estimator for $\beta$ is equation~\ref{eq:beta-hat}. Let $r$ be the hash rate of the network in minutes (or the number of hashes per time unit), and $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$, where $\beta = 1/\lambda$. We can use our estimate, $\hat{\beta}$, of $\beta$ to calculate a given miner's hash rate.
-%Note that $\lambda r$ is the expected number of hashes each time a block is created 
-\begin{align}
-\EX[h] = r \lambda &= r \frac{1}{\beta}  \\
-r &= \EX[h] \hat{\beta}
-\end{align}
-The hash rate computed for a specific miner,  
-given target $T_i$ and $n$ inter-arrival times for $n+1$ blocks discovered by the miner is 
-%\para{Expected Value of Hash Rate.}
-%\begin{align}
-%\EX[r|T_i,X_1,...,X_n] &= \EX\bigg[\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg] \\
-%&= \frac{(2^{256}-1)}{T_i}\EX[\hat{\beta}] \\
-%&= \frac{(2^{256}-1)\beta}{T_i}
-%\end{align}
-%
-%\para{Variance of Hash Rate.}
-\begin{align}
-\text{Var}(r|T_i,X_1,...,X_n) &= \text{Var}\bigg(\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg) \\
-&= \frac{(2^{256}-1)^2}{T_i^2} \text{Var}(\hat{\beta}) \\
-&= \frac{(2^{256}-1)^2\beta^2}{T_i^2n}.
-\end{align}
-
-%\para{Bias of Hash Rate.}
-%\begin{align}
-%\text{bias}(r|T_i,X_1,...,X_n) &= \EX[r|T_i,X_1,...,X_n] - r \\
-%&= \frac{(2^{256}-1)\beta}{T_i} - \frac{(2^{256}-1)\beta}{T_i} \\
-%&= 0
-%\end{align}
-
-\para{Example.}
-The current Bitcoin difficulty, $D_i$, is $1,590,896,927,258 \approx 2^{40}$. Therefore, the current target, $T_i$, is
-\begin{align}
-T_i &= \frac{2^{224}}{D_i} = \frac{2^{224}}{2^{40}} \\
-&\approx 2^{184}.
-\end{align}
-Then the variance associated with the hash rate approximately is
-\begin{align}
-\text{Var}(r|T_i,X_1,...,X_n) &= \frac{(2^{256}-1)^2\beta^2}{T_i^2n} \\
-&\approx  \frac{(2^{256})^2\beta^2}{T_i^2n} \\
-&\approx  \frac{(2^{256})^2\beta^2}{(2^{184})^2n} \\
-&\approx  \frac{2^{512}\beta^2}{2^{368}n} \\
-&\approx  2^{144}\frac{\beta^2}{n}.
-\end{align}
-The variance associated with estimating hash rate for a miner is large for $0 \leq \beta \leq 1$ and for any $n \in \mathbb{Z}^+ $. We need more blocks than those that are on the Bitcoin blockchain to reduce variance. Reinforcement Learning (RL) provides a solution to this problem because it assumes that an agents acts in an environment where there is uncertainty. Therefore, we use RL methods to search for the optimal strategies for an attacker, who wants to perform selfish mining or double-spending attacks. Then we compare the optimal policy found by RL algorithms to those cited in previous work.
-
 \section{Preliminary Work}
-Sapirshtein~\cite{sapirshtein:2015} and Gervais~\cite{Gervais:2016} use an {\em average reward} MDP for computing the optimal strategies for selfish mining and double-spending. Average reward MDPs, as the name suggests, maximize an agent's average return instead of {\em episodic} MDPs that maximize absolute return over time. In the following section, we formulate the problem as an episodic MDP that is more widely studied and easier to analyze.
+Sapirshtein~\cite{sapirshtein:2015} and Gervais~\cite{Gervais:2016} use an {\em average reward} MDP for computing the optimal strategies for selfish mining and double-spending. Average reward MDPs, as the name suggests, maximize an agent's average return instead of {\em episodic} MDPs that maximize absolute return over time. In the following section, we formulate the problem as an episodic MDP that is more widely studied and easier to solve.
 
 \subsection{Formulating the Problem as an Episodic MDP}
 \para{States.} Using Sapirshtein et al.~\cite{sapirshtein:2015}'s model as a basis, we construct the following MDP that is a 6-tuple $\{S, A, P, R, \gamma, d_0\}$, where $S = \{(w, x, y, z, i, k)\}$ such that $w, x, y, z, i, k \in \mathbb{N}$. The state consists of a 6-tuple where each element represents the following: 1) $w$ is the number of blocks created by the honest miners on the main chain. 2) $x$ is the number of blocks created by the attacker. 3) $y$ is the number of attacker blocks that the honest network accepts as part of the main chain. 4) $z$ is a variable that represents the state of the main chain. If $z \equiv 1$, the attacker performed a {\tt match} action, resulting in a fork on the main chain. If $z \equiv 0$, the attacker mined the last block, and if $z \equiv 2$, the honest network mined the last block, enabling the attacker to release a competing block if he has any. 5) $i$ is the number of attacker blocks on the main chain so far. 6) $k$ is the {\em total} number of blocks on the main chain so far. Note that this representation assumes that all blocks build on the same parent block.

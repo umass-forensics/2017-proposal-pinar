@@ -22,13 +22,13 @@
 \contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{24}
 \contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{24}
 \contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{26}
-\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {RL Applied to Blockchain Systems}}{28}
-\contentsline {section}{\numberline {4.1}Background}{28}
-\contentsline {subsection}{\numberline {4.1.1}Double Spending}{28}
-\contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{30}
-\contentsline {section}{\numberline {4.2}Problem Statement}{30}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{32}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{32}
-\contentsline {section}{\numberline {4.4}Proposed Work}{34}
+\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {Reinforcement Learning Applied to Blockchain Systems}}{28}
+\contentsline {section}{\numberline {4.1}Hash Rate Estimation}{28}
+\contentsline {section}{\numberline {4.2}Background}{30}
+\contentsline {subsection}{\numberline {4.2.1}Double Spending}{30}
+\contentsline {subsection}{\numberline {4.2.2}Selfish Mining}{32}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{33}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{33}
+\contentsline {section}{\numberline {4.4}Proposed Work}{35}
 \contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{36}
 \contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{37}

@@ -114,7 +114,7 @@ Given difficulty $D_i$, the expected number of hashes, $h$, needed to meet the t
 \begin{align}
 \EX[h] =  \frac{2^{256}-1}{T_i} = \frac{2^{256}-1}{\sfrac{2^{224}}{D_i}} = \frac{D_i(2^{256}-1)}{2^{224}}, 
 \end{align}
-where $T_i$ is the target set for the $i$th time. Note that $\EX[h]$ describes the \textit{total} number of expected hashes needed to discover a block, and we have observations regarding the \textit{time} it takes to generate a block. Let $r$ be the hash rate of the network in minutes (i.e. the number of hashes per time unit), and X be a random variable describing the inter-arrival of blocks such that $X = X_1, \dots, X_{n}$, where $X \sim$ \texttt{Exp}$(\beta)$, with $\beta = 1/\lambda$/ The expected number of hashes for a block discovery is described by $r/\beta$.
+where $T_i$ is the target set for the $i$th time. Note that $\EX[h]$ describes the \textit{total} number of expected hashes needed to discover a block, and we have observations regarding the \textit{time} it takes to generate a block. Let $r$ be the hash rate of the network in minutes (i.e., the number of hashes per time unit), and X be a random variable describing the inter-arrival of blocks such that $X = X_1, \dots, X_{n}$, where $X \sim$ \texttt{Exp}$(\beta)$, with $\beta = 1/\lambda$/ The expected number of hashes for a block discovery is described by $r/\beta$.
 \begin{align}
 \EX[h] &= r \frac{1}{\beta}  \\
 r &= \EX[h] \beta.
