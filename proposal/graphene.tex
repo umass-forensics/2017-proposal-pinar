@@ -94,7 +94,7 @@ value can be recovered.
 % If $\mbox{\texttt{count}} \equiv 1$, then the value belongs to
 % $L \setminus L'$.  And if $\mbox{\texttt{count}} \equiv -1$, then
 % the value belongs to $L' \setminus L$.
-  Peers proceed by removing the recoverable key-value pair from all entries in the value's entry set.
+  Peers proceed by removing the recoverable items from all entries in the value's entry set.
 %all values corresponding to these unit counts---not only from the
 %recoverable entry, but also from all entries in the value's entry set.
 This process will generally produce new recoverable entries, and
@@ -110,10 +110,16 @@ where a receiver
 learns the set of specific transaction IDs that are contained in a
 (pending or confirmed) block containing $n$ transactions. Unlike other approaches, Graphene never  sends an explicit list of transaction IDs, instead it sends  a small Bloom filter and a very small IBLT.  
 
-\input{graphene-protocol}
+{\begin{myprot}{\textbf{Graphene}}
+\STATE \sender Sends {\tt inv} for a block.
+%
+\STATE \recvr \hspace{-.1mm}Requests unknown block; includes count of transactions in her IDpool, $m$.
+\STATE \sender  Sends Bloom filter \S  and IBLT \I (each created from the set of $n$ txn IDs in the block) and essential Bitcoin header fields.  The FPR of the filter is $f=a/(m-n)$, where $a=n/(c\tau)$.% $a$ is determined by Eq.~\ref{eq:min.a}.
+%
+\STATE \recvr Creates IBLT $\cal{I}'$ from the txn IDs that pass through $\cal{S}$. She decodes the {\em subtraction}~\cite{eppstein:2011} of the two blocks, $\cal{I} \bigtriangleup \cal{I'}$.\end{myprot}}
 
 The intuition behind Graphene is as follows. The sender creates an IBLT \I
-from the set of transaction (txn) IDs in the block. To help the receiver
+from the set of transaction IDs in the block. To help the receiver
 create the same (or similar) IBLT, he also creates a Bloom filter \S
  of the transaction IDs in the block. The receiver uses \S to filter out
 transaction IDs from her IDpool %pool of received transaction IDs (which we call the ) 
@@ -141,22 +147,22 @@ if the number of cells in \I is $d$-times the expected symmetric
 difference between the list of entries in \I and the list of entries
 in $\cal{I}'$. In our case, the expected difference is $a$, and we set
 $d=1.5$ (see Eppstein et al.~\cite{eppstein:2011}, which explores
-settings of $d$). Each cell in an IBLT has a {\tt count}, {\tt keySum} and
+settings of $d$). Each cell in an IBLT has a {\tt count}, {\tt hashSum} and
 {\tt valueSum}.
 %{\em count}, a {\em hash}
 %value, and a stored {\em value}.  
 (It can also have a key, but we have
 no need for a key). For us, the count field is 2 bytes, the
-keySum is 4 bytes, and the valueSum is the last 5 bytes of the
+hashSum is 4 bytes, and the valueSum is the last 6 bytes of the
 transaction ID (which is sufficient to prevent collisions). In sum,
 the size of the IBLT with a symmetric difference of $a$ entries is
-$1.5(2+4+5)a=16.5a$ bytes.
+$1.5(2+4+6)a=18a$ bytes.
 Thus, the total cost in bytes, $T$, for the Bloom filter and IBLT are
 given by 
 $$T(a)= n\frac{-\ln(f)}{c}+ a\tau = n\frac{-\ln(\frac{a}{m-\mu})}{c}+ a\tau,$$ 
 where all Bloom filter constants are grouped together as
 $c=8\ln^2(2)$, and we let the overhead on IBLT entries be the constant
-$\tau=16.5$.
+$\tau=18$.
 
 To set the Bloom filter as small as possible, we must ensure
 that the FPR of the filter is as high as permitted. If we assume 
@@ -203,10 +209,10 @@ failed.
 
 {\begin{myprot}{\textbf{CompactBlocks}}
 \label{protocol:compact}
-\STATE \sender Sends {\tt inv} for a block that has $n$ txns.
-\STATE \recvr If block is not in mempool, requests compact block.
-\STATE \sender Sends the block header information, all txn IDs in the block and any full txns he predicts the sender hasn't received yet.
-\STATE \recvr Recreates the block and requests missing txns if there exist any.
+\STATE \sender Sends {\tt inv} for a block that has $n$ transactions.
+\STATE \recvr If block is not in mempool, requests a compact block.
+\STATE \sender Sends the block header information, all transaction IDs in the block and any full transactions he predicts the sender hasn't received yet.
+\STATE \recvr Recreates the block and requests missing transactions if there exist any.
 \end{myprot}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -224,8 +230,8 @@ we examined the \textit{Low Bandwidth
 %The receiver sends a message indicating the mode she wants to communicate in. 
 After fully
 validating a new block, the sender sends an {\tt inv}, for which the receiver sends a {\tt getdata} message if she
-doesn't have the block. The sender then sends a {\tt compact block}
-that contains block header information, all  transaction IDs (shortened to 5 bytes)
+doesn't have the block. The sender then sends a Compact Block
+that contains block header information, all  transaction IDs (shortened to 6 bytes)
 in the block, and any transactions that he predicts the receiver does
 not have (e.g., the coinbase). If the receiver still has missing transactions, she requests
 them via an {\tt inv} message. Protocol~\ref{protocol:compact} outlines
@@ -234,37 +240,58 @@ sending a Bloom filter and an IBLT, the sender sends block header
 information and all shortened transaction IDs to the receiver. 
 
 A detailed example of how to calculate the size of each scheme is below; but we can state more generally the following result. For a
-block of $n$ transactions, Compact Blocks costs $5n$ bytes. For both
+block of $n$ transactions, Compact Blocks costs $6n$ bytes. For both
 protocols, the receiver needs the {\tt inv} messages for the set of
 transactions in the block before the sender can send it. Therefore, we
 expect the size of the IDpool of the receiver, $m$, to be constrained
 such that $m \geq n$. Assuming that $m > 0$ and $n > 0$, the following
 inequality must hold for Graphene to outperform Compact Blocks: 
 \begin{eqnarray}
-n\frac{-\ln(\frac{a}{m-n})}{c}+ a\tau &<& 5n\\
-n&>& \frac{m}{1287670}.
+n\frac{-\ln(\frac{a}{m-n})}{c}+ a\tau &<& 6n\\
+n&>& \frac{m}{55116364}.
 \end{eqnarray}
-In other words, Graphene is strictly more efficient than Compact Blocks {\em unless} the  set of unconfirmed transactions held by peers  is 1,287,670 times larger than the block size (e.g.,  over 22 billion unconfirmed transactions for the current block size.)  Finally, we note that Xtreme Thinblocks~\cite{Tschipper:2016} are  strictly larger than Compact Blocks since they contain all IDs and a Bloom filter, and therefore Graphene performs strictly better than Xtreme Thinblocks as well. 
+In other words, Graphene is strictly more efficient than Compact Blocks {\em unless} the  set of unconfirmed transactions held by peers  is $55,116,364$ times larger than the block size (\textbf{fix e.g.,  over 22 billion unconfirmed transactions for the current block size}.)  Finally, we note that Xtreme Thinblocks~\cite{Tschipper:2016} are  strictly larger than Compact Blocks since they contain all IDs and a Bloom filter, and therefore Graphene performs strictly better than Xtreme Thinblocks as well. 
+%After algebraic simplification %, given that $a=n/(c\tau)$ and that $c$ and $\tau$ are constants,  
+%the above shows that our scheme is strictly smaller  whenever  .
+%\begin{align} \label{eq:graphene-size}
+%n\frac{-\ln(\frac{a}{m-n})}{c}+ a\tau &< 5n \\
+%n\frac{-\ln(\frac{(n/(c\tau))}{m-n})}{c}+ \frac{n}{c\tau}\tau &< 5n \\
+%\frac{-\ln(\frac{(n/(c\tau))}{m-n})}{c}+ \frac{1}{c} &< 5 \\
+%-\ln\Big(\frac{n/c\tau}{m-n}\Big)+ 1 &< 5c \\
+%-\ln\Big(\frac{n/c\tau}{m-n}\Big) &< 5c -1 \\
+%\ln\Big(\frac{n/c\tau}{m-n}\Big) &> 1-5c \\
+%\frac{n/c\tau}{m-n} &> e^{1-5c} \\
+%\frac{n}{(m-n)c\tau} &> e^{1-5c} \\
+%\frac{n}{m-n} &> (c\tau) e^{1-5c}  \\
+%\frac{1}{(c\tau) e^{1-5c}} &>\frac{m-n}{n}   \\
+%1,287,669 &>\frac{m}{n} -1  \\
+%1,287,670 &>\frac{m}{n}  \\
+%n>\frac{m}{1,287,670 }
+%%\frac{1}{(c\tau) e^{1-5c}} &\geq\frac{m}{n}-1   \\
+%%\frac{1}{(c\tau) e^{1-5c}}+1 &\geq\frac{m}{n}   \\
+%%n &\geq\frac{m}{\frac{1}{(c\tau) e^{1-5c}}+1}  \\
+%%n &\geq\frac{m}{1287670} 
+%\end{align}
 
 \para{Example.} A receiver with an IDpool of $m=4000$ transactions
 makes a request for a new block that has $n=2000$ transactions. The
-value of $a$ that minimizes the cost is $a=n/(c\tau)=31.5$. The sender
-creates a Bloom filter \S with $f=a/(m-n)=31.5/2000= 0.01577$,
-with total size of $2000\times -ln(0.01577)/c=2.1$~KB.  The
-sender also creates an IBLT with $a$ cells, totaling $16.5a=521B$. In
-sum, a total of $2160B+521B=2.6$~KB bytes are sent.  The receiver
+value of $a$ that minimizes the cost is $a=n/(c\tau)=28.9$. The sender
+creates a Bloom filter \S with $f=a/(m-n)=28.9/2000= 0.01445$,
+with total size of $2000\times -ln(0.01445)/c=2.2$~KB.  The
+sender also creates an IBLT with $a$ cells, totaling $18a=520B$. In
+sum, a total of $2204B+520B=2.7$~KB bytes are sent.  The receiver
 creates an IBLT of the same size, and using the technique introduced
 in Eppstein et al.\cite{eppstein:2011}, the receiver subtracts one
-IBLT from the other before decoding. In comparison, for a block of $n$ transactions, Compact Blocks costs $2000\times5B = 10$~KB, over 3 times the cost of Graphene. 
+IBLT from the other before decoding. In comparison, for a block of $n$ transactions, Compact Blocks costs $2000\times6B = 12$~KB, over 4 times the cost of Graphene. 
 
 \para{Ordered blocks.} Graphene does not specify an order for transactions
 in the blocks, and instead assumes that transactions are sorted by
-ID. Bitcoin requires transactions depending on another transaction in
+ID. Bitcoin Core requires transactions depending on another transaction in
 the same block to appear later, but a canonical ordering is easy to
 specify. If a miner would like to order transactions with some
 proprietary method (e.g.,\cite{Hanke:2016}), that ordering would be
 sent alongside the IBLT. For a block of $n$ items, in the worst case,
-the list will be $n\log_2(n)$ bits long.  Even with this extra data, our approach is much more efficient than Compact Blocks.   In terms of the example above, if Graphene was to impose an ordering, the additional cost for $n=2000$ transactions would be $n \log_2(n)$ bits $= 2000\times log_2(2000)$ bits $= 2.74$~KB. This increases the cost of Graphene to $5.34$~KB, still almost half of Compact Blocks.
+the list will be $n\log_2(n)$ bits long.  Even with this extra data, our approach is much more efficient than Compact Blocks.   In terms of the example above, if Graphene was to impose an ordering, the additional cost for $n=2000$ transactions would be $n \log_2(n)$ bits $= 2000\times log_2(2000)$ bits $= 2.74$~KB. This increases the cost of Graphene to $5.44$~KB, still less than half of Compact Blocks.
 
 %In the next section, we show the results of hundreds of simulations of
 %the full \bc system. In all trials, Compact Blocks are vastly more
@@ -291,89 +318,92 @@ size. As mempool size increases, the growth of Graphene blocks to Compact Blocks
 
 \begin{figure}\begin{center}
 	\includegraphics[width=0.85\textwidth]{graphs/graphene}
-	\caption{A comparison of Graphene and Compact blocks.
+	\caption{A comparison of Graphene and Compact Blocks.
 Mempools are expressed in number of transactions (not
 bytes) above and beyond the block itself.
 	\label{fig:graphene}}
 \end{center}\end{figure}
 
-\para{Network simulation.} Next, we compare Graphene to Compact Blocks with a detailed,
-custom blockchain simulator using a Python-based discrete event simulator
-package. Our simulation models the propagation of messages across
-network links (ignoring effects from variable network bandwidth, TCP,
-etc.). Nodes accurately model any part of typical blockchain operation
-necessary for evaluating our metrics, including maintaining a mempool,
-the blockchain and its forks, and using realistic signaling.
+%\para{Network simulation.} Next, we compare Graphene to Compact Blocks with a detailed,
+%custom blockchain simulator using a Python-based discrete event simulator
+%package. Our simulation models the propagation of messages across
+%network links (ignoring effects from variable network bandwidth, TCP,
+%etc.). Nodes accurately model any part of typical blockchain operation
+%necessary for evaluating our metrics, including maintaining a mempool,
+%the blockchain and its forks, and using realistic signaling.
+%
+%For Graphene and Compact Blocks, our simulator creates and decodes real
+%Bloom filters and IBLTs, rather than merely estimating whether they
+%might decode or return any false positives. If these data
+%structures fail due to random chance, the nodes recover within the
+%simulation. Because our simulation models detailed signaling and is written in a high-level language, our evaluations
+%are based on a modest number of peers. Since our goal is a
+%comparison between two choices, we expect that our results are
+%representative of larger-scale scenarios.
+%
+%\begin{figure}[t]
+% \begin{minipage}{.75\columnwidth}
+% \centerline{\includegraphics[width=\columnwidth]{graphs/proto}}
+%\end{minipage}
+%\begin{minipage}{.24\columnwidth}
+%  \caption{When a random graph topology is used, Graphene reduces traffic to 60\% of the cost of Compact Blocks.}\label{fig:sim-proto}
+%  \end{minipage}
+%\end{figure}
+%
+%A challenging parameter to set is the number of transactions per
+%second offered to the network by peers. Our approach is to create
+%kernel density estimates (KDEs) from the transaction generation
+%patterns of real world peers. To that end, we gathered data for all
+%Bitcoin Core transactions during a three-month period
+%%between October 27, 2015 and January 7, 2016 
+%from
+%{\url{http://blockchain.info}}. Each transaction in the dataset is
+%labeled with an IP associated with the peer believed to have generated
+%it, as well as the time it was released to the network.  For each peer,
+%we normalized the release times by the time of the day in which they
+%were released. We then constructed the KDE for each peer using these
+%normalized transactions times and gaussian kernels with one hour
+%bandwidth. The KDE for a given peer represents a probability
+%distribution from which we can draw transactions over the course of a
+%simulated day. For each peer in the simulator, we randomly select one
+%of the KDEs corresponding to a real world peer. Because these
+%distributions have been generated from real data, they are a good
+%approximation of the activity of real peers over the average one-day
+%interval. On the other hand, this approach is not able to model days
+%of the week or seasonal phenomena in transaction creation times.
+%
+%Each simulation is configured to use the following parameters: 1)
+%Topology: a high-degree p2p graph topology.
+%%; or our {\em \tp} protocol's binary tree topology.  
+%2) Block Protocol: {\em
+%  Compact Blocks}; or {\em Graphene}.  3) Block capacity: 2,000
+%transactions.  4) Full nodes: 50, 100, 150, or 200 peers.  In all,
+% we ran 8 combinations of parameters, and we
+%ran each combination with 67  different seeds;
+%%20 \reminder{Update numbers} different seeds (and up to 30
+%%seeds in some cases as time allowed); 
+%%all told, we completed 328 (376)
+%all told, we completed 536
+%simulations. The seeds determined the number of transactions per
+%second (by sampling our KDE, as described above), and the inter-arrival
+%of transactions and blocks. 
+%In all simulations, we used 6 miner
+%nodes, representing 6 mining pools. Each simulation was equivalent to
+%120 minutes; in sum, we simulated about 45 days of %30 days of
+%blockchain operation. Blocks are generated every 2.5 minutes, like Litecoin; our results would show Graphene to have significantly greater savings if blocks were discovered every 15 seconds (like Ethereum), and show significantly smaller savings if blocks discovered were every 10 minutes (like Bitcoin). 
 
-For Graphene and Compact Blocks, our simulator creates and decodes real
-Bloom filters and IBLTs, rather than merely estimating whether they
-might decode or return any false positives. If these data
-structures fail due to random chance, the nodes recover within the
-simulation. Because our simulation models detailed signaling and is written in a high-level language, our evaluations
-are based on a modest number of peers. Since our goal is a
-comparison between two choices, we expect that our results are
-representative of larger-scale scenarios.
+%On the x axis you see how often blocks are generated, and you can see that Graphene is 10% of the cost of Compact Blocks when blocks are generated every 60 seconds, so every minute. It is approximately 30% of the cost of Compact blocks, when blocks are generated every 600 seconds, or in other words, every 10 minutes. 
 
-\begin{figure}[t]
- \begin{minipage}{.5\columnwidth}
- \centerline{\includegraphics[width=\columnwidth]{graphs/sim-proto-results-wo-txns}}
-\end{minipage}
-\begin{minipage}{.4\columnwidth}
-  \caption{When a random graph topology is used, Graphene reduces traffic to 60\% of the cost of Compact Blocks.}\label{fig:sim-proto}
-  \end{minipage}
-\end{figure}
 
-A challenging parameter to set is the number of transactions per
-second offered to the network by peers. Our approach is to create
-kernel density estimates (KDEs) from the transaction generation
-patterns of real world peers. To that end, we gathered data for all
-Bitcoin transactions during a three-month period
-%between October 27, 2015 and January 7, 2016 
-from
-{\url{http://blockchain.info}}. Each transaction in the dataset is
-labeled with an IP associated with the peer believed to have generated
-it, as well as the time it was released to the network.  For each peer,
-we normalized the release times by the time of the day in which they
-were released. We then constructed the KDE for each peer using these
-normalized transactions times and gaussian kernels with one hour
-bandwidth. The KDE for a given peer represents a probability
-distribution from which we can draw transactions over the course of a
-simulated day. For each peer in the simulator, we randomly select one
-of the KDEs corresponding to a real world peer. Because these
-distributions have been generated from real data, they are a good
-approximation of the activity of real peers over the average one-day
-interval. On the other hand, this approach is not able to model days
-of the week or seasonal phenomena in transaction creation times.
-
-Each simulation is configured to use the following parameters: 1)
-Topology: a high-degree p2p graph topology.
-%; or our {\em \tp} protocol's binary tree topology.  
-2) Block Protocol: {\em
-  Compact Blocks}; or {\em Graphene}.  3) Block capacity: 2,000
-transactions.  4) Full nodes: 50, 100, 150, or 200 peers.  In all,
- we ran 8 combinations of parameters, and we
-ran each combination with 67  different seeds;
-%20 \reminder{Update numbers} different seeds (and up to 30
-%seeds in some cases as time allowed); 
-%all told, we completed 328 (376)
-all told, we completed 536
-simulations. The seeds determined the number of transactions per
-second (by sampling our KDE, as described above), and the inter-arrival
-of transactions and blocks. 
-In all simulations, we used 6 miner
-nodes, representing 6 mining pools. Each simulation was equivalent to
-120 minutes; in sum, we simulated about 45 days of %30 days of
-blockchain operation. Blocks are generated every 2.5 minutes, like Litecoin; our results would show Graphene to have significantly greater savings if blocks were discovered every 15 seconds (like Ethereum), and show significantly smaller savings if blocks discovered were every 10 minutes (like Bitcoin). 
-
-Our main result is shown in
-Fig.~\ref{fig:sim-proto}, where we evaluated the total bandwidth ratio of
-Graphene to Compact Blocks, as a function of
-the number of nodes in the network. Since each run is a different
-number of KBs, we compare the ratio of an exact set of parameters
-(including the seed), varying only the protocol.  Boxplots
-show the
-distribution of results across all
-trials. Fig.~\ref{fig:sim-proto} shows that Graphene reduces traffic to  60\% of the cost of using Compact Blocks.  As the number of full nodes increases along the $x$-axis, the ratio of total traffic in the network remains steady, suggesting that our results are representative of larger networks.
+%Our main result is shown in
+%Fig.~\ref{fig:sim-proto}, where we evaluated the total bandwidth ratio of
+%Graphene to Compact Blocks, as a function of
+%the number of nodes in the network. Since each run is a different
+%number of KBs, we compare the ratio of an exact set of parameters
+%(including the seed), varying only the protocol.  Boxplots
+%show the
+%distribution of results across all
+%trials. Fig.~\ref{fig:sim-proto} shows that Graphene reduces traffic to  60\% of the cost of using Compact Blocks.  As the number of full nodes increases along the $x$-axis, the ratio of total traffic in the network remains steady, suggesting that our results are representative of larger networks.
 
 %Note that gains reduce to 10\% (i.e., are 90\% of Compact Blocks) when transaction data is also included because they account for the largest portion of network traffic. However, as the number of full nodes increases along
 %the $x$-axis, the ratio of total traffic in the network remains steady, suggesting that our

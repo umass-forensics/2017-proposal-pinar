@@ -4,7 +4,6 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces A comparison of Graphene and Compact blocks. Mempools are expressed in number of transactions (not bytes) above and beyond the block itself. }}{26}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces When a random graph topology is used, Graphene reduces traffic to 60\% of the cost of Compact Blocks.}}{27}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces A comparison of Graphene and Compact Blocks. Mempools are expressed in number of transactions (not bytes) above and beyond the block itself. }}{27}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
