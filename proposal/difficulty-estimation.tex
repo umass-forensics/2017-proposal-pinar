@@ -4,7 +4,7 @@
 
 Developers have resorted to adhoc methods for updating the difficulty in many blockchain systems. So far, there has been no previous work on analyzing the efficiency and correctness of these methods. In fact, because some blockchain systems do not accurately update difficulty, networks see enormous variance in inter-block delay. If mining power were constant in these networks, then difficulty could be kept constant. However, as seen with many blockchain systems, including a recent example with Bitcoin Cash, mining power fluctuates within these networks, requiring a readjustment of network parameters, including difficulty. Therefore, in this chapter, we use the most prominent cryptocurrency, Bitcoin Core, as a testbed for analyzing difficulty, and then propose alternative methods that could potentially increase efficiency. 
 
-\section{Proof-of-work in Blockchain Systems}
+\section{Proof-of-Work in Blockchain Systems}
 VCs such as Bitcoin Core use a simple POW algorithm based on cryptographic
 hashing, first proposed by Back~\cite{Back:2002}.
 Specifically, miners apply a 256-bit cryptographic hash algorithm~\cite{hashcash} to

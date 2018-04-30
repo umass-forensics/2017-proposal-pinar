@@ -5,7 +5,7 @@
 \contentsline {Chapter}{\numberline {1.}\MakeTextUppercase {Overview of Blockchain Systems}}{4}
 \contentsline {section}{\numberline {1.1}Basic Operation}{4}
 \contentsline {Chapter}{\numberline {2.}\MakeTextUppercase {Difficulty Estimation}}{7}
-\contentsline {section}{\numberline {2.1}Proof-of-work in Blockchain Systems}{7}
+\contentsline {section}{\numberline {2.1}Proof-of-Work in Blockchain Systems}{7}
 \contentsline {section}{\numberline {2.2}Preliminary Work}{9}
 \contentsline {subsection}{\numberline {2.2.1}Analysis of Bitcoin Core's Difficulty Estimation}{9}
 \contentsline {subsection}{\numberline {2.2.2}Alternative Time Based Estimation}{13}
