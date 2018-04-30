@@ -7,7 +7,7 @@ Given target $T_i$, the expected number of hashes, $h$, needed to meet the targe
 \begin{align}
 \EX[h] = \frac{2^{256}-1}{T_i}.
 \end{align}
-$\EX[h]$ describes the \textit{total} number of expected hashes needed to find a block. We have observations regarding the \textit{time} it takes to generate a block. Let $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$ with $\beta = 1/\lambda$. Note that in this scenario, $X$ is a random variable representing the inter-arrival time of blocks discovered by a {\em single miner}. We could also estimate the network-wide hash rate if we used {\em all} blocks instead of those by a specific miner. In Section~\ref{sec:time based} we have shown that the unbiased MLE estimator for $\beta$ is equation~\ref{eq:beta-hat}. Let $r$ be the miner's hash rate in minutes (i.e., the number of hashes per time unit), and $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$, where $\beta = 1/\lambda$. We can use our estimate, $\hat{\beta}$, of $\beta$ to calculate a given miner's hash rate.
+$\EX[h]$ describes the \textit{total} number of expected hashes needed to find a block. We have observations regarding the \textit{time} it takes to generate a block. Let $X^m = X_1^m, \dots, X_{n}^m$, where $X^m \sim$ Exp$(\beta_m)$ with $\beta_m = 1/\lambda_m$. Note that in this scenario, $X^m$ is a random variable representing the inter-arrival time of blocks discovered by a {\em single miner}. We could also estimate the network-wide hash rate if we used {\em all} blocks instead of those by a specific miner. In Section~\ref{sec:time based} we have shown that the unbiased MLE estimator for $\beta$ is equation~\ref{eq:beta-hat}. Let $r$ be the miner's hash rate in minutes (i.e., the number of hashes per time unit), and $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$, where $\beta = 1/\lambda$. We can use our estimate, $\hat{\beta}$, of $\beta$ to calculate a given miner's hash rate.
 %Note that $\lambda r$ is the expected number of hashes each time a block is created 
 \begin{align}
 \EX[h] = r \lambda &= r \frac{1}{\beta}  \\
@@ -16,8 +16,18 @@ r &= \EX[h] \hat{\beta}
 A miner's estimated hash rate 
 given target $T_i$ and $n$ inter-arrival times for $n+1$ blocks discovered by that miner is 
 \begin{align}
+\frac{(2^{256}-1)\hat{\beta}_m}{T_i}.
+\end{align}
+The entire network's estimated hash rate 
+given target $T_i$ and $n$ inter-arrival times for $n+1$ blocks is 
+\begin{align}
 \frac{(2^{256}-1)\hat{\beta}}{T_i}.
 \end{align}
+The miner's mining power, $\psi$, is the entire network's hash rate over his hash rate:
+\begin{align}
+\psi &= \frac{\sfrac{(2^{256}-1)\hat{\beta}}{T_i}}{\sfrac{(2^{256}-1)\hat{\beta}_m}{T_i}} \\
+&= \frac{\hat{\beta}}{\hat{\beta}_m}
+\end{align} 
 %\para{Expected Value of Hash Rate.}
 %\begin{align}
 %\EX[r|T_i,X_1,...,X_n] &= \EX\bigg[\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg] \\
@@ -26,12 +36,18 @@ given target $T_i$ and $n$ inter-arrival times for $n+1$ blocks discovered by th
 %\end{align}
 %
 %\para{Variance of Hash Rate.}
-The variance associated with this estimate is
-\begin{align}
-\text{Var}(r|T_i,X_1,...,X_n) &= \text{Var}\bigg(\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg) \\
-&= \frac{(2^{256}-1)^2}{T_i^2} \text{Var}(\hat{\beta}) \\
-&= \frac{(2^{256}-1)^2\beta^2}{T_i^2n}.
-\end{align}
+%The variance associated with this estimate is
+%\begin{align}
+%\text{Var}(\psi|X_1,...,X_n, X_1^m,...,X_n^m) &= \text{Var}\bigg(\frac{\hat{\beta}}{\hat{\beta}_m}\bigg) \\
+%&= \bigg(\frac{\hat{\beta}_m}{\hat{\beta}}\bigg)^2 \frac{n(n+n-1)}{(n-2)(n-1)^2} \\
+%&= \frac{\hat{\beta}_m^2}{\hat{\beta}^2} \frac{n(2n-1)}{(n-2)(n-1)^2}.
+%\end{align}
+%\begin{align}
+%\text{Var}(r|T_i,X_1,...,X_n) &= \text{Var}\bigg(\frac{(2^{256}-1)\hat{\beta}}{T_i}\bigg) \\
+%&= \frac{(2^{256}-1)^2}{T_i^2} \text{Var}(\hat{\beta}) \\
+%&= \frac{(2^{256}-1)^2\beta^2}{T_i^2n}.
+%\end{align}
+%Because $0<\hat{\beta}<1, 0<\hat{\beta}_m<1$ and $\hat{\beta}_m > \hat{\beta}$, it follows that $\sfrac{\hat{\beta}}{\hat{\beta}}_m < 1$. Therefore, $\sfrac{n(2n-1)}{(n-2)(n-1)^2}$ is the upper bound on the variance. Equation 4.10 can be obtained from Equation 4.9 since the ratio of two Gamma distributions follows a compound Gamma distribution. \url{https://stats.stackexchange.com/questions/207595/distribution-of-the-ratio-of-two-gamma-random-variables}
 
 %\para{Bias of Hash Rate.}
 %\begin{align}
@@ -40,21 +56,21 @@ The variance associated with this estimate is
 %&= 0
 %\end{align}
 
-\para{Example.}
-The current Bitcoin Core difficulty, $D_i$, is $1,590,896,927,258 \approx 2^{40}$. Therefore, the current target, $T_i$, is
-\begin{align}
-T_i &= \frac{2^{224}}{D_i} = \frac{2^{224}}{2^{40}} \\
-&\approx 2^{184}.
-\end{align}
-Then the variance associated with hash rate estimation approximately is
-\begin{align}
-\text{Var}(r|T_i,X_1,...,X_n) &= \frac{(2^{256}-1)^2\beta^2}{T_i^2n} \\
-&\approx  \frac{(2^{256})^2\beta^2}{T_i^2n} \\
-&\approx  \frac{(2^{256})^2\beta^2}{(2^{184})^2n} \\
-&\approx  \frac{2^{512}\beta^2}{2^{368}n} \\
-&\approx  2^{144}\frac{\beta^2}{n}.
-\end{align}
-The variance associated with estimating hash rate for $0 \leq \beta \leq 1$ and for any $n \in \mathbb{Z}^+ $ is large. We need more blocks than those that are on the Bitcoin Core blockchain to reduce variance. RL provides a solution to this problem because it assumes that an agents acts in an environment where there is uncertainty. Therefore, we use RL methods to search for the optimal strategies for an attacker, who wants to perform attacks on blockchain networks. Then we compare the optimal policy found by RL algorithms to those cited in previous work.
+%\para{Example.}
+%The current Bitcoin Core difficulty, $D_i$, is $1,590,896,927,258 \approx 2^{40}$. Therefore, the current target, $T_i$, is
+%\begin{align}
+%T_i &= \frac{2^{224}}{D_i} = \frac{2^{224}}{2^{40}} \\
+%&\approx 2^{184}.
+%\end{align}
+%Then the variance associated with hash rate estimation approximately is
+%\begin{align}
+%\text{Var}(r|T_i,X_1,...,X_n) &= \frac{(2^{256}-1)^2\beta^2}{T_i^2n} \\
+%&\approx  \frac{(2^{256})^2\beta^2}{T_i^2n} \\
+%&\approx  \frac{(2^{256})^2\beta^2}{(2^{184})^2n} \\
+%&\approx  \frac{2^{512}\beta^2}{2^{368}n} \\
+%&\approx  2^{144}\frac{\beta^2}{n}.
+%\end{align}
+%The variance associated with estimating hash rate for $0 \leq \beta \leq 1$ and for any $n \in \mathbb{Z}^+ $ is large. We need more blocks than those that are on the Bitcoin Core blockchain to reduce variance. RL provides a solution to this problem because it assumes that an agents acts in an environment where there is uncertainty. Therefore, we use RL methods to search for the optimal strategies for an attacker, who wants to perform attacks on blockchain networks. Then we compare the optimal policy found by RL algorithms to those cited in previous work.
 
 \section{Background}
 In this section, we describe double spend and selfish mining attacks on blockchain systems, and explain the paradigms used to analyze these attacks.

@@ -24,11 +24,11 @@
 \contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{27}
 \contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {Reinforcement Learning Applied to Blockchain Systems}}{29}
 \contentsline {section}{\numberline {4.1}Hash Rate Estimation}{29}
-\contentsline {section}{\numberline {4.2}Background}{31}
+\contentsline {section}{\numberline {4.2}Background}{30}
 \contentsline {subsection}{\numberline {4.2.1}Double Spending}{31}
-\contentsline {subsection}{\numberline {4.2.2}Selfish Mining}{33}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{34}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{34}
-\contentsline {section}{\numberline {4.4}Proposed Work}{36}
-\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{37}
-\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{38}
+\contentsline {subsection}{\numberline {4.2.2}Selfish Mining}{32}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{33}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{33}
+\contentsline {section}{\numberline {4.4}Proposed Work}{35}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{36}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{37}
