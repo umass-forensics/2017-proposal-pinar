@@ -6,6 +6,10 @@ Andresen, Gavin.
 \newblock \url{https://gist.github.com/gavinandresen/e20c3b5a1d4b97f79ac2},
   August 2014.
 
+\bibitem{Back:2002}
+Back, Adam.
+\newblock {Hashcash - Amortizable Publicly Auditable Cost-Functions}, {2002}.
+
 \bibitem{bitcoin:confirmation}
 {Confirmation}.
 \newblock \url{https://en.bitcoin.it/wiki/Confirmation}, February 2015.
@@ -84,6 +88,12 @@ Hashcash.
 Heilman, Ethan, Kendler, Alison, Zohar, Aviv, and Goldberg, Sharon.
 \newblock {Eclipse Attacks on Bitcoin's Peer-to-peer Network}.
 \newblock In {\em USENIX Security\/} (2015).
+
+\bibitem{Merkle:1987}
+Merkle, Ralph~C.
+\newblock A digital signature based on a conventional encryption function.
+\newblock In {\em Conference on the Theory and Application of Cryptographic
+  Techniques\/} (1987), Springer, pp.~369--378.
 
 \bibitem{Nakamoto:2009}
 Nakamoto, Satoshi.

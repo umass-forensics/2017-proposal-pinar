@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: umthsmpl.aux
 The style file: umassthesis.bst
 Database file #1: umthsmpl.bib
-You've used 25 entries,
+You've used 27 entries,
             2249 wiz_defined-function locations,
-            661 strings with 7408 characters,
-and the built_in function-call counts, 6575 in all, are:
-= -- 612
-> -- 289
+            674 strings with 7687 characters,
+and the built_in function-call counts, 7184 in all, are:
+= -- 673
+> -- 303
 < -- 0
-+ -- 121
-- -- 96
-* -- 375
-:= -- 1078
-add.period$ -- 70
-call.type$ -- 25
-change.case$ -- 121
++ -- 128
+- -- 100
+* -- 403
+:= -- 1164
+add.period$ -- 75
+call.type$ -- 27
+change.case$ -- 129
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 236
-empty$ -- 610
-format.name$ -- 96
-if$ -- 1406
+cite$ -- 27
+duplicate$ -- 266
+empty$ -- 673
+format.name$ -- 100
+if$ -- 1547
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 10
-newline$ -- 123
-num.names$ -- 48
-pop$ -- 199
+int.to.str$ -- 27
+missing$ -- 11
+newline$ -- 132
+num.names$ -- 52
+pop$ -- 215
 preamble$ -- 1
-purify$ -- 99
+purify$ -- 105
 quote$ -- 0
-skip$ -- 194
+skip$ -- 221
 stack$ -- 0
-substring$ -- 251
-swap$ -- 41
+substring$ -- 294
+swap$ -- 51
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 100
+type$ -- 108
 warning$ -- 0
-while$ -- 60
-width$ -- 27
-write$ -- 237
+while$ -- 67
+width$ -- 29
+write$ -- 256

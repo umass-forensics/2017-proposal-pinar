@@ -5,16 +5,15 @@
 Developers have resorted to adhoc methods for updating the difficulty in many blockchain systems. So far, there has been no previous work on analyzing the efficiency and correctness of these methods. In fact, because some blockchain systems do not accurately update difficulty, networks see enormous variance in inter-block delay. If mining power were constant in these networks, then difficulty could be kept constant. However, as seen with many blockchain systems, including a recent example with Bitcoin Cash, mining power fluctuates within these networks, requiring a readjustment of network parameters, including difficulty. Therefore, in this chapter, we use the most prominent cryptocurrency, Bitcoin Core, as a testbed for analyzing difficulty, and then propose alternative methods that could potentially increase efficiency. 
 
 \section{Proof-of-work in Blockchain Systems}
-Bitcoin Core uses a simple POW algorithm based on cryptographic
-hashing, proposed earlier by \textbf{Update}Douceur~\cite{Douceur:2002}.
+VCs such as Bitcoin Core use a simple POW algorithm based on cryptographic
+hashing, first proposed by Back~\cite{Back:2002}.
 Specifically, miners apply a 256-bit cryptographic hash algorithm~\cite{hashcash} to
 an 80-byte {\em block header}, and the puzzle is solved if the
 resulting value is less than a known {\em target}, $0<t<2^{256}$. The
-header in Bitcoin Core consists of the Merkle root of the set of
-transactions, a timestamp, the target (stored as $2^{224}/t$), a {\em
-  nonce}, and the hash of the prior block's header. If the hash is not
-less than the target, then a new nonce is selected to generate a new
-hash (the Merkle root can be adjusted as well). This process repeats
+header in Bitcoin Core consists of the {\em Merkle root}~\cite{Merkle:1987} of the set of
+transactions, a timestamp, the target, a {\em
+  nonce} that is a random number, and the hash of the prior block's header. The Merkle root is a hash based data structure that is a tree. The tree is constructed such that each leaf is a hash of some piece of data (i.e., the hash of a transaction), and each non-leaf node is a hash of its children.
+In Bitcoin Core, if the hash of the block header is not less than the target, then a new nonce is selected to generate a new hash (the Merkle root can be adjusted as well). This process repeats
 until some miner finds a solution.
   
 Each time a nonce is selected and the block
@@ -27,8 +26,6 @@ adjusts the target so that on average it takes about 600 minutes to
 find a block. Typically, the target is described for convenience as a
 {\em difficulty}, defined to be $D=2^{224}/t$. Bitcoin Core's difficulty
 is set once every two weeks.
-
-\textbf{Explain emergency difficulty}
 
 \para{Ethereum.} Ethereum operates very similarly to Bitcoin Core. Miners solve a POW problem that is more complicated
 than Bitcoin Core in an attempt to disadvantage miners with custom ASICs.
@@ -233,17 +230,19 @@ Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>
 \begin{align}
 \frac{(10 D_i\beta)^2}{n} \leq \Bigg(\frac{10n D_i}{\beta(n-1)} - 10\beta D_i\Bigg)^2 + \frac{(10n D_i)^2}{\beta^2(n-1)^2(n-2)}
 \end{align}
-Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>2$, $0<\beta<1$ and $D_i \in \mathcal{R}$. \reminder{\textbf{Update}Add figure for Bitcoin Core, Litecoin, Ethereum, Bitcoin Core Cash, Ripple. After 2016 blocks generated, Litecoin will adjust difficulty to estimated difficulty in order to keep the block generation time at 150 seconds. Bitcoin Core cash has a window of only 144 blocks. and uses a sliding window. Ethereum uses 1 block, can't find ripple}
+Our estimator (LHS) has lower variance than the original estimator (RHS) for $n>2$, $0<\beta<1$ and $D_i \in \mathcal{R}$. 
+
+Figure~\ref{fig:variance} and~\ref{fig:MSE} represent a summary of our results. Bitcoin Core and Litecoin use 2016 blocks to adjust difficulty, while Ethereum only uses a single block. For both cases, our estimator's variance and MSE are a few orders of magnitude smaller than the current method of estimation.
 
 \begin{figure}\begin{center}
-	\includegraphics[width=0.6\textwidth]{graphs/variance}
-	\caption{
+	\includegraphics[width=0.75\textwidth]{graphs/variance}
+	\caption{Variance of the difficulty algorithm of Bitcoin Core and our estimator, as the number of blocks increases.
 	\label{fig:variance}}
 \end{center}\end{figure}
 
 \begin{figure}\begin{center}
-	\includegraphics[width=0.6\textwidth]{graphs/MSE}
-	\caption{
+	\includegraphics[width=0.75\textwidth]{graphs/MSE}
+	\caption{Mean squared error of the difficulty algorithm of Bitcoin Core and our estimator, as the number of blocks increases.
 	\label{fig:MSE}}
 \end{center}\end{figure}
 

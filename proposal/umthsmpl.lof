@@ -3,8 +3,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces }}{16}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces }}{16}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Variance of the difficulty algorithm of Bitcoin Core and our estimator, as the number of blocks increases. }}{16}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Mean squared error of the difficulty algorithm of Bitcoin Core and our estimator, as the number of blocks increases. }}{16}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces A comparison of Graphene and Compact Blocks. Mempools are expressed in number of transactions (not bytes) above and beyond the block itself. }}{28}
 \addvspace {10\p@ }
