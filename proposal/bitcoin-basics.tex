@@ -1,11 +1,11 @@
 %!TEX root = umthsmpl.tex
 \chapter{Overview of Blockchain Systems}
 
-In this chapter, we describe the basic operation of blockchains using Bitcoin as an example. Other cryptocurrencies such as Litecoin and Ethereum operate similarly with minor differences.
+In this chapter, we describe the basic operation of blockchains using Bitcoin Core as an example. Other cryptocurrencies such as Litecoin and Ethereum operate similarly with minor differences.
 
 \section{Basic Operation}
 
-\para{Accounts.} A Bitcoin is a unit of currency, which is
+\para{Accounts.} A bitcoin is a unit of currency, which is
 fungible, divisible (up to eight decimal places), and recombinable.
 It is measured as a balance across multiple accounts, which are
 themselves manifested in \emph{addresses}.$\!$\footnote{Internally,
@@ -14,7 +14,7 @@ themselves manifested in \emph{addresses}.$\!$\footnote{Internally,
 comprises a stored asymmetric cryptographic key and an associated
 balance of Bitcoin. The public portions of an address are the public
 key and the balance of coin. When an address is involved in a
-\emph{transaction} with one or more other addresses, Bitcoins are
+\emph{transaction} with one or more other addresses, bitcoins are
 transferred among them. Addresses are explicitly pseudonyms, and not tied to a particular 
 individual; further, empty addresses can be created at no cost beyond
  generating an asymmetric key pair.
@@ -26,7 +26,7 @@ signed correctly, does not conflict with a previous transaction, does not
 move more coin than is contained in the address, and other functions.
 Each miner independently agglomerates a set of valid transactions into
 a candidate \emph{block} and attempts to solve a predefined
-cryptographic puzzle as proof-of-work (POW), which involves data
+cryptographic puzzle as {\em proof-of-work} (POW), which involves data
 from the candidate block and a specific {\em prior block}. The
 new transactions  are only valid if they do not
 conflict with the set of transactions that are contained in all
@@ -41,7 +41,7 @@ a new block is a reward of coins, called the {\em coinbase},
 consisting of a predetermined {\em block reward} (currently worth 12.5 Bitcoins)
 and fees from transactions included in the block.
 
-In Bitcoin, the POW computation is dynamically calibrated to take
+In Bitcoin Core, the POW computation is dynamically calibrated to take
 approximately ten minutes per block. When transactions appear in a
 block, they are \emph{confirmed}, and each subsequent block
 provides additional confirmation. To announce a new block, a miner
@@ -64,10 +64,10 @@ blocks that precede it.} of a rewritten block.
 %miners can receive competing (but valid) block announcements, which
 %bifurcates the chain, until one of the two forks is appended to first.
 
-Any entity can elect to be a miner for Bitcoin, and there is no
+Any entity can elect to be a miner for Bitcoin Core, and there is no
 centralized party from whom to seek approval for mining. If all miners
-were to simply vote on which block should be appended to the main chain, then the mining process would fall vulnerable to a Sybil
-attack~\cite{Douceur:2002}. The POW puzzle addresses this
+were to simply vote on which block should be appended to the main chain, then the mining process would fall vulnerable to a {\em Sybil
+attack}~\cite{Douceur:2002}, where an attacker presents himself as multiple identities on the network. The POW puzzle addresses this
 problem by performing a kind of decentralized leader election: the
 miner that solves the puzzle can decide which block to append to the
 chain.

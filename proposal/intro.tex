@@ -1,31 +1,29 @@
 %!TEX root = umthsmpl.tex
 \unnumberedchapter{Introduction}
-People lack control over the
-efforts of credit agencies and marketing firms to mine information
-from financial transactions. Merchants that accept
-credit and debit cards have a history of security  
-failures, such as the theft of credit card data from Target~\cite{harris:2014,perlroth:2013} or the recent security breach of Equifax~\cite{equifax} exposing the personal information of millions. Centralized agencies and firms often represent a single point of attack and
- failure.
-
-Therefore, a growing number of people have turned to decentralized {\em virtual
-currencies} (VCs) such as Bitcoin~\cite{Nakamoto:2009},
+A growing number of people have turned to decentralized {\em virtual
+currencies} (VCs) such as Bitcoin Core~\cite{Nakamoto:2009},
 Litecoin (\url{http://litecoin.org/}), Zerocash~\cite{sasson:2014} and Ethereum~\cite{ETHASH} for convenience, speculation, 
 or as a potential source of financial privacy and security. The benefits of virtual currencies are many: low transaction
 fees, transactions over the Internet, and potentially, convenience and
-privacy. While VCs offer solutions to some problems posed by centralized entities, they also introduce an additional set of concerns.
+privacy. 
 
-We contribute several complementary mechanisms to increase a blockchain system's security, efficiency, and transparency. Our proposed mechanisms work together or are separately deployable, and are applicable to any blockchain-based network protocol.
+Centralized agencies and firms often represent a single point of attack and
+ failure. People lack control over the
+efforts of credit agencies and marketing firms to mine information
+from financial transactions. Merchants that accept
+credit and debit cards have a history of security  
+failures, such as the theft of credit card data from Target~\cite{harris:2014,perlroth:2013} or the recent security breach of Equifax~\cite{equifax} exposing the personal information of millions. 
+
+While VCs offer solutions to some problems posed by centralized entities, they also introduce an additional set of concerns. In this dissertation, we contribute several complementary mechanisms to increase a blockchain system's security, efficiency, and transparency. Our proposed mechanisms work together or are separately deployable, and are applicable to any blockchain based network protocol. Our results can also be used by blockchain designers to understand the consequences of setting the global parameters of their networks. 
 
 \section*{Contributions}
 The following is a summary of the contributions in each chapter of this dissertation. 
 \begin{enumerate}
-\item \textbf{Analysis and improvement of algorithm for setting difficulty.} We show that the current algorithm for setting difficulty has bias and high variance, and derive an alternative estimator based on information available in the blockchain. We show that by using only the inter-arrival time of blocks (if accurate), we can estimate difficulty with no bias and lower variance. However, because many blockchain systems have weak time synchronization requirements allowing for falsification, any third-party's out-of-band record of the time cannot be secured using only information in the blockchain. Therefore, I also propose to create a second estimator based on compact {\em status reports} regularly broadcast from miners of their partial POW. These reports add no computational load to miners, and are stored neither on the blockchain nor at peers that receive them past their usefulness. They are small and can be broadcast out-of-band, for example via RSS or Twitter. Just like block headers, reports are verifiable as authentic POW by third parties. I plan to examine hybrid approaches that use both estimators, allowing for incremental deployment. 
-\item \textbf{Novel method for status report and block distribution.} We contribute an efficient method of announcing new blocks and status reports called \textit{Graphene}. Our blocks are a fraction of the size of related methods.
-%, such as Compact Blocks~\cite{Corallo:2016} and Xtreme Thinblocks~\cite{Tschipper:2016}. 
-For example, a 10~KB block can be encoded in 2.6~KB with Graphene that uses a novel interactive combination of Bloom filters\cite{Bloom:1970} and IBLTs\cite{goodrich:2011}, providing a solution to the problem of set reconciliation. 
-\item \textbf{Evaluation of the practical feasibility of selfish mining and double-spend attacks.} Recent studies of double-spend and selfish mining attacks fall short because of the simplicity of their model and resulting inability to capture the full complexity of the problem. In particular, there are hidden factors such as the mining power of the network and market fluctuations of the given cruptocurrency that are difficult to estimate for a peer in the network. Therefore, I propose to evaluate these attacks using reinforcement learning, where environmental factors are unknown to an agent, and quantify their success rate. 
+\item \textbf{Analysis and improvement of the algorithm for setting difficulty.} We show that the current algorithm used by Bitcoin Core for setting difficulty has bias and high variance, and we derive an alternative estimator based on information available in the blockchain. We show that by using only the inter-arrival time of blocks (if accurate), we can estimate difficulty with no bias and lower variance. However, because many blockchain systems have weak time synchronization requirements allowing for falsification, any third-party's out-of-band record of the time cannot be secured using only information in the blockchain. Therefore, we also propose to create a second estimator based on compact {\em status reports} regularly broadcast from miners. We plan to examine hybrid approaches that use both estimators, allowing for incremental deployment. 
+\item \textbf{Novel method for status report and block distribution.} We contribute an efficient method fpr propagating blocks and status reports called \textit{Graphene}. We show that our blocks are a fraction of the size of related methods mathematically and via simulation.
+\item \textbf{Evaluation of the practical feasibility of selfish mining and double spend attacks.} Recent studies of attacks, such as double spending and selfish mining, on blockchain systems fall short because of the simplicity of their model and resulting inability to capture the full complexity of the problem. In particular, there are hidden factors such as the mining power of the network and market fluctuations of the given cryptocurrency that are difficult to estimate for a peer in the network. Therefore, we propose to evaluate these attacks using reinforcement learning, where environmental factors are unknown to an agent.
 \end{enumerate}
-The goal of this dissertation is to improve the quantify the shortcomings of blockchain systems in order to increase their prevalence and usability. We hope that our results can be used by blockchain designers to understand the consequences of setting the global parameters of their networks. 
+%The goal of this dissertation is to improve the quantify the shortcomings of blockchain systems in order to increase their prevalence and usability. We hope that our results can be used by blockchain designers to understand the consequences of setting the global parameters of their networks. 
 
 \section*{Collaborators}
-All research activities are conducted under the supervision of Brian Levine. Preliminary work for Chapter 2 was completed in collaboration with George Bissias and Brian Levine; that for Chapter 3 was completed in collaboration with Gavin Andresen, George Bissias, Amir Houmansadr and Brian Levine; and that for Chapter 4 was completed in collaboration with Philip Thomas and Brian Levine.
+All research activities are conducted under the supervision of Brian Levine. Preliminary work~\cite{Ozisik:2017c} for Chapter 2 was completed in collaboration with George Bissias and Brian Levine; work~\cite{Ozisik:2017} for Chapter 3 was completed in collaboration with Gavin Andresen, George Bissias, Amir Houmansadr, and Brian Levine; and work for Chapter 4 was completed in collaboration with Philip Thomas and Brian Levine.

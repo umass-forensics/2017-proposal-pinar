@@ -4,45 +4,45 @@ The top-level auxiliary file: umthsmpl.aux
 The style file: umassthesis.bst
 Database file #1: umthsmpl.bib
 Warning--empty journal in Markov:1971
-You've used 29 entries,
+You've used 31 entries,
             2249 wiz_defined-function locations,
-            688 strings with 7968 characters,
-and the built_in function-call counts, 7640 in all, are:
-= -- 721
-> -- 317
+            699 strings with 8489 characters,
+and the built_in function-call counts, 8263 in all, are:
+= -- 775
+> -- 361
 < -- 0
-+ -- 135
-- -- 104
-* -- 428
-:= -- 1244
-add.period$ -- 80
-call.type$ -- 29
-change.case$ -- 137
++ -- 153
+- -- 120
+* -- 474
+:= -- 1357
+add.period$ -- 86
+call.type$ -- 31
+change.case$ -- 152
 chr.to.int$ -- 0
-cite$ -- 30
-duplicate$ -- 281
-empty$ -- 711
-format.name$ -- 104
-if$ -- 1639
+cite$ -- 32
+duplicate$ -- 304
+empty$ -- 754
+format.name$ -- 120
+if$ -- 1761
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 13
-newline$ -- 141
-num.names$ -- 56
-pop$ -- 221
+int.to.str$ -- 31
+missing$ -- 14
+newline$ -- 151
+num.names$ -- 60
+pop$ -- 239
 preamble$ -- 1
-purify$ -- 111
+purify$ -- 123
 quote$ -- 0
-skip$ -- 232
+skip$ -- 243
 stack$ -- 0
-substring$ -- 330
-swap$ -- 52
+substring$ -- 340
+swap$ -- 53
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 116
+type$ -- 124
 warning$ -- 1
-while$ -- 73
-width$ -- 31
-write$ -- 273
+while$ -- 77
+width$ -- 33
+write$ -- 293
 (There was 1 warning)

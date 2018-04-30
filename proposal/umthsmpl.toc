@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {2.2.1}Analysis of Bitcoin Core's Difficulty Estimation}{9}
 \contentsline {subsection}{\numberline {2.2.2}Alternative Time Based Estimation}{13}
 \contentsline {subsection}{\numberline {2.2.3}Comparison of Estimators}{15}
-\contentsline {section}{\numberline {2.3}Proposed Work}{15}
+\contentsline {section}{\numberline {2.3}Proposed Work}{17}
 \contentsline {subsection}{\numberline {2.3.1}Status Reports}{17}
 \contentsline {subsection}{\numberline {2.3.2}Key Questions}{17}
 \contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{19}

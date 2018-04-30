@@ -116,6 +116,20 @@ Newman, Lily~Hay.
 \newblock
   \url{https://www.wired.com/story/equifax-found-millions-more-people-affected-2017-breach/}.
 
+\bibitem{Ozisik:2017c}
+Ozisik, A.~Pinar, Andresen, Gavin, Bissias, George, Houmansadr, Amir, and
+  Levine, Brian~Neil.
+\newblock {Graphene: A New Protocol for Block Propagation Using Set
+  Reconciliation}.
+\newblock In {\em Proc. of International Workshop on Cryptocurrencies and
+  Blockchain Technology (ESORICS Workshop)\/} (September 2017).
+
+\bibitem{Ozisik:2017}
+Ozisik, A.~Pinar, Bissias, George, and Levine, Brian~N.
+\newblock Estimation of miner hash rates and consensus on blockchains.
+\newblock Tech. rep., PDF available from arxiv.org and
+  \url{https://www.cs.umass.edu/~brian/status-reports.pdf}, June 2017.
+
 \bibitem{perlroth:2013}
 Perlroth, Nicole.
 \newblock Target struck in the cat-and-mouse game of credit theft.
