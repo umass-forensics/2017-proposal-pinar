@@ -1,6 +1,5 @@
 \contentsline {FrontMatter}{\MakeTextUppercase {\uppercase {Abstract}}}{iv}
-\contentsline {FrontMatter}{\MakeTextUppercase {List of Tables}}{viii}
-\contentsline {FrontMatter}{\MakeTextUppercase {List of Figures}}{ix}
+\contentsline {FrontMatter}{\MakeTextUppercase {List of Figures}}{viii}
 \contentsline {Chapter}{\MakeTextUppercase {Introduction}}{1}
 \contentsline {Chapter}{\numberline {1.}\MakeTextUppercase {Overview of Blockchain Systems}}{4}
 \contentsline {section}{\numberline {1.1}Basic Operation}{4}
