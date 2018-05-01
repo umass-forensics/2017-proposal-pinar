@@ -12,7 +12,7 @@ an 80-byte {\em block header}, and the puzzle is solved if the
 resulting value is less than a known {\em target}, $0<T<2^{256}$. The
 header in Bitcoin Core consists of the {\em Merkle root}~\cite{Merkle:1987} of the set of
 transactions, a timestamp, the target, a {\em
-  nonce} that is a random number, and the hash of the prior block's header. The Merkle root is a hash based data structure that is a tree. The tree is constructed such that each leaf is a hash of some piece of data (i.e., the hash of a transaction), and each non-leaf node is a hash of its children.
+  nonce} that is a random number, and the hash of the prior block's header. A Merkle tree is a hash based data structure that is a tree. The tree is constructed such that each leaf is a hash of some piece of data (i.e., the hash of a transaction), and each non-leaf node is a hash of its children.
 In Bitcoin Core, if the hash of the block header is not less than the target, then a new nonce is selected to generate a new hash (the Merkle root can be adjusted as well). This process repeats
 until some miner finds a solution. The fraction of attempted hashes a miner performs with respect to the number of hashes performed by the entire network within a given time (i.e., the hash rate) is referred to as the miner's {\em mining power}.
   
