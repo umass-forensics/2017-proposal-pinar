@@ -174,7 +174,7 @@ Now we propose an alternative estimator, using the inter-arrival time of blocks,
 %We would like to estimate the network hash rate, $\hat{h}$, using only
 %the \emph{inter-arrival time} of mined blocks. 
 
-\para{Estimator for $\boldsymbol{\beta}$, the ratio of the expected time between blocks.} Let $X = X_1, \ldots, X_n$ denote the inter-arrival time between $n+1$ consecutive blocks on the blockchain. Given a consecutive sequence of $n+1$ blocks, $n$ inter-arrival times can be computed by subtracting the timestamp of each block from that of its preceding block. Note that $X \sim$ \texttt{Exp}$(\beta)$ with $\beta = 1/\lambda$, similar to the definition in the previous section. It it well known that the unbiased MLE estimator, $\hat{\beta}$, for $\beta$ is
+\para{Estimator for $\boldsymbol{\beta}$, the ratio of the expected time between blocks.} Let $X = X_1, \ldots, X_n$ denote the inter-arrival time between $n+1$ consecutive blocks on the blockchain. Given a consecutive sequence of $n+1$ blocks, $n$ inter-arrival times can be computed by subtracting the timestamp of each block from that of its preceding block. Note that $X \sim$ \texttt{Exp}$(\beta)$ with $\beta = 1/\lambda$ is similar to the definition in the previous section. It it well known that the unbiased MLE estimator, $\hat{\beta}$, for $\beta$ is
 \begin{align}
 \hat{\beta} = \frac{\sum_{k=1}^{n} X_i}{n}. \label{eq:beta-hat}
 \end{align}
