@@ -62,7 +62,7 @@ In the following section, we describe Bitcoin Core's algorithm for setting diffi
 \para{Algorithm for setting difficulty.} Bitcoin Core's networks parameters are set such that a block is discovered every 10 minutes. Initially, difficulty starts at 1, and then for every 2016 blocks that are found, the timestamps of the blocks are compared to compute the time it took to find 2016 blocks. Let $t$ denote the time in minutes it took to find 2016 blocks. Because the network is configured such that 2016 blocks must take 2 weeks (20160 minutes), the old difficulty is multiplied by $20160 / t$. If the correction factor is greater than $4$ or less than $1/4$, then $4$ or $1/4$ are used, respectively, to prevent the change from being too abrupt.
 \par \noindent Bitcoin Core's target and difficulty are related to each other as follows:
 \begin{align}
-\text{target} = \frac{\text{targetmax}}{\text{difficulty}} = \frac{2^{224}}{{D_i}},
+\text{target} = \frac{\textit{targetmax}}{\text{difficulty}} = \frac{2^{224}}{{D_i}},
 \end{align} 
 where $D_i$ is the $i$th time the difficulty is set~\cite{bitcoin:difficulty} and \text{targetmax} is the maximum value for the target. This equation shows us that the difficulty and target are inversely proportional: when difficulty increases, the target decreases. Therefore, a smaller target makes block creation more difficult, and as the difficulty goes up, so does the expected time needed to create a block. Next, we use concepts from queuing theory to compute the expected value and variance of Bitcoin Core's difficulty algorithm.
 

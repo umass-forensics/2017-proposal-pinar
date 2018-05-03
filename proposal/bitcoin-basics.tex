@@ -20,7 +20,7 @@ individual; further, empty addresses can be created at no cost beyond
  generating an asymmetric key pair.
 
 \para{Adding to the blockchain.} To be added to the {\em blockchain},
-transactions are broadcast by users on Bitcoin's peer-to-peer (p2p) network. A set of
+transactions are broadcast by users on Bitcoin Core's peer-to-peer (p2p) network. A set of
 \emph{miners} on the p2p network verify that each transaction is
 signed correctly, does not conflict with a previous transaction, does not
 move more coin than is contained in the address, and other functions.
@@ -38,7 +38,7 @@ the ever-growing blockchain as a child of the prior block. The miners
 then start over, using the newly appended blockchain and the set of
 remaining transactions. The miners' incentive for {\em discovering}
 a new block is a reward of coins, called the {\em coinbase},
-consisting of a predetermined {\em block reward} (currently worth 12.5 Bitcoins)
+consisting of a predetermined {\em block reward} (currently worth 12.5 bitcoins)
 and fees from transactions included in the block.
 
 In Bitcoin Core, the POW computation is dynamically calibrated to take
@@ -56,7 +56,7 @@ bifurcates the chain, until one of the two forks is appended to
 first. It is also possible and valid for a miner to receive a set of
 blocks that retroactively rewrites many blocks; doing so is a
 demonstration of computational work that miners accept despite the age
-or depth\footnote{The \emph{depth} of a block refers to the number of blocks that follow it; the \emph{height} of a block is the number of
+or \emph{depth}\footnote{The depth of a block refers to the number of blocks that follow it; the \emph{height} of a block is the number of
 blocks that precede it.} of a rewritten block.
 
 %However,
