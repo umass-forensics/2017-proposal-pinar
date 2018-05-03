@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  1 MAY 2018 21:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  3 MAY 2018 17:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -679,20 +679,22 @@ File: graphs/graphene.pdf Graphic file (type pdf)
 <use graphs/graphene.pdf>
 Package pdftex.def Info: graphs/graphene.pdf  used on input line 306. on input 
 line 306.
-Package pdftex.def Info: Requested size: 368.57964pt x 245.73238pt on input lin
-e 306.
+Package pdftex.def Info: Requested size: 433.62pt x 289.09251pt on input line 3
+06.
 ) (./selfishRL.tex [27 <./graphs/graphene.pdf>] [28]
 Chapter 4.
 [29
 
 ] [30] [31] [32]
-File: graphs/graphene.pdf Graphic file (type pdf)
-<use graphs/graphene.pdf>
-Package pdftex.def Info: graphs/graphene.pdf  used on input line 70. on input l
-ine 70.
-Package pdftex.def Info: Requested size: 368.57964pt x 245.73238pt on input lin
+<graphs/problem.pdf, id=172, pagebox=cropbox, 433.62pt x 289.08pt>
+File: graphs/problem.pdf Graphic file (type pdf)
+<use graphs/problem.pdf>
+Package pdftex.def Info: graphs/problem.pdf  used on input line 70. on input li
+ne 70.
+Package pdftex.def Info: Requested size: 390.25534pt x 260.18282pt on input lin
 e 70.
- [33] [34] [35]) (./timeline.tex [36]
+ [33 <./graphs/problem.pdf>] [34] [35]) (./timeline.tex
+[36]
 Chapter 5.
 ) (./umthsmpl.bbl [37
 
@@ -735,10 +737,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 12915 strings out of 492990
- 242238 string characters out of 6132635
+ 12920 strings out of 492990
+ 242364 string characters out of 6132635
  282557 words of memory out of 5000000
- 16311 multiletter control sequences out of 15000+600000
+ 16315 multiletter control sequences out of 15000+600000
  546978 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,19n,33p,10359b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -765,10 +767,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on umthsmpl.pdf (48 pages, 330162 bytes).
+Output written on umthsmpl.pdf (48 pages, 334951 bytes).
 PDF statistics:
- 270 PDF objects out of 1000 (max. 8388607)
- 190 compressed objects within 2 object streams
+ 280 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -67,7 +67,7 @@ In Section~\ref{sec:time based}, we have shown that the unbiased MLE estimator f
 \para{Simulation.} For a miner with a given mining power and $n$, we wrote a simulation that created a blockchain including inter-arrival times, and estimated $\hat{\beta}$ and $\hat{\beta}_m$. Then using Equation~\ref{eqn:power-estimate}, we computed the miner's mining power. By repeating the experiment over many trials, we created an empirical distribution for our estimate of the miner's mining power. For each mining power, we sampled from our empirical distribution to be fed to the MDP of Gervais~\cite{Gervais:2016} that outputs an optimal strategy for the attacker. We evaluated this strategy by running it over many trials, computing the fraction of blocks created by the attacker on the main chain. Figure~\ref{fig:RL} summarizes our results as we increase the attacker's mining power. The y-axis represents the fraction of blocks created by the attacker on the main chain. The line marked as `Gervais' and that marked as `Eyal' represent the results from the original MDP and Markov chain, respectively. The line marked as `Altered', uses our empirical distribution on the model of Gervais~\cite{Gervais:2016}. 
 
 \begin{figure}\begin{center}
-	\includegraphics[width=0.85\textwidth]{graphs/graphene}
+	\includegraphics[width=0.9\textwidth]{graphs/problem}
 	\caption{
 	\label{fig:RL}}
 \end{center}\end{figure}
