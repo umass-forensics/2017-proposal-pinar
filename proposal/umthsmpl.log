@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  3 MAY 2018 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.22)  3 MAY 2018 21:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -654,22 +654,26 @@ LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.19998> not available
 (Font)              size <5> substituted on input line 113.
 
 [11] [12] [13] [14]
+
+LaTeX Warning: Reference `fig:variance' on page 15 undefined on input line 235.
+
+
 <graphs/variance.pdf, id=89, pagebox=cropbox, 433.62pt x 289.08pt>
 File: graphs/variance.pdf Graphic file (type pdf)
 <use graphs/variance.pdf>
-Package pdftex.def Info: graphs/variance.pdf  used on input line 238. on input 
-line 238.
-Package pdftex.def Info: Requested size: 325.215pt x 216.81828pt on input line 
-238.
+Package pdftex.def Info: graphs/variance.pdf  used on input line 239. on input 
+line 239.
+Package pdftex.def Info: Requested size: 303.53267pt x 202.36343pt on input lin
+e 239.
 <graphs/MSE.pdf, id=90, pagebox=cropbox, 433.62pt x 289.08pt>
 File: graphs/MSE.pdf Graphic file (type pdf)
 <use graphs/MSE.pdf>
-Package pdftex.def Info: graphs/MSE.pdf  used on input line 244. on input line 
-244.
-Package pdftex.def Info: Requested size: 325.215pt x 216.81828pt on input line 
-244.
- [15] [16 <./graphs/variance.pdf> <./graphs/MSE.pdf>]
-[17]) (./graphene.tex [18]
+Package pdftex.def Info: graphs/MSE.pdf  used on input line 240. on input line 
+240.
+Package pdftex.def Info: Requested size: 303.53267pt x 202.36343pt on input lin
+e 240.
+[15] [16 <./graphs/variance.pdf> <./graphs/MSE.pdf>] [17]) (./graphene.tex
+[18]
 Chapter 3.
 [19
 
@@ -735,12 +739,15 @@ bitcoin-[]transactions .
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 12924 strings out of 492990
- 242402 string characters out of 6132635
- 282557 words of memory out of 5000000
- 16317 multiletter control sequences out of 15000+600000
+ 12926 strings out of 492990
+ 242442 string characters out of 6132635
+ 282570 words of memory out of 5000000
+ 16319 multiletter control sequences out of 15000+600000
  547679 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,19n,33p,10359b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -767,7 +774,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2017/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on umthsmpl.pdf (48 pages, 334539 bytes).
+Output written on umthsmpl.pdf (48 pages, 334834 bytes).
 PDF statistics:
  280 PDF objects out of 1000 (max. 8388607)
  198 compressed objects within 2 object streams
