@@ -26,8 +26,8 @@
 \contentsline {subsection}{\numberline {4.1.1}Double Spending}{29}
 \contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{31}
 \contentsline {section}{\numberline {4.2}Estimation of Mining Power}{32}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{33}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{34}
 \contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{34}
-\contentsline {section}{\numberline {4.4}Proposed Work}{35}
+\contentsline {section}{\numberline {4.4}Proposed Work}{36}
 \contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{37}
 \contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{38}
