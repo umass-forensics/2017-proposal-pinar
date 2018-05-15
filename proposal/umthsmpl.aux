@@ -33,58 +33,54 @@
 \citation{Sompolinsky:2015}
 \citation{bitcoin:difficulty}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Preliminary Work}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Analysis of Bitcoin Core's Difficulty Estimation}{9}}
-\newlabel{eq:original-Bitcoin Core}{{2.2}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Alternative Time Based Estimation}{13}}
-\newlabel{sec:time based}{{2.2.2}{13}}
-\newlabel{eq:beta-hat}{{2.25}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Comparison of Estimators}{15}}
-\newlabel{eqn:var-inequality}{{2.39}{15}}
-\newlabel{eqn:mse-inequality}{{2.40}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Variance (top) and mean squared error (bottom) of the difficulty algorithm of Bitcoin Core and our estimator, as the number of inter-arrival times increases. Note that the $y$-axis is in log scale.}}{16}}
-\newlabel{fig:MSE}{{2.1}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Proposed Work}{17}}
-\newlabel{section:difficulty-proposed-work}{{2.3}{17}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Status Reports}{17}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Key Questions}{17}}
-\@writefile{toc}{\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase  {Graphene: Efficient Block Announcements}}{19}}
+\newlabel{sec:prelim}{{2.2}{9}}
+\newlabel{eq:original-Bitcoin Core}{{2.4}{10}}
+\newlabel{eq:beta-hat}{{2.5}{10}}
+\newlabel{eq:final_bitcoin}{{2.7}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Variance of the difficulty algorithm of Bitcoin Core, as the number of inter-arrival times increases. Note that for Ethereum, where $n=1$, the algorithm for difficulty has very high variance.}}{12}}
+\newlabel{fig:MSE}{{2.1}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Proposed Work}{12}}
+\newlabel{section:difficulty-proposed-work}{{2.3}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Status Reports}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Key Questions}{13}}
+\@writefile{toc}{\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase  {Graphene: Efficient Block Announcements}}{15}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{graphene}{{3}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Background}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{19}}
+\newlabel{graphene}{{3}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Background}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{15}}
 \citation{Corallo:2016}
 \citation{Tschipper:2016}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Related Work}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Related Work}{16}}
 \citation{andresen:2014,Russel:2014}
 \citation{goodrich:2011}
 \citation{Bloom:1970}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Overview of Invertible Bloom Lookup Tables}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Overview of Invertible Bloom Lookup Tables}{17}}
 \citation{eppstein:2011}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}The Protocol}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}The Protocol}{18}}
 \citation{eppstein:2011}
 \citation{eppstein:2011}
-\newlabel{eq:tcost}{{3.2}{24}}
-\newlabel{eq:ceiling-TA}{{3.3}{24}}
+\newlabel{eq:tcost}{{3.2}{20}}
+\newlabel{eq:ceiling-TA}{{3.3}{20}}
 \citation{Corallo:2016}
-\newlabel{protocol:compact}{{2}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{25}}
+\newlabel{protocol:compact}{{2}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{21}}
 \citation{Tschipper:2016}
 \citation{eppstein:2011}
 \citation{Hanke:2016}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A comparison of Graphene to Compact Blocks. Mempools are expressed in terms of MB and number of transactions. Graphene is at most $1/10$th the size of Compact Blocks. }}{27}}
-\newlabel{fig:graphene}{{3.1}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A comparison of Graphene to Compact Blocks. Mempools are expressed in terms of MB and number of transactions. Graphene is at most $1/10$th the size of Compact Blocks. }}{23}}
+\newlabel{fig:graphene}{{3.1}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{23}}
 \citation{eyal:2014,sapirshtein:2015,Gervais:2016}
 \citation{Nakamoto:2009}
 \citation{Nakamoto:2009}
-\@writefile{toc}{\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase  {Reinforcement Learning Applied to Blockchain Systems}}{29}}
+\@writefile{toc}{\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase  {Reinforcement Learning Applied to Blockchain Systems}}{25}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{selfishRL}{{4}{29}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Background}{29}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Double Spending}{29}}
+\newlabel{selfishRL}{{4}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Background}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Double Spending}{25}}
 \citation{bitcoin:confirmation}
 \citation{Bonneau:2015a}
 \citation{Gervais:2016}
@@ -98,11 +94,11 @@
 \citation{Markov:1971}
 \citation{sapirshtein:2015}
 \citation{Gervais:2016}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{27}}
 \citation{Gervais:2016}
 \citation{Gervais:2016}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Estimation of Mining Power}{32}}
-\newlabel{eqn:power-estimate}{{4.1}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Estimation of Mining Power}{28}}
+\newlabel{eqn:power-estimate}{{4.1}{28}}
 \citation{eyal:2014}
 \citation{Gervais:2016}
 \citation{Gervais:2016}
@@ -111,23 +107,23 @@
 \citation{Gervais:2016}
 \citation{sapirshtein:2015}
 \citation{Gervais:2016}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces The green and blue lines show the results of the Markov chain of Eyal\nobreakspace  {}\cite  {eyal:2014} and the MDP of Gervais\nobreakspace  {}\cite  {Gervais:2016}, respectively. The red line shows the fraction of blocks owned by the attacker on the main chain, given his mining power. Error bounds show 95\% confidence intervals; and the plot is the mean of 600 trials at that point, using estimated mining powers on the MDP of Gervais\nobreakspace  {}\cite  {Gervais:2016}. }}{33}}
-\newlabel{fig:RL}{{4.1}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces The green and blue lines show the results of the Markov chain of Eyal\nobreakspace  {}\cite  {eyal:2014} and the MDP of Gervais\nobreakspace  {}\cite  {Gervais:2016}, respectively. The red line shows the fraction of blocks owned by the attacker on the main chain, given his mining power. Error bounds show 95\% confidence intervals; and the plot is the mean of 600 trials at that point, using estimated mining powers on the MDP of Gervais\nobreakspace  {}\cite  {Gervais:2016}. }}{29}}
+\newlabel{fig:RL}{{4.1}{29}}
 \citation{sapirshtein:2015}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Preliminary Work}{34}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{34}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Preliminary Work}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{30}}
 \citation{Gervais:2016}
 \citation{sapirshtein:2015}
 \citation{sapirshtein:2015}
 \citation{sapirshtein:2015}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Proposed Work}{36}}
-\newlabel{section:selfishRL-proposed-work}{{4.4}{36}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Proposed Work}{32}}
+\newlabel{section:selfishRL-proposed-work}{{4.4}{32}}
 \bibstyle{umassthesis}
 \bibdata{umthsmpl}
-\@writefile{toc}{\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase  {Timeline}}{37}}
+\@writefile{toc}{\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase  {Timeline}}{33}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{timeline}{{5}{37}}
+\newlabel{timeline}{{5}{33}}
 \bibcite{andresen:2014}{1}
 \bibcite{Back:2002}{2}
 \bibcite{Bellman:1957}{3}
@@ -143,7 +139,7 @@
 \bibcite{Gervais:2016}{13}
 \bibcite{goodrich:2011}{14}
 \bibcite{Hanke:2016}{15}
-\@writefile{toc}{\contentsline {BackMatter}{\MakeTextUppercase  {Bibliography}}{38}}
+\@writefile{toc}{\contentsline {BackMatter}{\MakeTextUppercase  {Bibliography}}{34}}
 \bibcite{harris:2014}{16}
 \bibcite{hashcash}{17}
 \bibcite{Heilman:2015}{18}

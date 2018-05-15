@@ -6,28 +6,25 @@
 \contentsline {Chapter}{\numberline {2.}\MakeTextUppercase {Difficulty Estimation}}{7}
 \contentsline {section}{\numberline {2.1}Proof-of-Work in Blockchain Systems}{7}
 \contentsline {section}{\numberline {2.2}Preliminary Work}{9}
-\contentsline {subsection}{\numberline {2.2.1}Analysis of Bitcoin Core's Difficulty Estimation}{9}
-\contentsline {subsection}{\numberline {2.2.2}Alternative Time Based Estimation}{13}
-\contentsline {subsection}{\numberline {2.2.3}Comparison of Estimators}{15}
-\contentsline {section}{\numberline {2.3}Proposed Work}{17}
-\contentsline {subsection}{\numberline {2.3.1}Status Reports}{17}
-\contentsline {subsection}{\numberline {2.3.2}Key Questions}{17}
-\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{19}
-\contentsline {section}{\numberline {3.1}Background}{19}
-\contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{19}
-\contentsline {subsection}{\numberline {3.1.2}Related Work}{20}
-\contentsline {subsection}{\numberline {3.1.3}Overview of Invertible Bloom Lookup Tables}{21}
-\contentsline {section}{\numberline {3.2}The Protocol}{22}
-\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{25}
-\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{25}
-\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{27}
-\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {Reinforcement Learning Applied to Blockchain Systems}}{29}
-\contentsline {section}{\numberline {4.1}Background}{29}
-\contentsline {subsection}{\numberline {4.1.1}Double Spending}{29}
-\contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{31}
-\contentsline {section}{\numberline {4.2}Estimation of Mining Power}{32}
-\contentsline {section}{\numberline {4.3}Preliminary Work}{34}
-\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{34}
-\contentsline {section}{\numberline {4.4}Proposed Work}{36}
-\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{37}
-\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{38}
+\contentsline {section}{\numberline {2.3}Proposed Work}{12}
+\contentsline {subsection}{\numberline {2.3.1}Status Reports}{13}
+\contentsline {subsection}{\numberline {2.3.2}Key Questions}{13}
+\contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{15}
+\contentsline {section}{\numberline {3.1}Background}{15}
+\contentsline {subsection}{\numberline {3.1.1}Topology and Signaling in Blockchain Systems}{15}
+\contentsline {subsection}{\numberline {3.1.2}Related Work}{16}
+\contentsline {subsection}{\numberline {3.1.3}Overview of Invertible Bloom Lookup Tables}{17}
+\contentsline {section}{\numberline {3.2}The Protocol}{18}
+\contentsline {section}{\numberline {3.3}Comparison to Compact Blocks}{21}
+\contentsline {subsection}{\numberline {3.3.1}Mathematical Analysis}{21}
+\contentsline {subsection}{\numberline {3.3.2}Empirical Evaluation}{23}
+\contentsline {Chapter}{\numberline {4.}\MakeTextUppercase {Reinforcement Learning Applied to Blockchain Systems}}{25}
+\contentsline {section}{\numberline {4.1}Background}{25}
+\contentsline {subsection}{\numberline {4.1.1}Double Spending}{25}
+\contentsline {subsection}{\numberline {4.1.2}Selfish Mining}{27}
+\contentsline {section}{\numberline {4.2}Estimation of Mining Power}{28}
+\contentsline {section}{\numberline {4.3}Preliminary Work}{30}
+\contentsline {subsection}{\numberline {4.3.1}Formulating the Problem as an Episodic MDP}{30}
+\contentsline {section}{\numberline {4.4}Proposed Work}{32}
+\contentsline {Chapter}{\numberline {5.}\MakeTextUppercase {Timeline}}{33}
+\contentsline {BackMatter}{\MakeTextUppercase {Bibliography}}{34}

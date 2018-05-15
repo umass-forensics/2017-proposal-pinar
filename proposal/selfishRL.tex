@@ -59,7 +59,7 @@ Bitcoin Core does not have an algorithm for estimating a given miner's mining po
 %$\EX[h]$ describes the \textit{total} number of expected hashes needed to find a block. 
 
 Let $X^m = X_1^m, \dots, X_{n}^m$, where $X^m \sim$ Exp$(\beta_m)$, with $\beta_m = 1/\lambda_m$, denote $n$ inter-arrival times of $n+1$ blocks discovered by a {\em single miner}. Additionally, let $X = X_1, \dots, X_{n}$, where $X \sim$ Exp$(\beta)$, with $\beta = 1/\lambda$, denote $n$ inter-arrival times of the most recent $n+1$ blocks discovered by {\em all miners}.
-In Section~\ref{sec:time based}, we have shown that the unbiased MLE estimator for any $\beta$ is equation~\ref{eq:beta-hat} that is the sample mean. Hence, can use this estimator to calculate the hash rate of a given miner and the entire network. It follows that the miner's mining power, $\psi_m$, is the entire network's hash rate over his own hash rate:
+In Section~\ref{sec:prelim}, we have shown that the unbiased MLE estimator for any $\beta$ is equation~\ref{eq:beta-hat} that is the sample mean. Hence, can use this estimator to calculate the hash rate of a given miner and the entire network. It follows that the miner's mining power, $\psi_m$, is the entire network's hash rate over his own hash rate:
 \begin{align}
 %\psi &= \frac{\sfrac{(2^{256}-1)\hat{\beta}}{T_i}}{\sfrac{(2^{256}-1)\hat{\beta}_m}{T_i}} \\
 \psi_m &= \frac{\hat{\beta}}{\hat{\beta}_m}.\label{eqn:power-estimate}

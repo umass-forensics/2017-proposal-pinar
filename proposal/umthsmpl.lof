@@ -2,9 +2,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Variance (top) and mean squared error (bottom) of the difficulty algorithm of Bitcoin Core and our estimator, as the number of inter-arrival times increases. Note that the $y$-axis is in log scale.}}{16}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Variance of the difficulty algorithm of Bitcoin Core, as the number of inter-arrival times increases. Note that for Ethereum, where $n=1$, the algorithm for difficulty has very high variance.}}{12}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces A comparison of Graphene to Compact Blocks. Mempools are expressed in terms of MB and number of transactions. Graphene is at most $1/10$th the size of Compact Blocks. }}{27}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces A comparison of Graphene to Compact Blocks. Mempools are expressed in terms of MB and number of transactions. Graphene is at most $1/10$th the size of Compact Blocks. }}{23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The green and blue lines show the results of the Markov chain of Eyal\nobreakspace {}\cite {eyal:2014} and the MDP of Gervais\nobreakspace {}\cite {Gervais:2016}, respectively. The red line shows the fraction of blocks owned by the attacker on the main chain, given his mining power. Error bounds show 95\% confidence intervals; and the plot is the mean of 600 trials at that point, using estimated mining powers on the MDP of Gervais\nobreakspace {}\cite {Gervais:2016}. }}{33}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The green and blue lines show the results of the Markov chain of Eyal\nobreakspace {}\cite {eyal:2014} and the MDP of Gervais\nobreakspace {}\cite {Gervais:2016}, respectively. The red line shows the fraction of blocks owned by the attacker on the main chain, given his mining power. Error bounds show 95\% confidence intervals; and the plot is the mean of 600 trials at that point, using estimated mining powers on the MDP of Gervais\nobreakspace {}\cite {Gervais:2016}. }}{29}
 \addvspace {10\p@ }
