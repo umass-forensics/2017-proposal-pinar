@@ -6,7 +6,8 @@
 \contentsline {Chapter}{\numberline {2.}\MakeTextUppercase {Difficulty Estimation}}{7}
 \contentsline {section}{\numberline {2.1}Proof-of-Work in Blockchain Systems}{7}
 \contentsline {section}{\numberline {2.2}Preliminary Work}{9}
-\contentsline {section}{\numberline {2.3}Proposed Work}{12}
+\contentsline {subsection}{\numberline {2.2.1}Analysis of Bitcoin Core's Difficulty Estimation}{9}
+\contentsline {section}{\numberline {2.3}Proposed Work}{13}
 \contentsline {subsection}{\numberline {2.3.1}Status Reports}{13}
 \contentsline {subsection}{\numberline {2.3.2}Key Questions}{13}
 \contentsline {Chapter}{\numberline {3.}\MakeTextUppercase {Graphene: Efficient Block Announcements}}{15}
